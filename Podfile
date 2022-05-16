@@ -7,4 +7,12 @@ target 'Petwork' do
 
   # Pods for Petwork
 
+pod 'FirebaseAnalytics'
+pod 'FirebaseAuth'
+pod 'FirebaseFirestore'
+pod 'Firebase/Storage'
+pod 'Firebase/Firestore'
+pod 'Firebase/Database'
+
+
 end

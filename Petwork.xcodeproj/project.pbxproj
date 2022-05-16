@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B813F96E2833192A00E3A32C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B813F96D2833192A00E3A32C /* GoogleService-Info.plist */; };
 		DD3B459928305AB1001D54AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3B459828305AB1001D54AD /* AppDelegate.swift */; };
 		DD3B459B28305AB1001D54AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3B459A28305AB1001D54AD /* SceneDelegate.swift */; };
 		DD3B459D28305AB1001D54AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3B459C28305AB1001D54AD /* ViewController.swift */; };
@@ -14,9 +15,13 @@
 		DD3B45A228305AB5001D54AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD3B45A128305AB5001D54AD /* Assets.xcassets */; };
 		DD3B45A528305AB5001D54AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3B45A328305AB5001D54AD /* LaunchScreen.storyboard */; };
 		DD3B45AF28306B0E001D54AD /* Petwork.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3B45AE28306B0E001D54AD /* Petwork.png */; };
+		E285ECF1EB43DE2BCABCD0FB /* Pods_Petwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7860B45158727228AE8C8D41 /* Pods_Petwork.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D0B0106A8D53AA6EA105520 /* Pods-Petwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Petwork.debug.xcconfig"; path = "Target Support Files/Pods-Petwork/Pods-Petwork.debug.xcconfig"; sourceTree = "<group>"; };
+		7860B45158727228AE8C8D41 /* Pods_Petwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Petwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B813F96D2833192A00E3A32C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD3B459528305AB1001D54AD /* Petwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3B459828305AB1001D54AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD3B459A28305AB1001D54AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +31,7 @@
 		DD3B45A428305AB5001D54AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD3B45A628305AB5001D54AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD3B45AE28306B0E001D54AD /* Petwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Petwork.png; sourceTree = "<group>"; };
+		F7FE30D4CA74398711025101 /* Pods-Petwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Petwork.release.xcconfig"; path = "Target Support Files/Pods-Petwork/Pods-Petwork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E285ECF1EB43DE2BCABCD0FB /* Pods_Petwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E4AF461AB72684BF6AFC4DF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4D0B0106A8D53AA6EA105520 /* Pods-Petwork.debug.xcconfig */,
+				F7FE30D4CA74398711025101 /* Pods-Petwork.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		806BE855963E7E7F2A8BB1D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7860B45158727228AE8C8D41 /* Pods_Petwork.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DD3B458C28305AB1001D54AD = {
 			isa = PBXGroup;
 			children = (
 				DD3B459728305AB1001D54AD /* Petwork */,
 				DD3B459628305AB1001D54AD /* Products */,
+				4E4AF461AB72684BF6AFC4DF /* Pods */,
+				806BE855963E7E7F2A8BB1D0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,6 +92,7 @@
 				DD3B45A328305AB5001D54AD /* LaunchScreen.storyboard */,
 				DD3B45A628305AB5001D54AD /* Info.plist */,
 				DD3B45AE28306B0E001D54AD /* Petwork.png */,
+				B813F96D2833192A00E3A32C /* GoogleService-Info.plist */,
 			);
 			path = Petwork;
 			sourceTree = "<group>";
@@ -77,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD3B45A928305AB5001D54AD /* Build configuration list for PBXNativeTarget "Petwork" */;
 			buildPhases = (
+				CE413B9A474B1EE9412670B4 /* [CP] Check Pods Manifest.lock */,
 				DD3B459128305AB1001D54AD /* Sources */,
 				DD3B459228305AB1001D54AD /* Frameworks */,
 				DD3B459328305AB1001D54AD /* Resources */,
+				D83DA503FF96844333683BD1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,12 +159,55 @@
 			files = (
 				DD3B45A528305AB5001D54AD /* LaunchScreen.storyboard in Resources */,
 				DD3B45A228305AB5001D54AD /* Assets.xcassets in Resources */,
+				B813F96E2833192A00E3A32C /* GoogleService-Info.plist in Resources */,
 				DD3B45AF28306B0E001D54AD /* Petwork.png in Resources */,
 				DD3B45A028305AB1001D54AD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CE413B9A474B1EE9412670B4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Petwork-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D83DA503FF96844333683BD1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Petwork/Pods-Petwork-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Petwork/Pods-Petwork-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Petwork/Pods-Petwork-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DD3B459128305AB1001D54AD /* Sources */ = {
@@ -220,7 +292,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,7 +346,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -286,12 +358,13 @@
 		};
 		DD3B45AA28305AB5001D54AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D0B0106A8D53AA6EA105520 /* Pods-Petwork.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J83X8YAG93;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Petwork/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -314,12 +387,13 @@
 		};
 		DD3B45AB28305AB5001D54AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7FE30D4CA74398711025101 /* Pods-Petwork.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J83X8YAG93;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Petwork/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
