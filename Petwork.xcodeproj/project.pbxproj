@@ -93,7 +93,7 @@
 				DD3B459828305AB1001D54AD /* AppDelegate.swift */,
 				DD3B459A28305AB1001D54AD /* SceneDelegate.swift */,
 				DDCD414E2834199D002969A8 /* Controllers */,
-				DDCD414F283419AF002969A8 /* View */,
+				DDCD414F283419AF002969A8 /* Views */,
 				DD3B45A128305AB5001D54AD /* Assets.xcassets */,
 				DD3B45A628305AB5001D54AD /* Info.plist */,
 				DD3B45AE28306B0E001D54AD /* Petwork.png */,
@@ -113,13 +113,13 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		DDCD414F283419AF002969A8 /* View */ = {
+		DDCD414F283419AF002969A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				DD3B459E28305AB1001D54AD /* Main.storyboard */,
 				DD3B45A328305AB5001D54AD /* LaunchScreen.storyboard */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

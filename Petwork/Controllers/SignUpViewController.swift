@@ -13,7 +13,15 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
 
     }
+    @IBAction func signInPressed(_ sender: UIButton) {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func signUpPressed(_ sender: UIButton) {
+    }
+    
 }
+
 
 
 
