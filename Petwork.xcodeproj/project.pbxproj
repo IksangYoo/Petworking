@@ -11,7 +11,7 @@
 		DD3B459928305AB1001D54AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3B459828305AB1001D54AD /* AppDelegate.swift */; };
 		DD3B459B28305AB1001D54AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3B459A28305AB1001D54AD /* SceneDelegate.swift */; };
 		DD3B459D28305AB1001D54AD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3B459C28305AB1001D54AD /* LoginViewController.swift */; };
-		DD3B45A028305AB1001D54AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3B459E28305AB1001D54AD /* Main.storyboard */; };
+		DD3B45A028305AB1001D54AD /* LoginSignUpView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3B459E28305AB1001D54AD /* LoginSignUpView.storyboard */; };
 		DD3B45A228305AB5001D54AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD3B45A128305AB5001D54AD /* Assets.xcassets */; };
 		DD3B45A528305AB5001D54AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3B45A328305AB5001D54AD /* LaunchScreen.storyboard */; };
 		DD3B45AF28306B0E001D54AD /* Petwork.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3B45AE28306B0E001D54AD /* Petwork.png */; };
@@ -19,6 +19,8 @@
 		DDCD414D28341983002969A8 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD414C28341983002969A8 /* SignUpViewController.swift */; };
 		DDCD415228342451002969A8 /* icon.unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = DDCD415028342451002969A8 /* icon.unchecked.png */; };
 		DDCD41552834253F002969A8 /* icon.checked.png in Resources */ = {isa = PBXBuildFile; fileRef = DDCD41542834253F002969A8 /* icon.checked.png */; };
+		DDCD4159283ED584002969A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDCD4158283ED584002969A8 /* Main.storyboard */; };
+		DDCD415B283ED73A002969A8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD415A283ED73A002969A8 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +31,7 @@
 		DD3B459828305AB1001D54AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD3B459A28305AB1001D54AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DD3B459C28305AB1001D54AD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		DD3B459F28305AB1001D54AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD3B459F28305AB1001D54AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LoginSignUpView.storyboard; sourceTree = "<group>"; };
 		DD3B45A128305AB5001D54AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD3B45A428305AB5001D54AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD3B45A628305AB5001D54AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,6 +39,8 @@
 		DDCD414C28341983002969A8 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		DDCD415028342451002969A8 /* icon.unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.unchecked.png; sourceTree = "<group>"; };
 		DDCD41542834253F002969A8 /* icon.checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.checked.png; sourceTree = "<group>"; };
+		DDCD4158283ED584002969A8 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		DDCD415A283ED73A002969A8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F7FE30D4CA74398711025101 /* Pods-Petwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Petwork.release.xcconfig"; path = "Target Support Files/Pods-Petwork/Pods-Petwork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,12 +98,9 @@
 				DD3B459A28305AB1001D54AD /* SceneDelegate.swift */,
 				DDCD414E2834199D002969A8 /* Controllers */,
 				DDCD414F283419AF002969A8 /* Views */,
-				DD3B45A128305AB5001D54AD /* Assets.xcassets */,
+				DDCD4157283ED005002969A8 /* Assets */,
 				DD3B45A628305AB5001D54AD /* Info.plist */,
-				DD3B45AE28306B0E001D54AD /* Petwork.png */,
 				B813F96D2833192A00E3A32C /* GoogleService-Info.plist */,
-				DDCD415028342451002969A8 /* icon.unchecked.png */,
-				DDCD41542834253F002969A8 /* icon.checked.png */,
 			);
 			path = Petwork;
 			sourceTree = "<group>";
@@ -109,6 +110,7 @@
 			children = (
 				DD3B459C28305AB1001D54AD /* LoginViewController.swift */,
 				DDCD414C28341983002969A8 /* SignUpViewController.swift */,
+				DDCD415A283ED73A002969A8 /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -116,10 +118,22 @@
 		DDCD414F283419AF002969A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DD3B459E28305AB1001D54AD /* Main.storyboard */,
+				DD3B459E28305AB1001D54AD /* LoginSignUpView.storyboard */,
 				DD3B45A328305AB5001D54AD /* LaunchScreen.storyboard */,
+				DDCD4158283ED584002969A8 /* Main.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DDCD4157283ED005002969A8 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				DD3B45A128305AB5001D54AD /* Assets.xcassets */,
+				DD3B45AE28306B0E001D54AD /* Petwork.png */,
+				DDCD415028342451002969A8 /* icon.unchecked.png */,
+				DDCD41542834253F002969A8 /* icon.checked.png */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,10 +199,11 @@
 				DD3B45A528305AB5001D54AD /* LaunchScreen.storyboard in Resources */,
 				DD3B45A228305AB5001D54AD /* Assets.xcassets in Resources */,
 				DDCD415228342451002969A8 /* icon.unchecked.png in Resources */,
+				DDCD4159283ED584002969A8 /* Main.storyboard in Resources */,
 				DDCD41552834253F002969A8 /* icon.checked.png in Resources */,
 				B813F96E2833192A00E3A32C /* GoogleService-Info.plist in Resources */,
 				DD3B45AF28306B0E001D54AD /* Petwork.png in Resources */,
-				DD3B45A028305AB1001D54AD /* Main.storyboard in Resources */,
+				DD3B45A028305AB1001D54AD /* LoginSignUpView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDCD415B283ED73A002969A8 /* SearchViewController.swift in Sources */,
 				DD3B459D28305AB1001D54AD /* LoginViewController.swift in Sources */,
 				DD3B459928305AB1001D54AD /* AppDelegate.swift in Sources */,
 				DDCD414D28341983002969A8 /* SignUpViewController.swift in Sources */,
@@ -251,12 +267,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DD3B459E28305AB1001D54AD /* Main.storyboard */ = {
+		DD3B459E28305AB1001D54AD /* LoginSignUpView.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DD3B459F28305AB1001D54AD /* Base */,
 			);
-			name = Main.storyboard;
+			name = LoginSignUpView.storyboard;
 			sourceTree = "<group>";
 		};
 		DD3B45A328305AB5001D54AD /* LaunchScreen.storyboard */ = {
@@ -397,7 +413,7 @@
 				INFOPLIST_FILE = Petwork/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LoginSignUpView;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -426,7 +442,7 @@
 				INFOPLIST_FILE = Petwork/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LoginSignUpView;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
