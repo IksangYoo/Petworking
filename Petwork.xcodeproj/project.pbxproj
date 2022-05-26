@@ -21,6 +21,10 @@
 		DDCD41552834253F002969A8 /* icon.checked.png in Resources */ = {isa = PBXBuildFile; fileRef = DDCD41542834253F002969A8 /* icon.checked.png */; };
 		DDCD4159283ED584002969A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDCD4158283ED584002969A8 /* Main.storyboard */; };
 		DDCD415B283ED73A002969A8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD415A283ED73A002969A8 /* SearchViewController.swift */; };
+		DDCD415D283F19AF002969A8 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD415C283F19AF002969A8 /* ResultsViewController.swift */; };
+		DDCD415F283F19E2002969A8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD415E283F19E2002969A8 /* HomeViewController.swift */; };
+		DDCD4161283F2EF2002969A8 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD4160283F2EF2002969A8 /* MyPageViewController.swift */; };
+		DDCD4163283F2F03002969A8 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD4162283F2F03002969A8 /* UploadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +45,10 @@
 		DDCD41542834253F002969A8 /* icon.checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.checked.png; sourceTree = "<group>"; };
 		DDCD4158283ED584002969A8 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DDCD415A283ED73A002969A8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		DDCD415C283F19AF002969A8 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		DDCD415E283F19E2002969A8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DDCD4160283F2EF2002969A8 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		DDCD4162283F2F03002969A8 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		F7FE30D4CA74398711025101 /* Pods-Petwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Petwork.release.xcconfig"; path = "Target Support Files/Pods-Petwork/Pods-Petwork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +119,10 @@
 				DD3B459C28305AB1001D54AD /* LoginViewController.swift */,
 				DDCD414C28341983002969A8 /* SignUpViewController.swift */,
 				DDCD415A283ED73A002969A8 /* SearchViewController.swift */,
+				DDCD415C283F19AF002969A8 /* ResultsViewController.swift */,
+				DDCD415E283F19E2002969A8 /* HomeViewController.swift */,
+				DDCD4160283F2EF2002969A8 /* MyPageViewController.swift */,
+				DDCD4162283F2F03002969A8 /* UploadViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -260,7 +272,11 @@
 				DD3B459D28305AB1001D54AD /* LoginViewController.swift in Sources */,
 				DD3B459928305AB1001D54AD /* AppDelegate.swift in Sources */,
 				DDCD414D28341983002969A8 /* SignUpViewController.swift in Sources */,
+				DDCD4163283F2F03002969A8 /* UploadViewController.swift in Sources */,
 				DD3B459B28305AB1001D54AD /* SceneDelegate.swift in Sources */,
+				DDCD415F283F19E2002969A8 /* HomeViewController.swift in Sources */,
+				DDCD415D283F19AF002969A8 /* ResultsViewController.swift in Sources */,
+				DDCD4161283F2EF2002969A8 /* MyPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,7 +429,7 @@
 				INFOPLIST_FILE = Petwork/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = LoginSignUpView;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -442,7 +458,7 @@
 				INFOPLIST_FILE = Petwork/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = LoginSignUpView;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
