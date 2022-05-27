@@ -69,7 +69,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="5X1-A9-J4H" kind="relationship" relationship="viewControllers" id="OoA-ay-dUM"/>
-                        <segue destination="rfc-G4-nPU" kind="relationship" relationship="viewControllers" id="hWL-sM-hjo"/>
+                        <segue destination="d14-6g-4Rh" kind="relationship" relationship="viewControllers" id="hWL-sM-hjo"/>
                         <segue destination="otH-pX-30M" kind="relationship" relationship="viewControllers" id="QDd-Ma-2UR"/>
                         <segue destination="ds3-Lf-eub" kind="relationship" relationship="viewControllers" id="yZX-Rz-GKK"/>
                     </connections>
@@ -78,7 +78,7 @@
             </objects>
             <point key="canvasLocation" x="367" y="-893"/>
         </scene>
-        <!--Search-->
+        <!--Search View Controller-->
         <scene sceneID="mNg-EE-cbq">
             <objects>
                 <viewController id="rfc-G4-nPU" customClass="SearchViewController" customModule="Petwork" customModuleProvider="target" sceneMemberID="viewController">
@@ -93,62 +93,63 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toQ-1Y-DFW">
                                 <rect key="frame" x="22" y="317" width="172" height="147"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="All">
-                                    <backgroundConfiguration key="background" image="Petwork.png"/>
-                                </buttonConfiguration>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8p-ae-TnG">
-                                <rect key="frame" x="220" y="317" width="172" height="147"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Dogs">
-                                    <backgroundConfiguration key="background" image="Petwork.png"/>
-                                </buttonConfiguration>
+                                <state key="normal" title="All" backgroundImage="Petwork.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="categoryPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="aF3-xq-nXe"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rty-0y-tut">
                                 <rect key="frame" x="220" y="478" width="172" height="147"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Birds">
-                                    <backgroundConfiguration key="background" image="Petwork.png"/>
-                                </buttonConfiguration>
+                                <state key="normal" title="Birds" backgroundImage="Petwork.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="categoryPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="SNl-vD-eu8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoB-Q1-Pix">
                                 <rect key="frame" x="220" y="644" width="172" height="147"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Others">
-                                    <backgroundConfiguration key="background" image="Petwork.png"/>
-                                </buttonConfiguration>
+                                <state key="normal" title="Others" backgroundImage="Petwork.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="categoryPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="MkV-5J-Bdc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPf-oP-FQ9">
                                 <rect key="frame" x="22" y="478" width="172" height="147"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Cats">
-                                    <backgroundConfiguration key="background" image="Petwork.png"/>
-                                </buttonConfiguration>
+                                <state key="normal" title="Cats" backgroundImage="Petwork.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="categoryPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="DPT-Q7-N0B"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVO-Kg-fFx">
                                 <rect key="frame" x="22" y="644" width="172" height="147"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Reptiles">
-                                    <backgroundConfiguration key="background" image="Petwork.png"/>
-                                </buttonConfiguration>
+                                <state key="normal" title="Reptiles" backgroundImage="Petwork.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="categoryPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="9um-4h-S0y"/>
+                                </connections>
                             </button>
                             <searchBar contentMode="redraw" semanticContentAttribute="playback" fixedFrame="YES" searchBarStyle="minimal" placeholder="tag" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5p-zL-WuV">
                                 <rect key="frame" x="22" y="218" width="370" height="51"/>
@@ -159,15 +160,32 @@
                                     <string>Title</string>
                                 </scopeButtonTitles>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="L8p-ae-TnG">
+                                <rect key="frame" x="220" y="317" width="172" height="147"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Dogs" backgroundImage="Petwork.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="categoryPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="7k1-1o-BJa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Xa-dm-C1C"/>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.96470588239999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" id="1kh-wR-Nxo"/>
+                    <navigationItem key="navigationItem" id="ZNW-ZY-Yqu"/>
+                    <connections>
+                        <segue destination="4hl-9I-zfQ" kind="show" identifier="goToResults" id="kbX-k2-qIb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m7K-yd-hf1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-52" y="-130"/>
+            <point key="canvasLocation" x="857.97101449275374" y="-130.58035714285714"/>
         </scene>
         <!--upload photo-->
         <scene sceneID="t99-DO-46r">
@@ -241,23 +259,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wwe-wG-j27" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="762.31884057971024" y="-130.58035714285714"/>
+            <point key="canvasLocation" x="1672.4637681159422" y="-130.58035714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Results View Controller-->
         <scene sceneID="Nbz-5s-Pv1">
             <objects>
-                <viewController id="4hl-9I-zfQ" sceneMemberID="viewController">
+                <viewController id="4hl-9I-zfQ" customClass="ResultsViewController" customModule="Petwork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Yn-Mh-MJ5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Results for &quot;&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSf-gs-FK0">
-                                <rect key="frame" x="36" y="80" width="308" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSK-KO-Taq">
                                 <rect key="frame" x="20" y="177" width="152" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -291,10 +302,21 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Results for" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSf-gs-FK0">
+                                <rect key="frame" x="20" y="120" width="238" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2qc-IT-1lP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="jGE-2k-7oO"/>
+                    <connections>
+                        <outlet property="resultLabel" destination="GSf-gs-FK0" id="9jp-tR-Bgd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IuU-9X-I5B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -369,7 +391,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E5v-f3-bA4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1615.9420289855075" y="-131.25"/>
+            <point key="canvasLocation" x="2526.0869565217395" y="-131.25"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="NSy-Y2-hPc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d14-6g-4Rh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" id="1kh-wR-Nxo"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="e2L-xv-sx5">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rfc-G4-nPU" kind="relationship" relationship="rootViewController" id="Q2s-b2-W4M"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZwG-Pq-g67" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-52.173913043478265" y="-130.58035714285714"/>
         </scene>
     </scenes>
     <resources>
