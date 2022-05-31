@@ -6,18 +6,32 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUpViewController: UIViewController {
-
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var confirmPasswordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
+    
     @IBAction func signInPressed(_ sender: UIButton) {
         _ = self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func signUpPressed(_ sender: UIButton) {
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                if let e = error {
+                    print(e.localizedDescription)
+                } else {
+                    _ = self.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
     }
     
 }

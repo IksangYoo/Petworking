@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginPressed(_ sender: Any) {
+        print(Auth.auth().apnsToken)
     }
     
 }
