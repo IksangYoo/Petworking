@@ -25,6 +25,7 @@
 		DDCD416A284583AE002969A8 /* ResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD4168284583AE002969A8 /* ResultCollectionViewCell.swift */; };
 		DDCD416B284583AE002969A8 /* ResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDCD4169284583AE002969A8 /* ResultCollectionViewCell.xib */; };
 		DDCD416F2846D8CF002969A8 /* SetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD416E2846D8CF002969A8 /* SetProfileViewController.swift */; };
+		DDCD41712846DF5E002969A8 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD41702846DF5E002969A8 /* CircularImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		DDCD4168284583AE002969A8 /* ResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDCD4169284583AE002969A8 /* ResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultCollectionViewCell.xib; sourceTree = "<group>"; };
 		DDCD416E2846D8CF002969A8 /* SetProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewController.swift; sourceTree = "<group>"; };
+		DDCD41702846DF5E002969A8 /* CircularImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
 		F7FE30D4CA74398711025101 /* Pods-Petwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Petwork.release.xcconfig"; path = "Target Support Files/Pods-Petwork/Pods-Petwork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +126,7 @@
 				DDCD4160283F2EF2002969A8 /* MyPageViewController.swift */,
 				DDCD4162283F2F03002969A8 /* UploadViewController.swift */,
 				DDCD416E2846D8CF002969A8 /* SetProfileViewController.swift */,
+				DDCD41702846DF5E002969A8 /* CircularImageView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDCD415B283ED73A002969A8 /* SearchViewController.swift in Sources */,
+				DDCD41712846DF5E002969A8 /* CircularImageView.swift in Sources */,
 				DD3B459D28305AB1001D54AD /* LoginViewController.swift in Sources */,
 				DD3B459928305AB1001D54AD /* AppDelegate.swift in Sources */,
 				DDCD414D28341983002969A8 /* SignUpViewController.swift in Sources */,
