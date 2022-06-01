@@ -8,14 +8,34 @@
 import UIKit
 import Firebase
 
-class SignUpViewController: UIViewController {
-    @IBOutlet weak var userNameTextField: UITextField!
+class SignUpViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
+    @IBOutlet weak var emailErrorLabel: UILabel!
+    @IBOutlet weak var passwordErrorLabel: UILabel!
+    @IBOutlet weak var confirmErrorLabel: UILabel!
+    @IBOutlet weak var checkBox: CheckBox!
+
+//    var isBoxChecked = checkBox.isChecked {
+//        willSet {
+//            isBoxChecked = newValue
+//            print("new value is \(newValue)")
+//            checkForValidForm()
+//        }
+//    }
+//    var IsCheckBoxChecked = false {
+//        didSet {
+//            IsCheckBoxChecked = CheckBox().isChecked
+//            checkForValidForm()
+//        }
+//    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        resetForm()
     }
     
     @IBAction func signInPressed(_ sender: UIButton) {
@@ -23,24 +43,142 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpPressed(_ sender: UIButton) {
-        if let email = emailTextField.text, let password = passwordTextField.text {
+        if let email = emailTextField.text, let password = passwordTextField.text, let confirmPassword = confirmPasswordTextField.text {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let e = error {
                     print(e.localizedDescription)
-                } else {
-                    _ = self.navigationController?.popViewController(animated: true)
+                } else if password != confirmPassword {
+                    print("Not Matched password")
+                    
                 }
             }
         }
     }
     
+    func resetForm() {
+        signUpButton.isEnabled = false
+        
+        emailErrorLabel.isHidden = false
+        passwordErrorLabel.isHidden = false
+        confirmErrorLabel.isHidden = false
+        
+        emailErrorLabel.text = "Required"
+        passwordErrorLabel.text = "Required"
+        confirmErrorLabel.text = "Required"
+    }
+    
+    @IBAction func emailChanged(_ sender: UITextField) {
+        if let email = emailTextField.text {
+            if let errorMessage = invalidEmail(email) {
+                emailErrorLabel.text = errorMessage
+                emailErrorLabel.isHidden = false
+            } else {
+                emailErrorLabel.isHidden = true
+            }
+        }
+        checkForValidForm()
+    }
+    
+    func invalidEmail(_ value: String) -> String? {
+        let regularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", regularExpression)
+        if !predicate.evaluate(with: value) {
+            return "Invalid Email Address"
+        }
+        return nil
+    }
+    
+    @IBAction func passwordChanged(_ sender: UITextField) {
+        if let password = passwordTextField.text {
+            if let errorMessage = invalidPassword(password) {
+                passwordErrorLabel.text = errorMessage
+                passwordErrorLabel.isHidden = false
+            } else {
+                passwordErrorLabel.isHidden = true
+            }
+        }
+        checkForValidForm()
+    }
+    
+    func invalidPassword(_ value: String) -> String? {
+            if value.count < 6{
+                return "Password must be at least 6 characters"
+            }
+//            if containsDigit(value){
+//                return "Password must contain at least 1 digit"
+//            }
+//            if containsLowerCase(value){
+//                return "Password must contain at least 1 lowercase character"
+//            }
+//            if containsUpperCase(value){
+//                return "Password must contain at least 1 uppercase character"
+//            }
+            return nil
+        }
+        
+//        func containsDigit(_ value: String) -> Bool
+//        {
+//            let reqularExpression = ".*[0-9]+.*"
+//            let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
+//            return !predicate.evaluate(with: value)
+//        }
+        
+//        func containsLowerCase(_ value: String) -> Bool
+//        {
+//            let reqularExpression = ".*[a-z]+.*"
+//            let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
+//            return !predicate.evaluate(with: value)
+//        }
+//
+//        func containsUpperCase(_ value: String) -> Bool
+//        {
+//            let reqularExpression = ".*[A-Z]+.*"
+//            let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
+//            return !predicate.evaluate(with: value)
+//        }
+    
+    @IBAction func confirmPasswordChanged(_ sender: UITextField) {
+        if let confirmPassword = confirmPasswordTextField.text {
+            if let errorMessage = invalidConfirmPassword(confirmPassword) {
+                confirmErrorLabel.text = errorMessage
+                confirmErrorLabel.isHidden = false
+            } else {
+                confirmErrorLabel.isHidden = true
+            }
+        }
+        checkForValidForm()
+    }
+    
+    func invalidConfirmPassword(_ value: String) -> String? {
+            if value != passwordTextField.text {
+                return "Password does not match"
+            }
+        return nil
+    }
+    
+    func checkForValidForm(){
+        if let eLabel = emailErrorLabel, let pLabel = passwordErrorLabel, let cLabel = confirmErrorLabel{
+            if eLabel.isHidden && pLabel.isHidden && cLabel.isHidden && checkBox.isChecked
+            {
+                signUpButton.isEnabled = true
+            }
+            else
+            {
+                signUpButton.isEnabled = false
+            }
+            print("email = \(eLabel.isHidden)")
+            print("password = \(pLabel.isHidden)")
+            print("confirm = \(cLabel.isHidden)")
+            print(checkBox.isChecked)
+        }
+        print("Check")
+    }
 }
-
-
-
-
-// checkbox
-
+    
+    
+    
+    // checkbox
+    
 class CheckBox: UIButton {
     // Images
     let checkedImage = UIImage(named: "icon.checked")! as UIImage
@@ -56,16 +194,15 @@ class CheckBox: UIButton {
             }
         }
     }
-        
+    
     override func awakeFromNib() {
         self.addTarget(self, action:#selector(buttonClicked(sender:)), for: UIControl.Event.touchUpInside)
-        self.isChecked = false
+        isChecked = false
     }
-        
+    
     @objc func buttonClicked(sender: UIButton) {
         if sender == self {
             isChecked = !isChecked
         }
-        print(isChecked)
     }
 }
