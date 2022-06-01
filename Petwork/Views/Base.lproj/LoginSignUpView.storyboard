@@ -329,6 +329,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button" image="icon.unchecked.png"/>
+                                <connections>
+                                    <action selector="checkBoxPressed:" destination="Hlk-3T-HfO" eventType="touchUpInside" id="gU8-gl-ee3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ieM-8f-dv2"/>
@@ -348,7 +351,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hvc-wk-pKB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1815.9420289855075" y="91.741071428571431"/>
+            <point key="canvasLocation" x="1872" y="92"/>
         </scene>
         <!--Set Profile View Controller-->
         <scene sceneID="Q3j-FE-jWR">

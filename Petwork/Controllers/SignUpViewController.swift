@@ -17,21 +17,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordErrorLabel: UILabel!
     @IBOutlet weak var confirmErrorLabel: UILabel!
     @IBOutlet weak var checkBox: CheckBox!
-
-//    var isBoxChecked = checkBox.isChecked {
-//        willSet {
-//            isBoxChecked = newValue
-//            print("new value is \(newValue)")
-//            checkForValidForm()
-//        }
-//    }
-//    var IsCheckBoxChecked = false {
-//        didSet {
-//            IsCheckBoxChecked = CheckBox().isChecked
-//            checkForValidForm()
-//        }
-//    }
-    
+    var changedIsChecked = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +40,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
+    @IBAction func checkBoxPressed(_ sender: UIButton) {
+        changedIsChecked = !checkBox.isChecked
+        checkForValidForm()
+    }
+    
     
     func resetForm() {
         signUpButton.isEnabled = false
@@ -158,7 +150,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     func checkForValidForm(){
         if let eLabel = emailErrorLabel, let pLabel = passwordErrorLabel, let cLabel = confirmErrorLabel{
-            if eLabel.isHidden && pLabel.isHidden && cLabel.isHidden && checkBox.isChecked
+            if eLabel.isHidden && pLabel.isHidden && cLabel.isHidden && changedIsChecked
             {
                 signUpButton.isEnabled = true
             }
@@ -166,12 +158,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             {
                 signUpButton.isEnabled = false
             }
-            print("email = \(eLabel.isHidden)")
-            print("password = \(pLabel.isHidden)")
-            print("confirm = \(cLabel.isHidden)")
-            print(checkBox.isChecked)
         }
-        print("Check")
     }
 }
     
