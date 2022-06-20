@@ -22,7 +22,10 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginPressed(_ sender: Any) {
-        print(Auth.auth().apnsToken)
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
     
 }

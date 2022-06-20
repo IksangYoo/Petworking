@@ -29,13 +29,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signUpPressed(_ sender: UIButton) {
-        if let email = emailTextField.text, let password = passwordTextField.text, let confirmPassword = confirmPasswordTextField.text {
+        if let email = emailTextField.text, let password = passwordTextField.text {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let e = error {
                     print(e.localizedDescription)
-                } else if password != confirmPassword {
+                } else {
                     print("Not Matched password")
-                    
+                    self.performSegue(withIdentifier: "goToWelcome", sender: self)
                 }
             }
         }
@@ -148,16 +148,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return nil
     }
     
-    func checkForValidForm(){
-        if let eLabel = emailErrorLabel, let pLabel = passwordErrorLabel, let cLabel = confirmErrorLabel{
-            if eLabel.isHidden && pLabel.isHidden && cLabel.isHidden && changedIsChecked
-            {
-                signUpButton.isEnabled = true
-            }
-            else
-            {
-                signUpButton.isEnabled = false
-            }
+    func checkForValidForm() {
+        if emailErrorLabel.isHidden && passwordErrorLabel.isHidden && confirmErrorLabel.isHidden && changedIsChecked
+        {
+            signUpButton.isEnabled = true
+        }
+        else
+        {
+            signUpButton.isEnabled = false
         }
     }
 }

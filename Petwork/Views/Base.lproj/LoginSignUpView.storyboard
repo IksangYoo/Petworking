@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vQj-du-g7p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qzs-vR-ID6">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -188,7 +189,6 @@
                     <connections>
                         <outlet property="emailTextField" destination="BLY-JC-Mr8" id="G4T-X1-H14"/>
                         <outlet property="passwordTextField" destination="4Mr-jv-0ua" id="9P9-1p-d81"/>
-                        <segue destination="qzs-vR-ID6" kind="show" id="TCP-wa-k5p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -347,6 +347,7 @@
                         <outlet property="passwordErrorLabel" destination="fmi-dG-Xg2" id="Gsc-U5-wuj"/>
                         <outlet property="passwordTextField" destination="1d6-Bg-tid" id="Fga-bp-lUx"/>
                         <outlet property="signUpButton" destination="Qjg-7I-svW" id="AGg-G2-1h9"/>
+                        <segue destination="qzs-vR-ID6" kind="show" identifier="goToWelcome" id="otP-7W-DO1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hvc-wk-pKB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -366,23 +367,26 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUw-Mq-JeC">
-                                <rect key="frame" x="29" y="212" width="356" height="65"/>
+                                <rect key="frame" x="29" y="212" width="356" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Petwork.png" translatesAutoresizingMaskIntoConstraints="NO" id="UiN-1j-MsA" customClass="CircularImageView" customModule="Petwork" customModuleProvider="target">
-                                <rect key="frame" x="132" y="293" width="150" height="150"/>
+                                <rect key="frame" x="131" y="297" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="About me..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hhh-Jw-2aY">
-                                <rect key="frame" x="29" y="527" width="354" height="201"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hhh-Jw-2aY">
+                                <rect key="frame" x="30" y="548" width="354" height="199"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.96470588239999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="qzs-vR-ID6" id="IED-tl-0nc"/>
+                                </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06g-rX-N2C">
                                 <rect key="frame" x="29" y="766" width="354" height="57"/>
@@ -396,27 +400,47 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="getStartedPressed:" destination="qzs-vR-ID6" eventType="touchUpInside" id="cY5-92-riu"/>
                                     <action selector="signUpPressed:" destination="Hlk-3T-HfO" eventType="touchUpInside" id="lVe-ab-IGS"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y9e-Rr-5zn">
-                                <rect key="frame" x="132" y="464" width="150" height="35"/>
+                                <rect key="frame" x="132" y="473" width="150" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
+                                <connections>
+                                    <action selector="userNameChanged:" destination="qzs-vR-ID6" eventType="editingChanged" id="jQQ-dV-wKV"/>
+                                </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Goa-2f-FzR">
+                                <rect key="frame" x="236" y="407" width="39" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.98823529409999999" green="0.62401196599999997" blue="0.63243347589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="camera.fill" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                </state>
+                                <connections>
+                                    <action selector="setProfileImagePressed:" destination="qzs-vR-ID6" eventType="touchUpInside" id="Yod-9g-Peh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dOC-lY-jHH"/>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.96470588239999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="KDC-kf-32K"/>
                     <connections>
+                        <outlet property="aboutMeTextView" destination="hhh-Jw-2aY" id="F0C-er-bxm"/>
+                        <outlet property="getStartedButton" destination="06g-rX-N2C" id="zIV-iw-sDM"/>
                         <outlet property="profileImageView" destination="UiN-1j-MsA" id="Gky-lX-iq8"/>
+                        <outlet property="userNameTextField" destination="y9e-Rr-5zn" id="lHI-Fc-nuE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VY2-xd-dV6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1018.840579710145" y="799.55357142857144"/>
+            <point key="canvasLocation" x="1869.5652173913045" y="814.95535714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GzO-8O-bkS">
@@ -444,6 +468,7 @@
     </designables>
     <resources>
         <image name="Petwork.png" width="1440" height="810"/>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="icon.unchecked.png" width="375" height="375"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

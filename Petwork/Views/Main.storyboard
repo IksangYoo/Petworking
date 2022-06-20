@@ -12,7 +12,7 @@
         <!--Home-->
         <scene sceneID="WSW-DB-dGB">
             <objects>
-                <viewController id="5X1-A9-J4H" customClass="HomeViewController" customModule="Petwork" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="5X1-A9-J4H" customClass="HomeViewController" customModule="Petwork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1wK-eC-qjz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,7 +61,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="L23-Gb-bbD">
             <objects>
-                <tabBarController id="mWI-xb-s5r" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" id="mWI-xb-s5r" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZiD-mB-Le4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
