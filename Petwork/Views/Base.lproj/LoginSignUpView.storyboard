@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qzs-vR-ID6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vQj-du-g7p">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -373,7 +373,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Petwork.png" translatesAutoresizingMaskIntoConstraints="NO" id="UiN-1j-MsA" customClass="CircularImageView" customModule="Petwork" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UiN-1j-MsA" customClass="CircularImageView" customModule="Petwork" customModuleProvider="target">
                                 <rect key="frame" x="131" y="297" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -461,11 +461,6 @@
             <point key="canvasLocation" x="108.69565217391305" y="91.741071428571431"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="UiN-1j-MsA">
-            <size key="intrinsicContentSize" width="1440" height="810"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Petwork.png" width="1440" height="810"/>
         <image name="camera.fill" catalog="system" width="128" height="94"/>

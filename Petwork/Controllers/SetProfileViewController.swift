@@ -35,6 +35,7 @@ class SetProfileViewController: UIViewController, UIImagePickerControllerDelegat
         if let image = info[.originalImage] as? UIImage {
             profileImageView.image = image
             imagePicker.dismiss(animated: true, completion: nil)
+            checkForValidForm()
         }
     }
     
@@ -46,13 +47,13 @@ class SetProfileViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func userNameChanged(_ sender: UITextField) {
-        checkUserNameTFIsEmpty()
+        checkForValidForm()
     }
     
     
-    func checkUserNameTFIsEmpty() {
-        if let userName = userNameTextField.text {
-            if userName.count > 0 {
+    func checkForValidForm() {
+        if let userName = userNameTextField.text, let profileImage = profileImageView.image {
+            if userName.count > 0 && profileImage != nil{
                 getStartedButton.isEnabled = true
             } else {
                 getStartedButton.isEnabled = false
