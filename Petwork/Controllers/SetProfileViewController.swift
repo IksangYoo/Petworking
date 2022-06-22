@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class SetProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SetProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: CircularImageView!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var aboutMeTextView: UITextView!
@@ -25,19 +25,6 @@ class SetProfileViewController: UIViewController, UIImagePickerControllerDelegat
         getStartedButton.isEnabled = false
     }
     
-    @IBAction func setProfileImagePressed(_ sender: UIButton) {
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.allowsEditing = false
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[.originalImage] as? UIImage {
-            profileImageView.image = image
-            imagePicker.dismiss(animated: true, completion: nil)
-            checkForValidForm()
-        }
-    }
     
     @IBAction func getStartedPressed(_ sender: UIButton) {
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -62,7 +49,41 @@ class SetProfileViewController: UIViewController, UIImagePickerControllerDelegat
     }
 }
 
+//MARK: - UIPickerController
+extension SetProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBAction func setProfileImagePressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "", message: "Please Select an Option", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { UIAlertAction in
+            self.imagePicker.sourceType = .camera
+            self.imagePicker.allowsEditing = true
+            self.present(self.imagePicker, animated: true, completion: nil)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { [self] UIAlertAction in
+            self.imagePicker.sourceType = .photoLibrary
+            self.imagePicker.allowsEditing = true
+            self.present(self.imagePicker, animated: true, completion: nil)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            profileImageView.image = image
+            imagePicker.dismiss(animated: true, completion: nil)
+            checkForValidForm()
+        }
+    }
+}
 
+
+//MARK: - UItextViewDelegate
 extension SetProfileViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
