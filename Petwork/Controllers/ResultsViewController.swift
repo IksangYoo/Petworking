@@ -12,7 +12,6 @@ class ResultsViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var segmentIndex = 0
-    var whichButtonClicked = "left"
     var searchTerm: String = ""
     let images = (1..<19).map { UIImage(named: "img_movie_\($0)") }
     

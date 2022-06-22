@@ -21,7 +21,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        resetForm()
+        defaltForm()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToWelcome" {
+            let destinationVC = segue.destination as! SetProfileViewController
+            destinationVC.email = emailTextField.text!
+            destinationVC.password = passwordTextField.text!
+        }
     }
     
     @IBAction func signInPressed(_ sender: UIButton) {
@@ -29,16 +37,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signUpPressed(_ sender: UIButton) {
-        if let email = emailTextField.text, let password = passwordTextField.text {
-            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                if let e = error {
-                    print(e.localizedDescription)
-                } else {
-                    print("Not Matched password")
-                    self.performSegue(withIdentifier: "goToWelcome", sender: self)
-                }
-            }
-        }
+//        if let email = emailTextField.text, let password = passwordTextField.text {
+//            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+//                if let e = error {
+//                    print(e.localizedDescription)
+//                }
+//            }
+//        }
+        self.performSegue(withIdentifier: "goToWelcome", sender: self)
     }
     
     @IBAction func checkBoxPressed(_ sender: UIButton) {
@@ -47,7 +53,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    func resetForm() {
+    func defaltForm() {
         signUpButton.isEnabled = false
         
         emailErrorLabel.isHidden = false

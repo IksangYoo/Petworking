@@ -14,6 +14,8 @@ class SetProfileViewController: UIViewController {
     @IBOutlet weak var aboutMeTextView: UITextView!
     @IBOutlet weak var getStartedButton: UIButton!
     let imagePicker = UIImagePickerController()
+    var email : String = ""
+    var password: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,7 @@ class SetProfileViewController: UIViewController {
     
     
     @IBAction func getStartedPressed(_ sender: UIButton) {
+        makeUserProfile()
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
         vc.modalPresentationStyle = .fullScreen
@@ -47,6 +50,15 @@ class SetProfileViewController: UIViewController {
             }
         }
     }
+    
+    func makeUserProfile() {
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let e = error {
+                print(e.localizedDescription)
+            }
+        }
+    }
+    
 }
 
 //MARK: - UIPickerController
@@ -70,7 +82,6 @@ extension SetProfileViewController: UIImagePickerControllerDelegate, UINavigatio
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
