@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B813F96E2833192A00E3A32C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B813F96D2833192A00E3A32C /* GoogleService-Info.plist */; };
+		DD21D715286573FC00D2D7A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD21D714286573FC00D2D7A7 /* GoogleService-Info.plist */; };
 		DD3B459928305AB1001D54AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3B459828305AB1001D54AD /* AppDelegate.swift */; };
 		DD3B459B28305AB1001D54AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3B459A28305AB1001D54AD /* SceneDelegate.swift */; };
 		DD3B459D28305AB1001D54AD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3B459C28305AB1001D54AD /* LoginViewController.swift */; };
@@ -31,7 +31,7 @@
 /* Begin PBXFileReference section */
 		4D0B0106A8D53AA6EA105520 /* Pods-Petwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Petwork.debug.xcconfig"; path = "Target Support Files/Pods-Petwork/Pods-Petwork.debug.xcconfig"; sourceTree = "<group>"; };
 		7860B45158727228AE8C8D41 /* Pods_Petwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Petwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B813F96D2833192A00E3A32C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DD21D714286573FC00D2D7A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD3B459528305AB1001D54AD /* Petwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3B459828305AB1001D54AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD3B459A28305AB1001D54AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 				DDCD414F283419AF002969A8 /* Views */,
 				DD3B45A128305AB5001D54AD /* Assets.xcassets */,
 				DD3B45A628305AB5001D54AD /* Info.plist */,
-				B813F96D2833192A00E3A32C /* GoogleService-Info.plist */,
+				DD21D714286573FC00D2D7A7 /* GoogleService-Info.plist */,
 			);
 			path = Petwork;
 			sourceTree = "<group>";
@@ -207,8 +207,8 @@
 				DDCD416B284583AE002969A8 /* ResultCollectionViewCell.xib in Resources */,
 				DD3B45A228305AB5001D54AD /* Assets.xcassets in Resources */,
 				DDCD4159283ED584002969A8 /* Main.storyboard in Resources */,
-				B813F96E2833192A00E3A32C /* GoogleService-Info.plist in Resources */,
 				DD3B45A028305AB1001D54AD /* LoginSignUpView.storyboard in Resources */,
+				DD21D715286573FC00D2D7A7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

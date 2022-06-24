@@ -7,6 +7,8 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class SetProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: CircularImageView!
@@ -55,10 +57,22 @@ class SetProfileViewController: UIViewController {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let e = error {
                 print(e.localizedDescription)
+                print("sign up error")
+            } else {
+                let uid = authResult?.user.uid
+                let image = self.profileImageView.image?.jpegData(compressionQuality: 0.1)
+
+                Storage.storage().reference().child("userImages").child(uid!).putData(image!, metadata: nil) { data, error in
+                    Storage.storage().reference().child("userImages").child(uid!).downloadURL { url, error in
+                        let name = self.userNameTextField.text
+                        guard let aboutMe = self.aboutMeTextView.text else { return }
+                        let profileImage = self.profileImageView.image
+                        Database.database().reference().child("users").child(uid!).setValue(["name": name!, "profileImageURL": url?.absoluteString,"aboutMe": aboutMe])
+                    }
+                }
             }
         }
     }
-    
 }
 
 //MARK: - UIPickerController
