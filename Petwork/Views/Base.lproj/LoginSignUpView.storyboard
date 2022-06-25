@@ -43,6 +43,9 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
+                                                <connections>
+                                                    <action selector="emailChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="iXv-SL-Wrs"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -67,6 +70,9 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <action selector="passwordChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="WX2-Sx-KuT"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -190,6 +196,7 @@
                     <navigationItem key="navigationItem" id="YYL-Va-BiQ"/>
                     <connections>
                         <outlet property="emailTextField" destination="BLY-JC-Mr8" id="G4T-X1-H14"/>
+                        <outlet property="loginButton" destination="c7R-ji-b4m" id="ozh-tM-Mjp"/>
                         <outlet property="passwordTextField" destination="4Mr-jv-0ua" id="9P9-1p-d81"/>
                     </connections>
                 </viewController>
@@ -302,7 +309,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="signUpPressed:" destination="Hlk-3T-HfO" eventType="touchUpInside" id="h8Q-Bp-n4O"/>
+                                    <action selector="continuePressed:" destination="Hlk-3T-HfO" eventType="touchUpInside" id="Ukc-g2-y9b"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsd-N4-gBz">
@@ -344,11 +351,11 @@
                         <outlet property="checkBox" destination="uOu-md-6BO" id="UzY-5A-REV"/>
                         <outlet property="confirmErrorLabel" destination="eSg-tt-45L" id="axB-qg-fYd"/>
                         <outlet property="confirmPasswordTextField" destination="9ve-IM-YxH" id="FjB-jH-Lap"/>
+                        <outlet property="continueButton" destination="Qjg-7I-svW" id="5p2-3S-FyD"/>
                         <outlet property="emailErrorLabel" destination="nsd-N4-gBz" id="Al2-ri-zVx"/>
                         <outlet property="emailTextField" destination="ec1-Lw-PZI" id="Jkp-Fv-Skq"/>
                         <outlet property="passwordErrorLabel" destination="fmi-dG-Xg2" id="Gsc-U5-wuj"/>
                         <outlet property="passwordTextField" destination="1d6-Bg-tid" id="Fga-bp-lUx"/>
-                        <outlet property="signUpButton" destination="Qjg-7I-svW" id="AGg-G2-1h9"/>
                         <segue destination="qzs-vR-ID6" kind="show" identifier="goToWelcome" id="otP-7W-DO1"/>
                     </connections>
                 </viewController>

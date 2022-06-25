@@ -107,7 +107,7 @@ extension SetProfileViewController: UIImagePickerControllerDelegate, UINavigatio
 }
 
 
-//MARK: - UItextViewDelegate
+//MARK: - UItextViewDelegate - for textView
 extension SetProfileViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {

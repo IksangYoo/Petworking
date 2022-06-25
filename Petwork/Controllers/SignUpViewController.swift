@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
@@ -21,7 +21,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        defaltForm()
+        defaultForm()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -36,7 +36,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         _ = self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func signUpPressed(_ sender: UIButton) {
+    @IBAction func continuePressed(_ sender: UIButton) {
 //        if let email = emailTextField.text, let password = passwordTextField.text {
 //            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
 //                if let e = error {
@@ -52,9 +52,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         checkForValidForm()
     }
     
-    
-    func defaltForm() {
-        signUpButton.isEnabled = false
+    func defaultForm() {
+        continueButton.isEnabled = false
         
         emailErrorLabel.isHidden = false
         passwordErrorLabel.isHidden = false
@@ -157,11 +156,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     func checkForValidForm() {
         if emailErrorLabel.isHidden && passwordErrorLabel.isHidden && confirmErrorLabel.isHidden && changedIsChecked
         {
-            signUpButton.isEnabled = true
+            continueButton.isEnabled = true
         }
         else
         {
-            signUpButton.isEnabled = false
+            continueButton.isEnabled = false
         }
     }
 }
