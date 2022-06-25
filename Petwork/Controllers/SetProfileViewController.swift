@@ -66,7 +66,6 @@ class SetProfileViewController: UIViewController {
                     Storage.storage().reference().child("userImages").child(uid!).downloadURL { url, error in
                         let name = self.userNameTextField.text
                         guard let aboutMe = self.aboutMeTextView.text else { return }
-                        let profileImage = self.profileImageView.image
                         Database.database().reference().child("users").child(uid!).setValue(["name": name!, "profileImageURL": url?.absoluteString,"aboutMe": aboutMe])
                     }
                 }

@@ -15,7 +15,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        emailTextField.layer.borderWidth = 1
+        emailTextField.layer.shadowColor = UIColor.black.cgColor
+        passwordTextField.layer.borderWidth = 1
+        passwordTextField.layer.shadowColor = UIColor.black.cgColor
     }
 
 
