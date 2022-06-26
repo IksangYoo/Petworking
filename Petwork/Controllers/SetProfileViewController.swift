@@ -59,14 +59,17 @@ class SetProfileViewController: UIViewController {
                 print(e.localizedDescription)
                 print("sign up error")
             } else {
+                let profileImagePath = (authResult?.user.uid)! + "+profileImage"
                 let uid = authResult?.user.uid
                 let image = self.profileImageView.image?.jpegData(compressionQuality: 0.1)
-
-                Storage.storage().reference().child("userImages").child(uid!).putData(image!, metadata: nil) { data, error in
-                    Storage.storage().reference().child("userImages").child(uid!).downloadURL { url, error in
+                let storage = Storage.storage().reference()
+                print(profileImagePath)
+                
+                storage.child("userProfileImages").child(profileImagePath).putData(image!, metadata: nil) { data, error in
+                    storage.child("userProfileImages").child(profileImagePath).downloadURL { url, error in
                         let name = self.userNameTextField.text
                         guard let aboutMe = self.aboutMeTextView.text else { return }
-                        Database.database().reference().child("users").child(uid!).setValue(["name": name!, "profileImageURL": url?.absoluteString,"aboutMe": aboutMe])
+                        Database.database().reference().child("users").child(uid!).setValue(["name": name!, "profileImageURL": url?.absoluteString, "aboutMe": aboutMe])
                     }
                 }
             }
@@ -125,16 +128,13 @@ extension SetProfileViewController: UITextViewDelegate {
     }
 }
 
-// make imageView circle
-extension UIImageView {
-    func makeRounded() {
-       self.layer.borderWidth = 1
-//        self.layer.masksToBounds = false
-      self.layer.borderColor = UIColor.black.cgColor
-//        self.layer.cornerRadius = self.frame.height / 2
-//        self.clipsToBounds = true
-        let radius = self.frame.width / 2
-              self.layer.cornerRadius = radius
-              self.layer.masksToBounds = true
-    }
-}
+//// make imageView circle
+//extension UIImageView {
+//    func makeRounded() {
+//       self.layer.borderWidth = 1
+//      self.layer.borderColor = UIColor.black.cgColor
+//        let radius = self.frame.width / 2
+//              self.layer.cornerRadius = radius
+//              self.layer.masksToBounds = true
+//    }
+//}
