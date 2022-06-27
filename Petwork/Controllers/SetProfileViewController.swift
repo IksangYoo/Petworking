@@ -61,11 +61,11 @@ class SetProfileViewController: UIViewController {
             } else {
                 let profileImagePath = (authResult?.user.uid)! + "+profileImage"
                 let uid = authResult?.user.uid
-                let image = self.profileImageView.image?.jpegData(compressionQuality: 0.1)
+                let imageData = self.profileImageView.image?.jpegData(compressionQuality: 0.1)
                 let storage = Storage.storage().reference()
                 print(profileImagePath)
                 
-                storage.child("userProfileImages").child(profileImagePath).putData(image!, metadata: nil) { data, error in
+                storage.child("userProfileImages").child(profileImagePath).putData(imageData!, metadata: nil) { data, error in
                     storage.child("userProfileImages").child(profileImagePath).downloadURL { url, error in
                         let name = self.userNameTextField.text
                         guard let aboutMe = self.aboutMeTextView.text else { return }
