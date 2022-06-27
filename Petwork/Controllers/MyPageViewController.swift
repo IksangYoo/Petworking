@@ -23,7 +23,7 @@ class MyPageViewController: UIViewController {
     
     func updateForm() {
         let uid = Auth.auth().currentUser?.uid
-        
+        print(uid)
         ref.child("users").child(uid!).observeSingleEvent(of: .value) { snapshot in
             guard let data = snapshot.value as? [String: String] else { return }
             if let name = data["name"], let aboutMe = data["aboutMe"], let urlString = data["profileImageURL"]{
