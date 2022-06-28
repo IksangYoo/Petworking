@@ -10,9 +10,11 @@ import Firebase
 import FirebaseStorage
 
 class MyPageViewController: UIViewController {
+    
     @IBOutlet weak var profileImageView: CircularImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var aboutMeTextView: UITextView!
+    
     let ref = Database.database().reference()
     let storage = Storage.storage().reference()
     
@@ -22,8 +24,11 @@ class MyPageViewController: UIViewController {
     }
     
     func updateForm() {
+        
+        aboutMeTextView.isUserInteractionEnabled = false
+        
         let uid = Auth.auth().currentUser?.uid
-        print(uid)
+        
         ref.child("users").child(uid!).observeSingleEvent(of: .value) { snapshot in
             guard let data = snapshot.value as? [String: String] else { return }
             if let name = data["name"], let aboutMe = data["aboutMe"], let urlString = data["profileImageURL"]{
