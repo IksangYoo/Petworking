@@ -775,7 +775,6 @@ PODS:
     - Libuv-gRPC (= 0.0.10)
   - gRPC-Core/Interface (1.44.0)
   - GTMSessionFetcher/Core (1.7.1)
-  - ImagePicker (3.2.0)
   - leveldb-library (1.22.1)
   - Libuv-gRPC (0.0.10):
     - Libuv-gRPC/Implementation (= 0.0.10)
@@ -789,6 +788,11 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.1.0)
+  - PryntTrimmerView (4.0.2)
+  - SteviaLayout (4.7.3)
+  - YPImagePicker (5.2.1):
+    - PryntTrimmerView (= 4.0.2)
+    - SteviaLayout (= 4.7.3)
 
 DEPENDENCIES:
   - Firebase/Database
@@ -798,7 +802,7 @@ DEPENDENCIES:
   - FirebaseAnalytics
   - FirebaseAuth
   - FirebaseFirestore
-  - ImagePicker (from `https://github.com/hyperoslo/ImagePicker.git`)
+  - YPImagePicker
 
 SPEC REPOS:
   trunk:
@@ -825,15 +829,9 @@ SPEC REPOS:
     - Libuv-gRPC
     - nanopb
     - PromisesObjC
-
-EXTERNAL SOURCES:
-  ImagePicker:
-    :git: https://github.com/hyperoslo/ImagePicker.git
-
-CHECKOUT OPTIONS:
-  ImagePicker:
-    :commit: d8a8f840380b9a28230c8fcad277adb458706d0a
-    :git: https://github.com/hyperoslo/ImagePicker.git
+    - PryntTrimmerView
+    - SteviaLayout
+    - YPImagePicker
 
 SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
@@ -855,12 +853,14 @@ SPEC CHECKSUMS:
   "gRPC-C++": 9675f953ace2b3de7c506039d77be1f2e77a8db2
   gRPC-Core: 943e491cb0d45598b0b0eb9e910c88080369290b
   GTMSessionFetcher: 4577a4cc914a5a07c40a8a0ad0acc22080418c2d
-  ImagePicker: 1d950bbb2422548ed58791b4ec7f42fe42920511
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
+  PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
+  SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
+  YPImagePicker: f36043210c10b0783034eb1947d6e06e31c461e4
 
-PODFILE CHECKSUM: 1161d4861c5afb69634fbf61cb07c56357d977fa
+PODFILE CHECKSUM: b3289d5776b9ad4795af575121a33f8f3066ef34
 
 COCOAPODS: 1.11.2

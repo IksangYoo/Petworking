@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
         emailTextField.layer.shadowColor = UIColor.black.cgColor
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.shadowColor = UIColor.black.cgColor
-        loginButton.isEnabled = false
+        loginButton.isEnabled = true
     }
 
     

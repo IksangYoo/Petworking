@@ -14,6 +14,5 @@ pod 'Firebase/Storage'
 pod 'Firebase/RemoteConfig'
 pod 'Firebase/Firestore'
 pod 'Firebase/Database'
-pod 'ImagePicker', :git => 'https://github.com/hyperoslo/ImagePicker.git'
-
+pod 'YPImagePicker'
 end
