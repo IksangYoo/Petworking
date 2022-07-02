@@ -12,4 +12,5 @@ struct User {
     let name : String
     let aboutMe: String
     let profileImageURL: String
+    let postCounts: Int
 }

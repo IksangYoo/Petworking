@@ -32,8 +32,7 @@ extension Storage {
         guard let image = profileImage else { return }
         guard let imageData = image.jpegData(compressionQuality: 0.3) else { return }
         
-        let profileImagePath = uid + "+profileImage"
-        let storageRef = Storage.storage().reference().child("userProfileImages").child(profileImagePath)
+        let storageRef = Storage.storage().reference().child("userProfileImages").child(uid)
         
         storageRef.putData(imageData, metadata: nil) { metaData, error in
             if let e = error { completion(nil, e); return }
