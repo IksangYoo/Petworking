@@ -13,21 +13,27 @@ class UploadViewController: UIViewController {
     @IBOutlet weak var captionTextView: UITextView!
     @IBOutlet weak var imageScrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var uploadButton: UIButton!
     var selectedImages : [UIImage] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         imageScrollView.delegate = self
+        
     }
     
     func setupView() {
         imageScrollView.showsHorizontalScrollIndicator = false
         imageScrollView.showsVerticalScrollIndicator = false
+        imageScrollView.layer.borderWidth = 1
+        imageScrollView.layer.borderColor = #colorLiteral(red: 1, green: 0.6020463109, blue: 0.6233303547, alpha: 1)
         pageControl.currentPage = 0
         pageControl.numberOfPages = 2
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .black
+        captionTextView.text = "Caption"
+        captionTextView.textColor = UIColor.lightGray
     }
     
     @IBAction func selectPhotoButtonPressed(_ sender: UIButton) {
@@ -35,8 +41,16 @@ class UploadViewController: UIViewController {
         config.library.maxNumberOfItems = 5
         config.albumName = "Petwork"
         config.startOnScreen = YPPickerScreen.library
+//        config.colors.filterBackgroundColor = #colorLiteral(red: 0.9981967807, green: 0.963527143, blue: 0.9382537007, alpha: 1)
+//        config.colors.selectionsBackgroundColor = #colorLiteral(red: 0.9981967807, green: 0.963527143, blue: 0.9382537007, alpha: 1)
+//        config.colors.safeAreaBackgroundColor = #colorLiteral(red: 0.9981967807, green: 0.963527143, blue: 0.9382537007, alpha: 1)
+//        config.colors.assetViewBackgroundColor = #colorLiteral(red: 0.9981967807, green: 0.963527143, blue: 0.9382537007, alpha: 1)
+//        config.colors.libraryScreenBackgroundColor = #colorLiteral(red: 0.9981967807, green: 0.963527143, blue: 0.9382537007, alpha: 1)
+//        config.colors.bottomMenuItemBackgroundColor = #colorLiteral(red: 0.9981967807, green: 0.963527143, blue: 0.9382537007, alpha: 1)
+//        config.colors.photoVideoScreenBackgroundColor = #colorLiteral(red: 0.9981967807, green: 0.963527143, blue: 0.9382537007, alpha: 1)
         
         let picker = YPImagePicker(configuration: config)
+        
         
         picker.didFinishPicking { [unowned picker] items, cancelled in
             for item in items {
@@ -49,6 +63,7 @@ class UploadViewController: UIViewController {
                 }
             }
             self.addImagesToScrollView(images: self.selectedImages)
+            self.imageScrollView.layer.borderColor = UIColor.black.cgColor
             picker.dismiss(animated: true, completion: nil)
         }
         present(picker, animated: true)
@@ -56,8 +71,31 @@ class UploadViewController: UIViewController {
     
     
     @IBAction func uploadButtonPressed(_ sender: UIButton) {
-        storePostToFB(with: selectedImages)
+        
+        if selectedImages.isEmpty {
+            let alert = UIAlertController(title: "Upload Failed", message: "Please select a photo", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true)
+        } else {
+            storePostToFB(with: selectedImages)
+            self.selectedImages.removeAll()
+            let alert = UIAlertController(title: nil, message: "Post has been Successfully Uploaded!", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default) { UIAlertAction in
+                DispatchQueue.main.async {
+                    self.removeSubviews()
+                    self.setupView()
+                }
+                
+            }
+            alert.addAction(action)
+            present(alert, animated: true)
+        }
+
+        
     }
+    
+
     
     func storePostToFB(with postImages: [UIImage]) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
@@ -65,6 +103,7 @@ class UploadViewController: UIViewController {
         let storageRef = Storage.storage().reference().child("postImages").child(uid)
         let dbRef = Database.database().reference().child("posts").child(uid).childByAutoId()
         var urls : [String] = []
+
         
         postImages.enumerated().forEach { index, image in
             let filename = NSUUID().uuidString
@@ -83,9 +122,8 @@ class UploadViewController: UIViewController {
                 }
             }
         }
-        
+
     }
-    
 }
 
 
@@ -104,6 +142,12 @@ extension UploadViewController: UIScrollViewDelegate {
         pageControl.numberOfPages = images.count
     }
     
+    func removeSubviews() {
+        imageScrollView.subviews.forEach({ $0.removeFromSuperview() })
+        pageControl.numberOfPages = 2
+        pageControl.currentPage = 0
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let value = scrollView.contentOffset.x/scrollView.frame.size.width
         setPageControlSelectedPage(currentPage: Int(round(value)))    }
@@ -115,5 +159,22 @@ extension UploadViewController: UIScrollViewDelegate {
     
     func setPageControlSelectedPage(currentPage:Int) {
         pageControl.currentPage = currentPage
+    }
+}
+
+extension UploadViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+            }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Caption"
+            textView.textColor = UIColor.lightGray
+        }
     }
 }
