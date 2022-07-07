@@ -8,6 +8,7 @@
 import UIKit
 
 class MyPageCollectionViewCell: UICollectionViewCell {
+    
     var post: Post? {
         didSet {
             guard let firstImageURL = post?.imageURLs[0] else { return }
@@ -16,6 +17,7 @@ class MyPageCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var postImageView: CustomImageView!
     
     override func awakeFromNib() {
@@ -23,4 +25,7 @@ class MyPageCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 
+    @IBAction func deleteButtonPressed(_ sender: UIButton) {
+        print("delete")
+    }
 }

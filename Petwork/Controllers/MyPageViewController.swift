@@ -11,12 +11,15 @@ import FirebaseStorage
 
 class MyPageViewController: UIViewController {
     
+    var settingButtonClicked = false
+    var segmentIndex = 0
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var profileImageView: CircularImageView!
-    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var aboutMeTextView: UITextView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
-    var segmentIndex = 0
+    @IBOutlet weak var nameTF: UITextField!
+    @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
     
     var user: User?
     var posts = [Post]()
@@ -25,7 +28,26 @@ class MyPageViewController: UIViewController {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "MyPageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "postCell")
         fetchUserAndUpdateForm()
+        defaultForm()
     }
+    
+    func defaultForm() {
+        aboutMeTextView.isUserInteractionEnabled = false
+        nameTF.layer.borderWidth = 0
+        nameTF.isUserInteractionEnabled = false
+        cameraButton.isHidden = true
+        settingsButton.setImage(UIImage(systemName: "gearshape.fill"), for: .normal)
+    }
+    
+    func settingsForm() {
+        aboutMeTextView.isUserInteractionEnabled = true
+        nameTF.layer.borderWidth = 1
+        nameTF.layer.borderColor = UIColor.black.cgColor
+        nameTF.isUserInteractionEnabled = true
+        cameraButton.isHidden = false
+        settingsButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
+    }
+    
     @IBAction func switchDisplayMode(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             segmentIndex = sender.selectedSegmentIndex
@@ -36,6 +58,31 @@ class MyPageViewController: UIViewController {
         }
     }
  
+    @IBAction func cameraButtonPressed(_ sender: UIButton) {
+    }
+    
+    
+    @IBAction func settingsButtonPressed(_ sender: UIButton) {
+        settingButtonClicked = !settingButtonClicked
+        
+        if settingButtonClicked {
+            settingsForm()
+        } else {
+            defaultForm()
+        }
+        
+        // alertAction 취소 눌렀을때 다시 본래대로
+        aboutMeTextView.text = user?.aboutMe
+        nameTF.text = user?.name
+        // 카메라버튼 동작시키기
+        // 완료 버튼 눌렀을때 db업데이트 시키기
+        // post 삭제버튼 동작시키기(이것도 alertAciton 넣기)
+        // Home페이지 구현
+        
+        
+        collectionView.reloadData()
+        
+    }
     
     func fetchUserAndUpdateForm() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
@@ -54,7 +101,7 @@ class MyPageViewController: UIViewController {
             DispatchQueue.main.async {
                 self.profileImageView.image = image
                 self.aboutMeTextView.text = user.aboutMe
-                self.nameLabel.text = user.name
+                self.nameTF.text = user.name
             }
         }
     }
@@ -87,7 +134,15 @@ extension MyPageViewController: UICollectionViewDataSource, UICollectionViewDele
             return UICollectionViewCell()
         }
         cell.post = posts[indexPath.item]
+        
+        if settingButtonClicked {
+            cell.deleteButton.isHidden = false
+        } else {
+            cell.deleteButton.isHidden = true
+        }
+        
         return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

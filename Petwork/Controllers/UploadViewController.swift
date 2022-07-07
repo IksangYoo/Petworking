@@ -68,6 +68,11 @@ class UploadViewController: UIViewController {
         }
         present(picker, animated: true)
     }
+    @IBAction func removeButtonPressed(_ sender: UIButton) {
+        selectedImages.removeAll()
+        removeSubviews()
+        setupView()
+    }
     
     
     @IBAction func uploadButtonPressed(_ sender: UIButton) {
