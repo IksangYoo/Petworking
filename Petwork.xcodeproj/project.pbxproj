@@ -10,6 +10,7 @@
 		DD21D71728694B5A00D2D7A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD21D71628694B5A00D2D7A7 /* GoogleService-Info.plist */; };
 		DD21D721286A50A000D2D7A7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD21D720286A50A000D2D7A7 /* User.swift */; };
 		DD21D724286A533500D2D7A7 /* FirebaseUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD21D723286A533500D2D7A7 /* FirebaseUtilities.swift */; };
+		DD21D7262873A27A00D2D7A7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD21D7252873A27A00D2D7A7 /* Post.swift */; };
 		DD3B459928305AB1001D54AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3B459828305AB1001D54AD /* AppDelegate.swift */; };
 		DD3B459B28305AB1001D54AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3B459A28305AB1001D54AD /* SceneDelegate.swift */; };
 		DD3B459D28305AB1001D54AD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3B459C28305AB1001D54AD /* LoginViewController.swift */; };
@@ -28,6 +29,9 @@
 		DDCD416B284583AE002969A8 /* ResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDCD4169284583AE002969A8 /* ResultCollectionViewCell.xib */; };
 		DDCD416F2846D8CF002969A8 /* SetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD416E2846D8CF002969A8 /* SetProfileViewController.swift */; };
 		DDCD41712846DF5E002969A8 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD41702846DF5E002969A8 /* CircularImageView.swift */; };
+		DDCD9440287656E100A177E7 /* MyPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD943E287656E100A177E7 /* MyPageCollectionViewCell.swift */; };
+		DDCD9441287656E100A177E7 /* MyPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDCD943F287656E100A177E7 /* MyPageCollectionViewCell.xib */; };
+		DDCD9443287659AC00A177E7 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD9442287659AC00A177E7 /* CustomImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,7 @@
 		DD21D71628694B5A00D2D7A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD21D720286A50A000D2D7A7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DD21D723286A533500D2D7A7 /* FirebaseUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUtilities.swift; sourceTree = "<group>"; };
+		DD21D7252873A27A00D2D7A7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		DD3B459528305AB1001D54AD /* Petwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3B459828305AB1001D54AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD3B459A28305AB1001D54AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +60,9 @@
 		DDCD4169284583AE002969A8 /* ResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultCollectionViewCell.xib; sourceTree = "<group>"; };
 		DDCD416E2846D8CF002969A8 /* SetProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewController.swift; sourceTree = "<group>"; };
 		DDCD41702846DF5E002969A8 /* CircularImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
+		DDCD943E287656E100A177E7 /* MyPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCollectionViewCell.swift; sourceTree = "<group>"; };
+		DDCD943F287656E100A177E7 /* MyPageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageCollectionViewCell.xib; sourceTree = "<group>"; };
+		DDCD9442287659AC00A177E7 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		F7FE30D4CA74398711025101 /* Pods-Petwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Petwork.release.xcconfig"; path = "Target Support Files/Pods-Petwork/Pods-Petwork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				DD21D720286A50A000D2D7A7 /* User.swift */,
+				DD21D7252873A27A00D2D7A7 /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -100,6 +109,7 @@
 			children = (
 				DDCD41702846DF5E002969A8 /* CircularImageView.swift */,
 				DD21D723286A533500D2D7A7 /* FirebaseUtilities.swift */,
+				DDCD9442287659AC00A177E7 /* CustomImageView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -161,6 +171,8 @@
 				DDCD4158283ED584002969A8 /* Main.storyboard */,
 				DDCD4168284583AE002969A8 /* ResultCollectionViewCell.swift */,
 				DDCD4169284583AE002969A8 /* ResultCollectionViewCell.xib */,
+				DDCD943E287656E100A177E7 /* MyPageCollectionViewCell.swift */,
+				DDCD943F287656E100A177E7 /* MyPageCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD3B45A528305AB5001D54AD /* LaunchScreen.storyboard in Resources */,
+				DDCD9441287656E100A177E7 /* MyPageCollectionViewCell.xib in Resources */,
 				DDCD416B284583AE002969A8 /* ResultCollectionViewCell.xib in Resources */,
 				DD3B45A228305AB5001D54AD /* Assets.xcassets in Resources */,
 				DDCD4159283ED584002969A8 /* Main.storyboard in Resources */,
@@ -286,16 +299,19 @@
 				DD21D721286A50A000D2D7A7 /* User.swift in Sources */,
 				DDCD415B283ED73A002969A8 /* SearchViewController.swift in Sources */,
 				DDCD41712846DF5E002969A8 /* CircularImageView.swift in Sources */,
+				DDCD9440287656E100A177E7 /* MyPageCollectionViewCell.swift in Sources */,
 				DD3B459D28305AB1001D54AD /* LoginViewController.swift in Sources */,
 				DD3B459928305AB1001D54AD /* AppDelegate.swift in Sources */,
 				DDCD414D28341983002969A8 /* SignUpViewController.swift in Sources */,
 				DDCD4163283F2F03002969A8 /* UploadViewController.swift in Sources */,
 				DD3B459B28305AB1001D54AD /* SceneDelegate.swift in Sources */,
 				DDCD415F283F19E2002969A8 /* HomeViewController.swift in Sources */,
+				DD21D7262873A27A00D2D7A7 /* Post.swift in Sources */,
 				DDCD415D283F19AF002969A8 /* ResultsViewController.swift in Sources */,
 				DDCD416F2846D8CF002969A8 /* SetProfileViewController.swift in Sources */,
 				DDCD4161283F2EF2002969A8 /* MyPageViewController.swift in Sources */,
 				DDCD416A284583AE002969A8 /* ResultCollectionViewCell.swift in Sources */,
+				DDCD9443287659AC00A177E7 /* CustomImageView.swift in Sources */,
 				DD21D724286A533500D2D7A7 /* FirebaseUtilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

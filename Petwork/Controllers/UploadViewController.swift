@@ -32,7 +32,7 @@ class UploadViewController: UIViewController {
         pageControl.numberOfPages = 2
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .black
-        captionTextView.text = "Caption"
+        captionTextView.text = "Caption..."
         captionTextView.textColor = UIColor.lightGray
     }
     
@@ -173,7 +173,7 @@ extension UploadViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Caption"
+            textView.text = "Caption..."
             textView.textColor = UIColor.lightGray
         }
     }
