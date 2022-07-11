@@ -13,7 +13,6 @@ class MyPageCollectionViewCell: UICollectionViewCell {
         didSet {
             guard let firstImageURL = post?.imageURLs[0] else { return }
             postImageView.loadImage(urlString: firstImageURL)
-            print("-------> \(firstImageURL)")
         }
     }
     

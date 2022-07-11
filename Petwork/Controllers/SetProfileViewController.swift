@@ -54,26 +54,6 @@ class SetProfileViewController: UIViewController {
     }
     
     func makeUserProfile() {
-//        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-//            if let e = error {
-//                print(e.localizedDescription)
-//                print("sign up error")
-//            } else {
-//                let profileImagePath = (authResult?.user.uid)! + "+profileImage"
-//                let uid = authResult?.user.uid
-//                let imageData = self.profileImageView.image?.jpegData(compressionQuality: 0.1)
-//                let storage = Storage.storage().reference()
-//                print(profileImagePath)
-//
-//                storage.child("userProfileImages").child(profileImagePath).putData(imageData!, metadata: nil) { data, error in
-//                    storage.child("userProfileImages").child(profileImagePath).downloadURL { url, error in
-//                        let name = self.userNameTextField.text
-//                        guard let aboutMe = self.aboutMeTextView.text else { return }
-//                        Database.database().reference().child("users").child(uid!).setValue(["name": name!, "profileImageURL": url?.absoluteString, "aboutMe": aboutMe])
-//                    }
-//                }
-//            }
-//        }
         let name = userNameTextField.text!
         let profileImage = profileImageView.image!
         var aboutMe : String {
@@ -83,7 +63,6 @@ class SetProfileViewController: UIViewController {
                 return aboutMeTextView.text
             }
         }
-       
         
         Auth.auth().creatUser(withEmail: email, password: password, name: name, profileImage: profileImage, aboutMe: aboutMe) { error in
             if let e = error {

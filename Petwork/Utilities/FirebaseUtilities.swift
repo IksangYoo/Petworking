@@ -28,7 +28,7 @@ extension Auth {
 
 extension Storage {
     
-    fileprivate func uploadUserProfileImage(profileImage: UIImage?, uid: String, completion: @escaping (String?, Error?) -> ()) {
+    func uploadUserProfileImage(profileImage: UIImage?, uid: String, completion: @escaping (String?, Error?) -> ()) {
         guard let image = profileImage else { return }
         guard let imageData = image.jpegData(compressionQuality: 0.3) else { return }
         

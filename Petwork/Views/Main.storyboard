@@ -444,7 +444,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                 </state>
                                 <connections>
-                                    <action selector="cameraButtonPressed:" destination="ds3-Lf-eub" eventType="touchUpInside" id="bC4-PC-MFu"/>
+                                    <action selector="changeProfileImagePressed:" destination="ds3-Lf-eub" eventType="touchUpInside" id="Na9-nh-uR0"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="name" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1tK-JS-ghv">
@@ -463,7 +463,7 @@
                         <outlet property="aboutMeTextView" destination="7Xp-q8-dlE" id="P7R-SQ-B4C"/>
                         <outlet property="cameraButton" destination="Clv-cz-Buw" id="N6z-3X-6zD"/>
                         <outlet property="collectionView" destination="HaW-A7-caq" id="Sue-t8-XAz"/>
-                        <outlet property="nameTF" destination="1tK-JS-ghv" id="I18-62-h65"/>
+                        <outlet property="nameTF" destination="1tK-JS-ghv" id="0f8-TJ-y8F"/>
                         <outlet property="profileImageView" destination="zb2-Sy-DqO" id="qXR-Af-7g3"/>
                         <outlet property="segmentControl" destination="qns-xW-pLw" id="vqF-we-Mb5"/>
                         <outlet property="settingsButton" destination="MVN-hb-KSc" id="ReS-V4-ujt"/>
