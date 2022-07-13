@@ -11,7 +11,7 @@ class MyPageCollectionViewCell: UICollectionViewCell {
     
     var post: Post? {
         didSet {
-            guard let firstImageURL = post?.imageURLs[0] else { return }
+            guard let firstImageURL = post?.url[0] else { return }
             postImageView.loadImage(urlString: firstImageURL)
         }
     }

@@ -15,12 +15,12 @@ class UploadViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var uploadButton: UIButton!
     var selectedImages : [UIImage] = []
+    var num = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         imageScrollView.delegate = self
-        
     }
     
     func setupView() {
@@ -103,14 +103,15 @@ class UploadViewController: UIViewController {
 
     
     func storePostToFB(with postImages: [UIImage]) {
+        
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let caption = captionTextView.text else { return }
         let storageRef = Storage.storage().reference().child("postImages").child(uid)
         let dbRef = Database.database().reference().child("posts").child(uid).childByAutoId()
         var urls : [String] = []
-
+        var urlDicWithIndex : [Int: String] = [:]
         
-        postImages.enumerated().forEach { index, image in
+        for (index, image) in postImages.enumerated() {
             let filename = NSUUID().uuidString
             guard let imageData = image.jpegData(compressionQuality: 0.2) else { return }
             
@@ -121,12 +122,40 @@ class UploadViewController: UIViewController {
                     storageRef.child(filename).downloadURL { url, error in
                         
                         guard let URL = url?.absoluteString else { return }
-                        urls.append(URL)
+                        urlDicWithIndex[index] = URL
+                        
+                        let sortedDic = urlDicWithIndex.sorted(by: < )
+                        
+                        urls.removeAll()
+                        for i in 0..<sortedDic.count {
+                            urls.append(sortedDic[i].value)
+                        }
                         dbRef.updateChildValues(["url": urls, "caption": caption, "creationDate": Date().timeIntervalSince1970])
                     }
                 }
             }
+            
         }
+        
+//        postImages.enumerated().forEach { index, image in
+//            let filename = NSUUID().uuidString
+//
+//            guard let imageData = image.jpegData(compressionQuality: 0.2) else { return }
+//
+//            storageRef.child(filename).putData(imageData, metadata: nil) { metaData, error in
+//                if let e = error {
+//                    print(e.localizedDescription)
+//                } else {
+//                    storageRef.child(filename).downloadURL { url, error in
+//
+//                        guard let URL = url?.absoluteString else { return }
+//                        urls.insert(URL + "+ \(index)", at: 0)
+//                        dbRef.updateChildValues(["url": urls, "caption": caption, "creationDate": Date().timeIntervalSince1970])
+//                    }
+//                    print("---------->urls: \(urls)")
+//                }
+//            }
+//        }
 
     }
 }

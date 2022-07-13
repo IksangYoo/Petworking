@@ -29,10 +29,9 @@ class MyPageViewController: UIViewController {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "MyPageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "postCell")
         fetchUserAndUpdateForm()
-        fetchOrderedPosts()
-
         defaultForm()
         imagePicker.delegate = self
+        collectionView.reloadData()
     }
     
     func defaultForm() {
@@ -75,27 +74,30 @@ class MyPageViewController: UIViewController {
     
     func saveToDatabase() {
         deleteStroageImage()
-        
+        print("saveToDatabase")
         guard let image = profileImageView.image else { return }
         guard let name = nameTF.text else { return }
         guard let aboutMe = aboutMeTextView.text else { return }
         guard let uid = user?.uid else { return }
         
-    
         Storage.storage().uploadUserProfileImage(profileImage: image, uid: uid) { profileImageURL, error in
             if let e = error {
                 print(e.localizedDescription)
             } else {
+                print("uploadUserProfileImage")
                 let dbRef = Database.database().reference().child("users").child(uid)
-                
+                dbRef.removeAllObservers()
+                print("-------> imageURL2 \(profileImageURL)")
                 dbRef.updateChildValues(["name": name, "profileImageURL": profileImageURL!, "aboutMe": aboutMe]) { error, ref in
-                    }
+                        print("updateChildValues")
                 }
-            Database.database().reference().child("users").child(uid).observe( .value) { snapshot in
+                }
+            Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value) { snapshot in
+                print("ObserveSingleEvent")
                 guard let userDictionary = snapshot.value as? [String: Any] else { return }
                 let user = User(uid: uid, dictionary: userDictionary)
                 self.user = user
-                print(user)
+                print(self.user)
             }
         }
     }
@@ -112,8 +114,8 @@ class MyPageViewController: UIViewController {
         }
         
         // alertAction 취소 눌렀을때 다시 본래대로
-        aboutMeTextView.text = user?.aboutMe
-        nameTF.text = user?.name
+//        aboutMeTextView.text = user?.aboutMe
+//        nameTF.text = user?.name
         
         // 완료 버튼 눌렀을때 db업데이트 시키기, user dic 업데이트
         // post 삭제버튼 동작시키기(이것도 alertAciton 넣기)
@@ -121,6 +123,7 @@ class MyPageViewController: UIViewController {
     }
     
     func fetchUserAndUpdateForm() {
+        print("fetchUserAndUpdateForm")
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let dbref = Database.database().reference().child("users").child(uid)
         
@@ -128,6 +131,8 @@ class MyPageViewController: UIViewController {
             guard let userDictionary = snapshot.value as? [String: Any] else { return }
             let user = User(uid: uid, dictionary: userDictionary)
             self.user = user
+//            print("------> imageURL1 \(user.profileImageURL)")
+            print("fetchUserAndUpdateFormClosure")
             
             guard let url = URL(string: user.profileImageURL) else { return }
             let imageData = NSData(contentsOf: url)
@@ -144,14 +149,18 @@ class MyPageViewController: UIViewController {
     }
     
     func fetchOrderedPosts() {
+        print("fetchOrderedPosts")
         guard let uid = user?.uid else { return }
         let dbRef = Database.database().reference().child("posts").child(uid)
         
+        posts.removeAll()
+        
         dbRef.queryOrdered(byChild: "creationDate").observe(.childAdded) { snapshot in
-            
+            print("fetchOrderedPostsClosure")
             guard let dictionary = snapshot.value as? [String: Any] else { return }
             guard let user = self.user else { return }
             let post = Post(user: user, dictionary: dictionary)
+            print("--------> Dict \(dictionary)")
             
             if !self.posts.contains(post) {
                 self.posts.insert(post, at: 0)
