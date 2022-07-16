@@ -108,7 +108,9 @@ class UploadViewController: UIViewController {
         guard let caption = captionTextView.text else { return }
         let storageRef = Storage.storage().reference().child("postImages").child(uid)
         let dbRef = Database.database().reference().child("posts").child(uid).childByAutoId()
+        guard let autoID = dbRef.key else { return }
         var urls : [String] = []
+        
         var urlDicWithIndex : [Int: String] = [:]
         
         for (index, image) in postImages.enumerated() {
@@ -130,13 +132,14 @@ class UploadViewController: UIViewController {
                         for i in 0..<sortedDic.count {
                             urls.append(sortedDic[i].value)
                         }
-                        dbRef.updateChildValues(["url": urls, "caption": caption, "creationDate": Date().timeIntervalSince1970])
+                        
+                        dbRef.updateChildValues(["postImageURLs": urls, "caption": caption, "autoID": autoID, "creationDate": Date().timeIntervalSince1970])
                     }
                 }
             }
             
         }
-        
+       
 //        postImages.enumerated().forEach { index, image in
 //            let filename = NSUUID().uuidString
 //
@@ -196,6 +199,7 @@ extension UploadViewController: UIScrollViewDelegate {
     }
 }
 
+//MARK: - UITextViewDelegate
 extension UploadViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {

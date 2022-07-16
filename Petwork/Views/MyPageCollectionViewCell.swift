@@ -11,20 +11,16 @@ class MyPageCollectionViewCell: UICollectionViewCell {
     
     var post: Post? {
         didSet {
-            guard let firstImageURL = post?.url[0] else { return }
+            guard let firstImageURL = post?.postImageURLs[0] else { return }
             postImageView.loadImage(urlString: firstImageURL)
         }
     }
     
-    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var postImageView: CustomImageView!
+    @IBOutlet weak var xButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    @IBAction func deleteButtonPressed(_ sender: UIButton) {
-        print("delete")
     }
 }

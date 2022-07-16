@@ -11,7 +11,7 @@ import FirebaseStorage
 
 class MyPageViewController: UIViewController {
     
-    var settingButtonClicked = false
+    var isSettingButtonClicked = false
     var segmentIndex = 0
     let imagePicker = UIImagePickerController()
     @IBOutlet weak var collectionView: UICollectionView!
@@ -35,6 +35,7 @@ class MyPageViewController: UIViewController {
     }
     
     func defaultForm() {
+//        collectionView.allowsSelection = false
         aboutMeTextView.isUserInteractionEnabled = false
         nameTF.layer.borderWidth = 0
         nameTF.isUserInteractionEnabled = false
@@ -43,6 +44,7 @@ class MyPageViewController: UIViewController {
     }
     
     func settingsForm() {
+//        collectionView.allowsSelection = true
         aboutMeTextView.isUserInteractionEnabled = true
         nameTF.layer.borderWidth = 1
         nameTF.layer.borderColor = UIColor.black.cgColor
@@ -103,14 +105,16 @@ class MyPageViewController: UIViewController {
     }
     
     @IBAction func settingsButtonPressed(_ sender: UIButton) {
-        settingButtonClicked = !settingButtonClicked
+        isSettingButtonClicked = !isSettingButtonClicked
         
-        if settingButtonClicked {
+        if isSettingButtonClicked {
             settingsForm()
+            collectionView.reloadData()
         } else {
             defaultForm()
             saveToDatabase()
             fetchOrderedPosts()
+            collectionView.reloadData()
         }
         
         // alertAction 취소 눌렀을때 다시 본래대로
@@ -155,17 +159,18 @@ class MyPageViewController: UIViewController {
         
         posts.removeAll()
         
-        dbRef.queryOrdered(byChild: "creationDate").observe(.childAdded) { snapshot in
+        dbRef.queryOrdered(byChild: "creationDate").observe( .childAdded) { snapshot in
             print("fetchOrderedPostsClosure")
+            
             guard let dictionary = snapshot.value as? [String: Any] else { return }
             guard let user = self.user else { return }
             let post = Post(user: user, dictionary: dictionary)
-            print("--------> Dict \(dictionary)")
+            print("------>user \(user)")
+            print("--------> Dict \(post.postImageURLs)")
             
             if !self.posts.contains(post) {
                 self.posts.insert(post, at: 0)
             }
-            
             self.collectionView.reloadData()
         }
     }
@@ -174,6 +179,19 @@ class MyPageViewController: UIViewController {
 
 //MARK: - collectionView Delegate
 extension MyPageViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func setCellForm(cell: MyPageCollectionViewCell) {
+        
+        if isSettingButtonClicked {
+            cell.xButton.isHidden = false
+            cell.xButton.isEnabled = false
+            cell.postImageView.alpha = 0.5
+        } else {
+            cell.xButton.isEnabled = false
+            cell.xButton.isHidden = true
+            cell.postImageView.alpha = 1
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
@@ -184,16 +202,12 @@ extension MyPageViewController: UICollectionViewDataSource, UICollectionViewDele
         else {
             return UICollectionViewCell()
         }
-        cell.post = posts[indexPath.item]
         
-        if settingButtonClicked {
-            cell.deleteButton.isHidden = false
-        } else {
-            cell.deleteButton.isHidden = true
-        }
+        cell.post = posts[indexPath.item]
+
+        setCellForm(cell: cell)
         
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -209,6 +223,26 @@ extension MyPageViewController: UICollectionViewDataSource, UICollectionViewDele
             height = width
             return CGSize(width: width, height: height)
         }
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if isSettingButtonClicked {
+            deletePost(indexPath)
+            fetchOrderedPosts()
+            
+        } else {
+            // navigate to feed page
+        }
+    }
+    
+    func deletePost(_ indexPath: IndexPath) {
+        guard let uid = user?.uid else { return }
+        guard let postID = posts[indexPath.item].autoID else { return }
+        let dbRef = Database.database().reference().child("posts").child(uid).child(postID)
+        dbRef.removeValue()
+        collectionView.reloadData()
     }
 }
 
