@@ -15,4 +15,5 @@ pod 'Firebase/RemoteConfig'
 pod 'Firebase/Firestore'
 pod 'Firebase/Database'
 pod 'YPImagePicker'
+pod 'Kingfisher', '~> 7.0'
 end

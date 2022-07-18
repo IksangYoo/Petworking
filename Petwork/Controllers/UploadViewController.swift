@@ -187,11 +187,7 @@ extension UploadViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let value = scrollView.contentOffset.x/scrollView.frame.size.width
-        setPageControlSelectedPage(currentPage: Int(round(value)))    }
-    
-    func setPageControl() {
-        pageControl.numberOfPages = selectedImages.count
-        
+        setPageControlSelectedPage(currentPage: Int(round(value)))
     }
     
     func setPageControlSelectedPage(currentPage:Int) {

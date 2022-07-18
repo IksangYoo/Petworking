@@ -32,6 +32,8 @@
 		DDCD9440287656E100A177E7 /* MyPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD943E287656E100A177E7 /* MyPageCollectionViewCell.swift */; };
 		DDCD9441287656E100A177E7 /* MyPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDCD943F287656E100A177E7 /* MyPageCollectionViewCell.xib */; };
 		DDCD9443287659AC00A177E7 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD9442287659AC00A177E7 /* CustomImageView.swift */; };
+		DDCD944628837BE000A177E7 /* HomePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD944428837BE000A177E7 /* HomePageCollectionViewCell.swift */; };
+		DDCD944728837BE000A177E7 /* HomePageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDCD944528837BE000A177E7 /* HomePageCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		DDCD943E287656E100A177E7 /* MyPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDCD943F287656E100A177E7 /* MyPageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageCollectionViewCell.xib; sourceTree = "<group>"; };
 		DDCD9442287659AC00A177E7 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		DDCD944428837BE000A177E7 /* HomePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCollectionViewCell.swift; sourceTree = "<group>"; };
+		DDCD944528837BE000A177E7 /* HomePageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageCollectionViewCell.xib; sourceTree = "<group>"; };
 		F7FE30D4CA74398711025101 /* Pods-Petwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Petwork.release.xcconfig"; path = "Target Support Files/Pods-Petwork/Pods-Petwork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +177,8 @@
 				DDCD4169284583AE002969A8 /* ResultCollectionViewCell.xib */,
 				DDCD943E287656E100A177E7 /* MyPageCollectionViewCell.swift */,
 				DDCD943F287656E100A177E7 /* MyPageCollectionViewCell.xib */,
+				DDCD944428837BE000A177E7 /* HomePageCollectionViewCell.swift */,
+				DDCD944528837BE000A177E7 /* HomePageCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 				DDCD9441287656E100A177E7 /* MyPageCollectionViewCell.xib in Resources */,
 				DDCD416B284583AE002969A8 /* ResultCollectionViewCell.xib in Resources */,
 				DD3B45A228305AB5001D54AD /* Assets.xcassets in Resources */,
+				DDCD944728837BE000A177E7 /* HomePageCollectionViewCell.xib in Resources */,
 				DDCD4159283ED584002969A8 /* Main.storyboard in Resources */,
 				DD3B45A028305AB1001D54AD /* LoginSignUpView.storyboard in Resources */,
 				DD21D71728694B5A00D2D7A7 /* GoogleService-Info.plist in Resources */,
@@ -308,6 +315,7 @@
 				DDCD415F283F19E2002969A8 /* HomeViewController.swift in Sources */,
 				DD21D7262873A27A00D2D7A7 /* Post.swift in Sources */,
 				DDCD415D283F19AF002969A8 /* ResultsViewController.swift in Sources */,
+				DDCD944628837BE000A177E7 /* HomePageCollectionViewCell.swift in Sources */,
 				DDCD416F2846D8CF002969A8 /* SetProfileViewController.swift in Sources */,
 				DDCD4161283F2EF2002969A8 /* MyPageViewController.swift in Sources */,
 				DDCD416A284583AE002969A8 /* ResultCollectionViewCell.swift in Sources */,
