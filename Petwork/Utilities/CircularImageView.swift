@@ -8,6 +8,7 @@
 import UIKit
 
 @IBDesignable
+
 class CircularImageView: UIImageView {
     override func layoutSubviews() {
         super.layoutSubviews()

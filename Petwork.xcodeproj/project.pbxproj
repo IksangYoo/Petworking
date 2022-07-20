@@ -34,6 +34,7 @@
 		DDCD9443287659AC00A177E7 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD9442287659AC00A177E7 /* CustomImageView.swift */; };
 		DDCD944628837BE000A177E7 /* HomePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD944428837BE000A177E7 /* HomePageCollectionViewCell.swift */; };
 		DDCD944728837BE000A177E7 /* HomePageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDCD944528837BE000A177E7 /* HomePageCollectionViewCell.xib */; };
+		DDCD944928879BF600A177E7 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD944828879BF600A177E7 /* UserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		DDCD9442287659AC00A177E7 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		DDCD944428837BE000A177E7 /* HomePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDCD944528837BE000A177E7 /* HomePageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageCollectionViewCell.xib; sourceTree = "<group>"; };
+		DDCD944828879BF600A177E7 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		F7FE30D4CA74398711025101 /* Pods-Petwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Petwork.release.xcconfig"; path = "Target Support Files/Pods-Petwork/Pods-Petwork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +165,7 @@
 				DDCD4160283F2EF2002969A8 /* MyPageViewController.swift */,
 				DDCD4162283F2F03002969A8 /* UploadViewController.swift */,
 				DDCD416E2846D8CF002969A8 /* SetProfileViewController.swift */,
+				DDCD944828879BF600A177E7 /* UserViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				DDCD416A284583AE002969A8 /* ResultCollectionViewCell.swift in Sources */,
 				DDCD9443287659AC00A177E7 /* CustomImageView.swift in Sources */,
 				DD21D724286A533500D2D7A7 /* FirebaseUtilities.swift in Sources */,
+				DDCD944928879BF600A177E7 /* UserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

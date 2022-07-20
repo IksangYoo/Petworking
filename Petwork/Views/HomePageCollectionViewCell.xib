@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,16 +25,16 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kY-fn-B7U">
-                        <rect key="frame" x="84" y="34" width="200" height="21"/>
+                        <rect key="frame" x="84" y="34" width="125" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="200" id="Pfw-di-z6t"/>
+                            <constraint firstAttribute="width" constant="125" id="Pfw-di-z6t"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lw0-cx-t4T">
-                        <rect key="frame" x="0.0" y="94" width="414" height="481"/>
+                        <rect key="frame" x="0.0" y="94" width="414" height="380"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <viewLayoutGuide key="contentLayoutGuide" id="kOV-Ql-aPi"/>
                         <viewLayoutGuide key="frameLayoutGuide" id="DfD-tk-ox0"/>
@@ -42,24 +43,35 @@
                         </connections>
                     </scrollView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Hui-FO-bnE">
-                        <rect key="frame" x="107" y="587" width="200" height="26"/>
+                        <rect key="frame" x="107" y="482" width="200" height="26"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="200" id="web-Hz-FNI"/>
                         </constraints>
                     </pageControl>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k5G-hm-Ymj">
+                        <rect key="frame" x="10" y="509" width="394" height="104"/>
+                        <color key="textColor" systemColor="labelColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="Le6-Ir-d81" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="2Et-aK-aIJ"/>
                 <constraint firstItem="2kY-fn-B7U" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="34" id="6BE-lb-0pO"/>
-                <constraint firstAttribute="bottom" secondItem="Hui-FO-bnE" secondAttribute="bottom" id="Qnx-Ef-2hS"/>
+                <constraint firstItem="k5G-hm-Ymj" firstAttribute="top" secondItem="Hui-FO-bnE" secondAttribute="bottom" constant="1" id="6fv-Od-Cpv"/>
+                <constraint firstAttribute="bottom" secondItem="k5G-hm-Ymj" secondAttribute="bottom" id="K8g-17-zxD"/>
+                <constraint firstAttribute="bottom" secondItem="Hui-FO-bnE" secondAttribute="bottom" constant="105" id="Qnx-Ef-2hS"/>
+                <constraint firstAttribute="trailing" secondItem="k5G-hm-Ymj" secondAttribute="trailing" constant="10" id="RVr-vb-9NE"/>
                 <constraint firstItem="Le6-Ir-d81" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="jSu-Kw-1f6"/>
                 <constraint firstItem="Hui-FO-bnE" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="pYA-uc-whS"/>
+                <constraint firstItem="k5G-hm-Ymj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="qZJ-mP-D0m"/>
                 <constraint firstItem="2kY-fn-B7U" firstAttribute="leading" secondItem="Le6-Ir-d81" secondAttribute="trailing" constant="14" id="vHj-Iu-GqA"/>
             </constraints>
             <size key="customSize" width="418" height="582"/>
             <connections>
+                <outlet property="captionTextView" destination="k5G-hm-Ymj" id="8cA-Pt-0fE"/>
                 <outlet property="nameLebel" destination="2kY-fn-B7U" id="Lhy-AY-Kw2"/>
                 <outlet property="pageControl" destination="Hui-FO-bnE" id="DvE-TR-s64"/>
                 <outlet property="postScrollView" destination="Lw0-cx-t4T" id="Ep8-Au-bal"/>
@@ -68,4 +80,9 @@
             <point key="canvasLocation" x="389.85507246376812" y="172.43303571428569"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
