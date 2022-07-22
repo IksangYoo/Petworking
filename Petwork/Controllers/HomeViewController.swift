@@ -12,8 +12,10 @@ import Kingfisher
 class HomeViewController: UIViewController {
     
     var index : IndexPath?
-    
+    var user : User?
     var posts = [Post]()
+    
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -25,9 +27,15 @@ class HomeViewController: UIViewController {
             self.collectionView.reloadData()
         }
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToUser" {
+            let destinationVC = segue.destination as! UserViewController
+            destinationVC.user = user
+        }
+    }
     
     func fetchPosts(completion: @escaping ([Post]) -> Void) {
-        
         let userDBRef = Database.database().reference().child("users")
         let postRef = Database.database().reference().child("posts")
         
@@ -64,23 +72,12 @@ class HomeViewController: UIViewController {
                 p1.creationDate > p2.creationDate
             }))
         }
-        
     }
-    
 }
 
 //MARK: - collectionView
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func imagePressed(sender: Any) {
-        
-    }
-    
-    
-//    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-//        print("hi")
-//    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
@@ -91,22 +88,16 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         else {
             return UICollectionViewCell()
         }
-//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         cell.profileImageView.isUserInteractionEnabled = true
-//        cell.profileImageView.addGestureRecognizer(tapGestureRecognizer)
-//        cell.delegate = self
         fetchPostToCell(cell: cell, indexPath: indexPath)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        user = posts[indexPath.item].user
+        performSegue(withIdentifier: "goToUser", sender: self)
     }
-    
-//    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-//
-//    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width
@@ -139,17 +130,3 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.pageControl.numberOfPages = imageURLs.count
     }
 }
-
-//public final class BindableGestureRecognizer: UITapGestureRecognizer {
-//    private var closure: (_ sender: UITapGestureRecognizer) -> Void
-//
-//    public init(closure: @escaping (_ sender: UITapGestureRecognizer) -> Void) {
-//        self.closure = closure
-//        super.init(target: nil, action: nil)
-//        self.addTarget(self, action: #selector(tapped(sender:)))
-//    }
-//
-//    @objc public func tapped(sender: UITapGestureRecognizer) {
-//        closure(sender)
-//    }
-//}

@@ -76,7 +76,6 @@ class MyPageViewController: UIViewController {
     
     func saveToDatabase() {
         deleteStroageImage()
-        print("saveToDatabase")
         guard let image = profileImageView.image else { return }
         guard let name = nameTF.text else { return }
         guard let aboutMe = aboutMeTextView.text else { return }
@@ -86,20 +85,14 @@ class MyPageViewController: UIViewController {
             if let e = error {
                 print(e.localizedDescription)
             } else {
-                print("uploadUserProfileImage")
                 let dbRef = Database.database().reference().child("users").child(uid)
-                dbRef.removeAllObservers()
-                print("-------> imageURL2 \(profileImageURL)")
                 dbRef.updateChildValues(["name": name, "profileImageURL": profileImageURL!, "aboutMe": aboutMe]) { error, ref in
-                        print("updateChildValues")
                 }
-                }
+            }
             Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value) { snapshot in
-                print("ObserveSingleEvent")
                 guard let userDictionary = snapshot.value as? [String: Any] else { return }
                 let user = User(uid: uid, dictionary: userDictionary)
                 self.user = user
-                print(self.user)
             }
         }
     }
@@ -127,7 +120,6 @@ class MyPageViewController: UIViewController {
     }
     
     func fetchUserAndUpdateForm() {
-        print("fetchUserAndUpdateForm")
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let dbref = Database.database().reference().child("users").child(uid)
         
@@ -135,8 +127,6 @@ class MyPageViewController: UIViewController {
             guard let userDictionary = snapshot.value as? [String: Any] else { return }
             let user = User(uid: uid, dictionary: userDictionary)
             self.user = user
-//            print("------> imageURL1 \(user.profileImageURL)")
-            print("fetchUserAndUpdateFormClosure")
             
             guard let url = URL(string: user.profileImageURL) else { return }
             let imageData = NSData(contentsOf: url)
@@ -168,9 +158,9 @@ class MyPageViewController: UIViewController {
             print("------>user \(user)")
             print("--------> Dict \(post.postImageURLs)")
             
-            if !self.posts.contains(post) {
-                self.posts.insert(post, at: 0)
-            }
+            
+            self.posts.insert(post, at: 0)
+            
             self.collectionView.reloadData()
         }
     }

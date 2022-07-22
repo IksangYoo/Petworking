@@ -9,6 +9,8 @@ import UIKit
 
 class SearchViewController: UIViewController {
     var pressedSearchTerm: String = ""
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,5 +28,23 @@ class SearchViewController: UIViewController {
             destinationVC.searchTerm = pressedSearchTerm
         }
     }
-    
 }
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("asdffs")
+    }
+}
+
+//extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
+//    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        <#code#>
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
+//
+//
+//}
