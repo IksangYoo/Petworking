@@ -100,23 +100,30 @@ class MyPageViewController: UIViewController {
     @IBAction func settingsButtonPressed(_ sender: UIButton) {
         isSettingButtonClicked = !isSettingButtonClicked
         
+        guard let currentUser = user else { return }
+        let alertController = UIAlertController(title: "", message: "Confirm Changes", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default) { alertAction in
+            let url = URL(string: currentUser.profileImageURL)
+            self.aboutMeTextView.text = currentUser.aboutMe
+            self.nameTF.text = currentUser.name
+            self.profileImageView.kf.setImage(with: url)
+        }
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { alertAction in
+            self.saveToDatabase()
+            self.fetchOrderedPosts()
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(confirmAction)
+        
         if isSettingButtonClicked {
             settingsForm()
             collectionView.reloadData()
         } else {
             defaultForm()
-            saveToDatabase()
-            fetchOrderedPosts()
+            self.present(alertController, animated: true)
             collectionView.reloadData()
         }
-        
-        // alertAction 취소 눌렀을때 다시 본래대로
-//        aboutMeTextView.text = user?.aboutMe
-//        nameTF.text = user?.name
-        
-        // 완료 버튼 눌렀을때 db업데이트 시키기, user dic 업데이트
-        // post 삭제버튼 동작시키기(이것도 alertAciton 넣기)
-        // Home페이지 구현
     }
     
     func fetchUserAndUpdateForm() {
