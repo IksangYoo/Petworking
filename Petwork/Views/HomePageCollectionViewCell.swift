@@ -22,6 +22,7 @@ class HomePageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var postScrollView: UIScrollView!
     @IBOutlet weak var captionTextView: UITextView!
+    @IBOutlet weak var creationDateLabel: UILabel!
     
     
     override func awakeFromNib() {

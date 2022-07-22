@@ -112,11 +112,14 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         let url = URL(string: post.user.profileImageURL)
         let imageURLs = post.postImageURLs
         let scrollView = cell.postScrollView!
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy"
         
         cell.post = post
         cell.profileImageView.kf.setImage(with: url)
         cell.nameLebel.text = post.user.name
         cell.captionTextView.text = post.caption
+        cell.creationDateLabel.text = dateFormatter.string(from: post.creationDate)
         
         for i in 0..<imageURLs.count {
             let imageView = UIImageView()

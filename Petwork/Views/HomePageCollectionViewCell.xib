@@ -54,6 +54,13 @@
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z1T-d9-Zhy">
+                        <rect key="frame" x="230" y="34" width="164" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -72,6 +79,7 @@
             <size key="customSize" width="418" height="582"/>
             <connections>
                 <outlet property="captionTextView" destination="k5G-hm-Ymj" id="8cA-Pt-0fE"/>
+                <outlet property="creationDateLabel" destination="Z1T-d9-Zhy" id="fZF-CP-3jf"/>
                 <outlet property="nameLebel" destination="2kY-fn-B7U" id="Lhy-AY-Kw2"/>
                 <outlet property="pageControl" destination="Hui-FO-bnE" id="DvE-TR-s64"/>
                 <outlet property="postScrollView" destination="Lw0-cx-t4T" id="Ep8-Au-bal"/>
