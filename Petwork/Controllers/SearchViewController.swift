@@ -47,7 +47,7 @@ class SearchViewController: UIViewController {
     
     @IBAction func categoryPressed(_ sender: UIButton) {
         pressedSearchTerm = sender.currentTitle!
-        performSegue(withIdentifier: "goToUser", sender: self)
+        performSegue(withIdentifier: "goToResults", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

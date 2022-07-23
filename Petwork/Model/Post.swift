@@ -15,6 +15,7 @@ struct Post: Equatable {
     let caption: String
     let creationDate: Date
     
+    
     init(user: User, dictionary: [String: Any]){
         
         self.user = user

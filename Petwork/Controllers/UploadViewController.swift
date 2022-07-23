@@ -14,13 +14,31 @@ class UploadViewController: UIViewController {
     @IBOutlet weak var imageScrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var uploadButton: UIButton!
+    
+    @IBOutlet var tagButtons: [circularButton]!
+    
     var selectedImages : [UIImage] = []
     var num = 0
+    var tags : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         imageScrollView.delegate = self
+    }
+    @IBAction func tagButtonPressed(_ sender: UIButton) {
+        let title = sender.currentTitle!
+        sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected {
+            if !tags.contains(title){
+                tags.append(title)
+            }
+        } else {
+            if let index = tags.firstIndex(of: title) {
+                tags.remove(at: index)
+            }
+        }
     }
     
     func setupView() {
@@ -34,6 +52,9 @@ class UploadViewController: UIViewController {
         pageControl.currentPageIndicatorTintColor = .black
         captionTextView.text = "Caption..."
         captionTextView.textColor = UIColor.lightGray
+        for i in 0..<tagButtons.count {
+            tagButtons[i].isSelected = false
+        }
     }
     
     @IBAction func selectPhotoButtonPressed(_ sender: UIButton) {
@@ -41,16 +62,8 @@ class UploadViewController: UIViewController {
         config.library.maxNumberOfItems = 5
         config.albumName = "Petwork"
         config.startOnScreen = YPPickerScreen.library
-//        config.colors.filterBackgroundColor = #colorLiteral(red: 0.9981967807, green: 0.963527143, blue: 0.9382537007, alpha: 1)
-//        config.colors.selectionsBackgroundColor = #colorLiteral(red: 0.9981967807, green: 0.963527143, blue: 0.9382537007, alpha: 1)
-//        config.colors.safeAreaBackgroundColor = #colorLiteral(red: 0.9981967807, green: 0.963527143, blue: 0.9382537007, alpha: 1)
-//        config.colors.assetViewBackgroundColor = #colorLiteral(red: 0.9981967807, green: 0.963527143, blue: 0.9382537007, alpha: 1)
-//        config.colors.libraryScreenBackgroundColor = #colorLiteral(red: 0.9981967807, green: 0.963527143, blue: 0.9382537007, alpha: 1)
-//        config.colors.bottomMenuItemBackgroundColor = #colorLiteral(red: 0.9981967807, green: 0.963527143, blue: 0.9382537007, alpha: 1)
-//        config.colors.photoVideoScreenBackgroundColor = #colorLiteral(red: 0.9981967807, green: 0.963527143, blue: 0.9382537007, alpha: 1)
         
         let picker = YPImagePicker(configuration: config)
-        
         
         picker.didFinishPicking { [unowned picker] items, cancelled in
             for item in items {
@@ -76,9 +89,13 @@ class UploadViewController: UIViewController {
     
     
     @IBAction func uploadButtonPressed(_ sender: UIButton) {
-        
         if selectedImages.isEmpty {
             let alert = UIAlertController(title: "Upload Failed", message: "Please select a photo", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true)
+        } else if tags.isEmpty {
+            let alert = UIAlertController(title: "Upload Failed", message: "Please select at least one tag", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(action)
             present(alert, animated: true)
@@ -91,13 +108,10 @@ class UploadViewController: UIViewController {
                     self.removeSubviews()
                     self.setupView()
                 }
-                
             }
             alert.addAction(action)
             present(alert, animated: true)
         }
-
-        
     }
     
 
@@ -133,33 +147,12 @@ class UploadViewController: UIViewController {
                             urls.append(sortedDic[i].value)
                         }
                         
-                        dbRef.updateChildValues(["postImageURLs": urls, "caption": caption, "autoID": autoID, "creationDate": Date().timeIntervalSince1970])
+                        dbRef.updateChildValues(["postImageURLs": urls, "caption": caption, "autoID": autoID, "tags": self.tags, "creationDate": Date().timeIntervalSince1970])
                     }
                 }
             }
             
         }
-       
-//        postImages.enumerated().forEach { index, image in
-//            let filename = NSUUID().uuidString
-//
-//            guard let imageData = image.jpegData(compressionQuality: 0.2) else { return }
-//
-//            storageRef.child(filename).putData(imageData, metadata: nil) { metaData, error in
-//                if let e = error {
-//                    print(e.localizedDescription)
-//                } else {
-//                    storageRef.child(filename).downloadURL { url, error in
-//
-//                        guard let URL = url?.absoluteString else { return }
-//                        urls.insert(URL + "+ \(index)", at: 0)
-//                        dbRef.updateChildValues(["url": urls, "caption": caption, "creationDate": Date().timeIntervalSince1970])
-//                    }
-//                    print("---------->urls: \(urls)")
-//                }
-//            }
-//        }
-
     }
 }
 
@@ -210,5 +203,12 @@ extension UploadViewController: UITextViewDelegate {
             textView.text = "Caption..."
             textView.textColor = UIColor.lightGray
         }
+    }
+}
+
+class circularButton: UIButton {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.layer.cornerRadius = 11
     }
 }
