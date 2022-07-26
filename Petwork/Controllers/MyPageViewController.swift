@@ -14,6 +14,7 @@ class MyPageViewController: UIViewController {
     var isSettingButtonClicked = false
     var segmentIndex = 0
     let imagePicker = UIImagePickerController()
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var profileImageView: CircularImageView!
     @IBOutlet weak var aboutMeTextView: UITextView!
@@ -35,7 +36,6 @@ class MyPageViewController: UIViewController {
     }
     
     func defaultForm() {
-//        collectionView.allowsSelection = false
         aboutMeTextView.isUserInteractionEnabled = false
         nameTF.layer.borderWidth = 0
         nameTF.isUserInteractionEnabled = false
@@ -44,7 +44,6 @@ class MyPageViewController: UIViewController {
     }
     
     func settingsForm() {
-//        collectionView.allowsSelection = true
         aboutMeTextView.isUserInteractionEnabled = true
         nameTF.layer.borderWidth = 1
         nameTF.layer.borderColor = UIColor.black.cgColor
@@ -162,11 +161,10 @@ class MyPageViewController: UIViewController {
             guard let dictionary = snapshot.value as? [String: Any] else { return }
             guard let user = self.user else { return }
             let post = Post(user: user, dictionary: dictionary)
-            print("------>user \(user)")
-            print("--------> Dict \(post.postImageURLs)")
             
-            
-            self.posts.insert(post, at: 0)
+            if !self.posts.contains(post) {  // 중복 막기 위해
+                self.posts.insert(post, at: 0)
+            }
             
             self.collectionView.reloadData()
         }
@@ -222,24 +220,29 @@ extension MyPageViewController: UICollectionViewDataSource, UICollectionViewDele
         }
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if isSettingButtonClicked {
-            deletePost(indexPath)
-            fetchOrderedPosts()
-            
+            let alert = UIAlertController(title: "", message: "Do you want to delete this post?", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "Yes, I do", style: .default, handler: { action in
+                self.deletePost(indexPath)
+                self.fetchOrderedPosts()
+            })
+            let noAction = UIAlertAction(title: "No, I don't", style: .cancel)
+            alert.addAction(noAction)
+            alert.addAction(yesAction)
+            present(alert, animated: true)
         } else {
             // navigate to feed page
         }
     }
-    
+                            
     func deletePost(_ indexPath: IndexPath) {
-        guard let uid = user?.uid else { return }
-        guard let postID = posts[indexPath.item].autoID else { return }
-        let dbRef = Database.database().reference().child("posts").child(uid).child(postID)
-        dbRef.removeValue()
-        collectionView.reloadData()
+            guard let uid = self.user?.uid else { return }
+            guard let postID = self.posts[indexPath.item].autoID else { return }
+            let dbRef = Database.database().reference().child("posts").child(uid).child(postID)
+            dbRef.removeValue()
+            self.collectionView.reloadData()
     }
 }
 

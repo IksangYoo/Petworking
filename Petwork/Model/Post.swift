@@ -14,7 +14,7 @@ struct Post: Equatable {
     let postImageURLs: [String]
     let caption: String
     let creationDate: Date
-    
+    let tags: [String]
     
     init(user: User, dictionary: [String: Any]){
         
@@ -24,9 +24,10 @@ struct Post: Equatable {
         self.caption = dictionary["caption"] as? String ?? ""
         let secondsFrom1970 = dictionary["creationDate"] as? Double ?? 0
         self.creationDate = Date(timeIntervalSince1970: secondsFrom1970)
+        self.tags = dictionary["tags"] as? [String] ?? []
     }
     
     static func == (lhs: Post, rhs: Post) -> Bool {
-        return lhs.creationDate == rhs.creationDate
+        return lhs.autoID == rhs.autoID
     }
 }

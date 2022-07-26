@@ -6,21 +6,31 @@
 //
 
 import UIKit
+import Firebase
+import Kingfisher
 
 class ResultsViewController: UIViewController {
+    
     @IBOutlet weak var segmentControl: UISegmentedControl!
-    
     @IBOutlet weak var collectionView: UICollectionView!
-    var segmentIndex = 0
-    var searchTerm: String = ""
-    let images = (1..<19).map { UIImage(named: "img_movie_\($0)") }
-    
     @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var noResultLabel: UILabel!
+    
+    var posts = [Post]()
+    var filteredPosts = [Post]()
+    var segmentIndex = 0
+    var searchTag: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        resultLabel.text = "Results for \(searchTerm)"
-        collectionView.register(UINib(nibName: "ResultCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "feedCell")
+        collectionView.register(UINib(nibName: "ResultCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "resultCell")
+        resultLabel.text = "Results for \(searchTag)"
+        fetchPosts { result in
+            self.posts = result
+            self.filterdPostsByTag()
+            self.collectionView.reloadData()
+        }
+        
     }
     
     @IBAction func switchDisplayMode(_ sender: UISegmentedControl) {
@@ -33,20 +43,82 @@ class ResultsViewController: UIViewController {
         }
     }
     
+    func filterdPostsByTag() {
+        if searchTag == "All" {
+            filteredPosts = posts
+        } else {
+            posts.forEach { post in
+                if post.tags.contains(searchTag) {
+                    filteredPosts.append(post)
+                }
+            }
+        }
+        
+        if filteredPosts.count != 0 {
+            noResultLabel.isHidden = true
+        } else {
+            noResultLabel.isHidden = false
+        }
+    }
+    
+    func fetchPosts(completion: @escaping ([Post]) -> Void) {
+        let userDBRef = Database.database().reference().child("users")
+        let postRef = Database.database().reference().child("posts")
+        
+        var results = [Post]()
+        let dispatch = DispatchGroup()
+        
+        dispatch.enter()
+        userDBRef.observeSingleEvent(of: .value) { snapshot in
+            guard let userDict = snapshot.value as? [String: Any] else {
+                dispatch.leave()
+                return
+            }
+            
+            userDict.forEach { key, value in
+                let user = User(uid: key, dictionary: value as! [String : Any])
+                dispatch.enter()
+                postRef.child(user.uid).observeSingleEvent(of: .value) { snapshot in
+                    guard let postDict = snapshot.value as? [String: Any] else {
+                        dispatch.leave()
+                        return
+                    }
+                    postDict.forEach { key, value in
+                        let post = Post(user: user, dictionary: value as! [String: Any])
+                        results.append(post)
+                    }
+                    dispatch.leave()
+                }
+            }
+            dispatch.leave()
+        }
+        
+        dispatch.notify(queue: .main) {
+            completion(results.sorted(by: { p1, p2 in
+                p1.creationDate > p2.creationDate
+            }))
+        }
+    }
+    
 }
 
 extension ResultsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return filteredPosts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "feedCell", for: indexPath) as? ResultCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "resultCell", for: indexPath) as? ResultCollectionViewCell
         else {
             return UICollectionViewCell()
         }
-        cell.feedImageView.image = images[indexPath.row]
+        let url = URL(string: filteredPosts[indexPath.item].postImageURLs[0])
+        cell.feedImageView.kf.setImage(with: url)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.item)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -39,6 +39,7 @@ class UploadViewController: UIViewController {
                 tags.remove(at: index)
             }
         }
+        print(tags)
     }
     
     func setupView() {
@@ -55,6 +56,7 @@ class UploadViewController: UIViewController {
         for i in 0..<tagButtons.count {
             tagButtons[i].isSelected = false
         }
+//        tags.removeAll()
     }
     
     @IBAction func selectPhotoButtonPressed(_ sender: UIButton) {
@@ -124,7 +126,6 @@ class UploadViewController: UIViewController {
         let dbRef = Database.database().reference().child("posts").child(uid).childByAutoId()
         guard let autoID = dbRef.key else { return }
         var urls : [String] = []
-        
         var urlDicWithIndex : [Int: String] = [:]
         
         for (index, image) in postImages.enumerated() {
@@ -146,12 +147,11 @@ class UploadViewController: UIViewController {
                         for i in 0..<sortedDic.count {
                             urls.append(sortedDic[i].value)
                         }
-                        
                         dbRef.updateChildValues(["postImageURLs": urls, "caption": caption, "autoID": autoID, "tags": self.tags, "creationDate": Date().timeIntervalSince1970])
+                        self.tags.removeAll()
                     }
                 }
             }
-            
         }
     }
 }

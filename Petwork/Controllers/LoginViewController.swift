@@ -23,7 +23,6 @@ class LoginViewController: UIViewController {
         loginButton.isEnabled = true
     }
 
-    
     @IBAction func emailChanged(_ sender: UITextField) {
         checkForValidForm()
     }
@@ -42,7 +41,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    
     @IBAction func loginPressed(_ sender: Any) {
         if let email = emailTextField.text, let password = passwordTextField.text {
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
@@ -57,5 +55,4 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    
 }

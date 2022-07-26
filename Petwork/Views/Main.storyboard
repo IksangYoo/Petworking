@@ -68,7 +68,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fpQ-Mr-xFL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="490" y="-940"/>
+            <point key="canvasLocation" x="1091" y="-1010"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="mNg-EE-cbq">
@@ -96,7 +96,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Birds" backgroundImage="Petwork">
+                                <state key="normal" title="Bird" backgroundImage="Petwork">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -108,7 +108,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Others" backgroundImage="Petwork">
+                                <state key="normal" title="Other" backgroundImage="Petwork">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -120,7 +120,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Cats" backgroundImage="Petwork">
+                                <state key="normal" title="Cat" backgroundImage="Petwork">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -132,7 +132,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Reptiles" backgroundImage="Petwork">
+                                <state key="normal" title="Reptile" backgroundImage="Petwork">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -143,7 +143,7 @@
                                 <rect key="frame" x="220" y="317" width="172" height="147"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Dogs" backgroundImage="Petwork">
+                                <state key="normal" title="Dog" backgroundImage="Petwork">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <state key="highlighted">
@@ -470,11 +470,28 @@
                         <outlet property="nameLabel" destination="q1r-cm-bmW" id="tN1-i2-7nz"/>
                         <outlet property="profileImageView" destination="u3h-RF-GG3" id="kpw-Oq-Vw4"/>
                         <outlet property="segmentedControl" destination="7df-A0-lPb" id="ud9-LR-Qqd"/>
+                        <segue destination="xDd-SV-d4D" kind="show" id="is8-tR-oIH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mRs-Kh-CSM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-530.43478260869574" y="1303.7946428571429"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="rVg-c1-Dvn">
+            <objects>
+                <viewController id="xDd-SV-d4D" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CAx-WU-qMH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="f7X-Ub-3G5"/>
+                        <color key="backgroundColor" red="0.99215686270000003" green="0.96470588239999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aaC-lR-jgd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jTv-cj-Hv1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-530" y="2026"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="Nbz-5s-Pv1">
@@ -520,20 +537,37 @@
                                     <action selector="switchDisplayMode:" destination="4hl-9I-zfQ" eventType="valueChanged" id="uma-nR-Uun"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9u-jC-7d2">
+                                <rect key="frame" x="107" y="416.5" width="200" height="63"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="9nX-JX-L8i"/>
+                                    <constraint firstAttribute="width" constant="200" id="NS6-gc-E57"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2qc-IT-1lP"/>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.96470588239999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="M9u-jC-7d2" firstAttribute="centerX" secondItem="2Yn-Mh-MJ5" secondAttribute="centerX" id="4Wl-gD-8By"/>
+                            <constraint firstItem="M9u-jC-7d2" firstAttribute="centerY" secondItem="2Yn-Mh-MJ5" secondAttribute="centerY" id="JlJ-qQ-7Hz"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jGE-2k-7oO"/>
                     <connections>
                         <outlet property="collectionView" destination="zDv-VQ-dMV" id="WCy-zt-Nkv"/>
+                        <outlet property="noResultLabel" destination="M9u-jC-7d2" id="KKg-JQ-XSN"/>
                         <outlet property="resultLabel" destination="GSf-gs-FK0" id="9jp-tR-Bgd"/>
                         <outlet property="segmentControl" destination="XQe-oO-t45" id="RdT-N4-hq9"/>
+                        <segue destination="xDd-SV-d4D" kind="show" id="adF-ui-cvi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IuU-9X-I5B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="645" y="1304"/>
+            <point key="canvasLocation" x="644.92753623188412" y="1303.7946428571429"/>
         </scene>
         <!--My Page-->
         <scene sceneID="BK3-vb-h2I">
@@ -677,6 +711,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="adF-ui-cvi"/>
         <segue reference="sM7-1A-wVU"/>
     </inferredMetricsTieBreakers>
     <resources>

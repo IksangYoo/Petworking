@@ -37,13 +37,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func continuePressed(_ sender: UIButton) {
-//        if let email = emailTextField.text, let password = passwordTextField.text {
-//            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-//                if let e = error {
-//                    print(e.localizedDescription)
-//                }
-//            }
-//        }
         self.performSegue(withIdentifier: "goToWelcome", sender: self)
     }
     
@@ -164,8 +157,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
 }
-    
-    
     
     // checkbox
     

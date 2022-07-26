@@ -10,7 +10,7 @@ import Firebase
 import Kingfisher
 
 class SearchViewController: UIViewController {
-    var pressedSearchTerm: String = ""
+    var searchterm: String = ""
     var users = [User]()
     var user : User?
     var filteredUsers = [User]()
@@ -46,14 +46,17 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func categoryPressed(_ sender: UIButton) {
-        pressedSearchTerm = sender.currentTitle!
-        performSegue(withIdentifier: "goToResults", sender: self)
+        if let title = sender.currentTitle {
+            searchterm = title
+            performSegue(withIdentifier: "goToResults", sender: self)
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResults" {
             let destinationVC = segue.destination as! ResultsViewController
-            destinationVC.searchTerm = pressedSearchTerm
+            destinationVC.searchTag = searchterm
         } else if segue.identifier == "goToUser" {
             let destinationVC = segue.destination as! UserViewController
             destinationVC.user = user
