@@ -29,6 +29,8 @@ class HomePageCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
 //        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         profileImageView.isUserInteractionEnabled = true
+        postScrollView.showsHorizontalScrollIndicator = false
+        postScrollView.showsVerticalScrollIndicator = false
 //        profileImageView.addGestureRecognizer(tapGestureRecognizer)
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .black
@@ -40,6 +42,7 @@ class HomePageCollectionViewCell: UICollectionViewCell {
 //    }
     
     override func prepareForReuse() {
+
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .black
     }

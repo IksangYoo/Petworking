@@ -35,6 +35,7 @@
 		DDCD944628837BE000A177E7 /* HomePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD944428837BE000A177E7 /* HomePageCollectionViewCell.swift */; };
 		DDCD944728837BE000A177E7 /* HomePageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDCD944528837BE000A177E7 /* HomePageCollectionViewCell.xib */; };
 		DDCD944928879BF600A177E7 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD944828879BF600A177E7 /* UserViewController.swift */; };
+		DDCD944B288F950800A177E7 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD944A288F950800A177E7 /* PostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		DDCD944428837BE000A177E7 /* HomePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDCD944528837BE000A177E7 /* HomePageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageCollectionViewCell.xib; sourceTree = "<group>"; };
 		DDCD944828879BF600A177E7 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		DDCD944A288F950800A177E7 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		F7FE30D4CA74398711025101 /* Pods-Petwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Petwork.release.xcconfig"; path = "Target Support Files/Pods-Petwork/Pods-Petwork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +168,7 @@
 				DDCD4162283F2F03002969A8 /* UploadViewController.swift */,
 				DDCD416E2846D8CF002969A8 /* SetProfileViewController.swift */,
 				DDCD944828879BF600A177E7 /* UserViewController.swift */,
+				DDCD944A288F950800A177E7 /* PostViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				DDCD415B283ED73A002969A8 /* SearchViewController.swift in Sources */,
 				DDCD41712846DF5E002969A8 /* CircularImageView.swift in Sources */,
 				DDCD9440287656E100A177E7 /* MyPageCollectionViewCell.swift in Sources */,
+				DDCD944B288F950800A177E7 /* PostViewController.swift in Sources */,
 				DD3B459D28305AB1001D54AD /* LoginViewController.swift in Sources */,
 				DD3B459928305AB1001D54AD /* AppDelegate.swift in Sources */,
 				DDCD414D28341983002969A8 /* SignUpViewController.swift in Sources */,

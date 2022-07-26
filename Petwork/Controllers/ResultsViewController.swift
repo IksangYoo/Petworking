@@ -16,6 +16,7 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var noResultLabel: UILabel!
     
+    var post : Post?
     var posts = [Post]()
     var filteredPosts = [Post]()
     var segmentIndex = 0
@@ -42,6 +43,13 @@ class ResultsViewController: UIViewController {
             collectionView.reloadData()
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToPost" {
+            let destinationVC = segue.destination as! PostViewController
+            destinationVC.post = post
+    }
+}
     
     func filterdPostsByTag() {
         if searchTag == "All" {
@@ -118,7 +126,8 @@ extension ResultsViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
+        post = posts[indexPath.item]
+        performSegue(withIdentifier: "goToPost", sender: self)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

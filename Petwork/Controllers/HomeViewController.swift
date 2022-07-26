@@ -21,7 +21,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "HomePageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "homeCell")
-        
         fetchPosts { results in
             self.posts = results
             self.collectionView.reloadData()
@@ -88,7 +87,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         else {
             return UICollectionViewCell()
         }
-        cell.profileImageView.isUserInteractionEnabled = true
         fetchPostToCell(cell: cell, indexPath: indexPath)
         
         return cell
@@ -120,6 +118,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.nameLebel.text = post.user.name
         cell.captionTextView.text = post.caption
         cell.creationDateLabel.text = dateFormatter.string(from: post.creationDate)
+        
         
         for i in 0..<imageURLs.count {
             let imageView = UIImageView()

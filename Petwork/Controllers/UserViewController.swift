@@ -15,6 +15,8 @@ class UserViewController: UIViewController {
     var posts = [Post]()
     var user : User?
     var segmentIndex = 0
+    var post : Post?
+//    var images = [UIImage]()
     
     @IBOutlet weak var profileImageView: CircularImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -36,6 +38,14 @@ class UserViewController: UIViewController {
         aboutMeTextView.isUserInteractionEnabled = false
         aboutMeTextView.text = user.aboutMe
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToPost" {
+            let destinationVC = segue.destination as! PostViewController
+            destinationVC.post = post
+//            destinationVC.images = images
+    }
+}
     
     func fetchOrderedPosts() {
         guard let user = user else { return }
@@ -61,6 +71,24 @@ class UserViewController: UIViewController {
             collectionView.reloadData()
         }
     }
+    
+//    func returnImages(with urls: [String]) -> [UIImage] {
+//        var images = [UIImage]()
+//
+//        urls.forEach { urlString in
+//            guard let url = URL(string: urlString) else { return }
+//            KingfisherManager.shared.retrieveImage(with: url) { result in
+//                switch result {
+//                case .success(let value):
+//                    images.append(value.image)
+//                case .failure(let error):
+//                    print(error.localizedDescription)
+//                }
+//            }
+//        }
+//
+//        return images
+//    }
 }
 
 extension UserViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -81,7 +109,10 @@ extension UserViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
+        post = posts[indexPath.item]
+        print("---> \(post!.postImageURLs.count)")
+//        images = returnImages(with: post!.postImageURLs)
+        performSegue(withIdentifier: "goToPost", sender: self)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
