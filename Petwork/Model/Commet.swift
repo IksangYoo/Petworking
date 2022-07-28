@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct Comment {
+struct Comment: Equatable {
     let user: User
     let text: String
     let uid: String
     let creationDate: Date
+    let autoID: String
     
     init(user: User, dictionary: [String: Any]) {
         self.user = user
@@ -19,5 +20,10 @@ struct Comment {
         self.uid = dictionary["uid"] as? String ?? ""
         let secondsFrom1970 = dictionary["creationDate"] as? Double ?? 0
         self.creationDate = Date(timeIntervalSince1970: secondsFrom1970)
+        self.autoID = dictionary["autoID"] as? String ?? ""
+    }
+    
+    static func == (lhs: Comment, rhs: Comment) -> Bool {
+        return lhs.autoID == rhs.autoID
     }
 }

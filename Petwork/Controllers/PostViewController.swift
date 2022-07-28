@@ -21,6 +21,7 @@ class PostViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var commentTextField: UITextField!
+    @IBOutlet weak var noCommentsLabel: UILabel!
     
     var post : Post?
     var comments = [Comment]()
@@ -30,6 +31,7 @@ class PostViewController: UIViewController {
         scrollView.delegate = self
         setupView()
         fetchComments()
+        deleteObserver()
     }
     
     func setupView() {
@@ -57,8 +59,9 @@ class PostViewController: UIViewController {
         guard let post = post else { return }
         guard let currentUserUid = Auth.auth().currentUser?.uid else { return }
         let dbRef = Database.database().reference().child("comments").child(post.autoID).childByAutoId()
+        guard let autoID = dbRef.key else { return }
         
-        dbRef.updateChildValues(["uid": currentUserUid, "text": commentText, "creationDate": Date().timeIntervalSince1970])
+        dbRef.updateChildValues(["uid": currentUserUid, "text": commentText, "autoID": autoID ,"creationDate": Date().timeIntervalSince1970])
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
@@ -70,6 +73,7 @@ class PostViewController: UIViewController {
     func fetchComments() {
         guard let post = post else { return }
         let dbRef = Database.database().reference().child("comments").child(post.autoID)
+        comments.removeAll()
         
         dbRef.observe(.childAdded) { snapshot in
             guard let dictionary = snapshot.value as? [String: Any] else { return }
@@ -78,12 +82,25 @@ class PostViewController: UIViewController {
             Database.fetchUserWithUID(uid: uid) { user in
                 let comment = Comment(user: user, dictionary: dictionary)
                 
-                self.comments.append(comment)
+                if !self.comments.contains(comment) {
+                    self.comments.append(comment)
+                }
                 self.comments.sort { c1, c2 in
                     c1.creationDate > c2.creationDate
                 }
                 self.tableView.reloadData()
             }
+        }
+    }
+    
+    func deleteObserver() {
+        guard let post = post else { return }
+        let dbRef = Database.database().reference().child("comments").child(post.autoID)
+
+        dbRef.observe(.childRemoved) { snapshot in
+            print("delete")
+            self.fetchComments()
+            self.tableView.reloadData()
         }
     }
 }
@@ -103,10 +120,11 @@ extension PostViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as? commentCell else {
             return UITableViewCell()
         }
-        cell.isUserInteractionEnabled = false
         let comment = comments[indexPath.item]
         let urlString = comment.user.profileImageURL
         let url = URL(string: urlString)
+        cell.postId = post!.autoID
+        cell.comment = comment
         cell.profileImageView.kf.setImage(with: url)
         cell.commentTextLabel.text = comment.text
         
@@ -153,7 +171,20 @@ extension PostViewController: UITextFieldDelegate {
 }
 
 class commentCell: UITableViewCell {
+    let postVC = PostViewController()
+    var postId : String = ""
+    var comment: Comment?
+    
     @IBOutlet weak var profileImageView: CircularImageView!
     @IBOutlet weak var commentTextLabel: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
+    
+    @IBAction func deleteButtonPressed(_ sender: UIButton) {
+        guard let comment = comment else { return }
+        
+        let dbRef = Database.database().reference().child("comments").child(postId).child(comment.autoID)
+        dbRef.removeValue()
+        
+    }
     
 }
