@@ -239,7 +239,7 @@ extension MyPageViewController: UICollectionViewDataSource, UICollectionViewDele
                             
     func deletePost(_ indexPath: IndexPath) {
             guard let uid = self.user?.uid else { return }
-            guard let postID = self.posts[indexPath.item].autoID else { return }
+            let postID = self.posts[indexPath.item].autoID
             let dbRef = Database.database().reference().child("posts").child(uid).child(postID)
             dbRef.removeValue()
             self.collectionView.reloadData()

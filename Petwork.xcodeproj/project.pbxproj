@@ -36,6 +36,7 @@
 		DDCD944728837BE000A177E7 /* HomePageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDCD944528837BE000A177E7 /* HomePageCollectionViewCell.xib */; };
 		DDCD944928879BF600A177E7 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD944828879BF600A177E7 /* UserViewController.swift */; };
 		DDCD944B288F950800A177E7 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD944A288F950800A177E7 /* PostViewController.swift */; };
+		DDCD944D2890B78F00A177E7 /* Commet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD944C2890B78F00A177E7 /* Commet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		DDCD944528837BE000A177E7 /* HomePageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageCollectionViewCell.xib; sourceTree = "<group>"; };
 		DDCD944828879BF600A177E7 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		DDCD944A288F950800A177E7 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		DDCD944C2890B78F00A177E7 /* Commet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commet.swift; sourceTree = "<group>"; };
 		F7FE30D4CA74398711025101 /* Pods-Petwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Petwork.release.xcconfig"; path = "Target Support Files/Pods-Petwork/Pods-Petwork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 			children = (
 				DD21D720286A50A000D2D7A7 /* User.swift */,
 				DD21D7252873A27A00D2D7A7 /* Post.swift */,
+				DDCD944C2890B78F00A177E7 /* Commet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				DDCD944628837BE000A177E7 /* HomePageCollectionViewCell.swift in Sources */,
 				DDCD416F2846D8CF002969A8 /* SetProfileViewController.swift in Sources */,
 				DDCD4161283F2EF2002969A8 /* MyPageViewController.swift in Sources */,
+				DDCD944D2890B78F00A177E7 /* Commet.swift in Sources */,
 				DDCD416A284583AE002969A8 /* ResultCollectionViewCell.swift in Sources */,
 				DDCD9443287659AC00A177E7 /* CustomImageView.swift in Sources */,
 				DD21D724286A533500D2D7A7 /* FirebaseUtilities.swift in Sources */,

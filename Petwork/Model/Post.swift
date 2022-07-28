@@ -10,7 +10,7 @@ import Foundation
 struct Post: Equatable {
     
     let user: User
-    let autoID: String?
+    let autoID: String
     let postImageURLs: [String]
     let caption: String
     let creationDate: Date
