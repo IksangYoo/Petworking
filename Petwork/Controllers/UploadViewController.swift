@@ -120,6 +120,7 @@ class UploadViewController: UIViewController {
     
     func storePostToFB(with postImages: [UIImage]) {
         
+        let dispatch = DispatchGroup()
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let caption = captionTextView.text else { return }
         let storageRef = Storage.storage().reference().child("postImages").child(uid)
@@ -132,12 +133,14 @@ class UploadViewController: UIViewController {
             let filename = NSUUID().uuidString
             guard let imageData = image.jpegData(compressionQuality: 0.2) else { return }
             
+            dispatch.enter()
             storageRef.child(filename).putData(imageData, metadata: nil) { metaData, error in
                 if let e = error {
                     print(e.localizedDescription)
                 } else {
+                    
                     storageRef.child(filename).downloadURL { url, error in
-                        
+                        let tags = self.tags
                         guard let URL = url?.absoluteString else { return }
                         urlDicWithIndex[index] = URL
                         
@@ -147,11 +150,14 @@ class UploadViewController: UIViewController {
                         for i in 0..<sortedDic.count {
                             urls.append(sortedDic[i].value)
                         }
-                        dbRef.updateChildValues(["postImageURLs": urls, "caption": caption, "autoID": autoID, "tags": self.tags, "creationDate": Date().timeIntervalSince1970])
-                        self.tags.removeAll()
+                        dbRef.updateChildValues(["postImageURLs": urls, "caption": caption, "autoID": autoID, "tags": tags, "creationDate": Date().timeIntervalSince1970])
+                        dispatch.leave()
                     }
                 }
             }
+        }
+        dispatch.notify(queue: .main) {
+            self.tags.removeAll()
         }
     }
 }

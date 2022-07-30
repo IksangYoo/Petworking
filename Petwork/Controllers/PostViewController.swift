@@ -13,6 +13,7 @@ class PostViewController: UIViewController {
 
     @IBOutlet weak var profileImageView: CircularImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tagLabel: UILabel!
@@ -40,12 +41,14 @@ class PostViewController: UIViewController {
         let profileURL = URL(string: user.profileImageURL)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d, yyyy"
+        let tagString = post.tags.joined(separator: ",")
         
         fetchImageToScrollView()
         nameLabel.text = user.name
         profileImageView.kf.setImage(with: profileURL)
         captionTextView.isUserInteractionEnabled = false
         captionTextView.text = post.caption
+        tagLabel.text = tagString
         dateLabel.text = dateFormatter.string(from: post.creationDate)
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = .lightGray
@@ -112,26 +115,53 @@ class PostViewController: UIViewController {
 extension PostViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if comments.count == 0 {
+            noCommentsLabel.isHidden = false
+        } else {
+            noCommentsLabel.isHidden = true
+        }
         return comments.count
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as? commentCell else {
             return UITableViewCell()
         }
-        let comment = comments[indexPath.item]
-        let urlString = comment.user.profileImageURL
-        let url = URL(string: urlString)
-        cell.postId = post!.autoID
-        cell.comment = comment
-        cell.profileImageView.kf.setImage(with: url)
-        cell.commentTextLabel.text = comment.text
+        
+        cell.comment = comments[indexPath.item]
+        setupCell(cell)
         
         return cell
     }
     
-    
+    func setupCell(_ cell: commentCell) {
+        guard let post = post else { return }
+        guard let comment = cell.comment else { return }
+        guard let currentUID = Auth.auth().currentUser?.uid else { return }
+        let urlString = comment.user.profileImageURL
+        let url = URL(string: urlString)
+        
+        
+        cell.postId = post.autoID
+        cell.commentTextLabel.text = comment.text
+        cell.profileImageView.kf.setImage(with: url)
+        var frame = nameLabel.frame
+               frame.size.width = 100
+               nameLabel.frame = frame
+        cell.nameLabel.text = comment.user.name
+        cell.nameLabel.sizeToFit()
+        cell.commentTextLabel.numberOfLines = 0
+        
+        if post.user.uid == currentUID {
+            cell.deleteButton.isHidden = false
+        } else {
+            if comment.uid == currentUID {
+                cell.deleteButton.isHidden = false
+            } else {
+                cell.deleteButton.isHidden = true
+            }
+        }
+    }
 }
 
 //MARK: - ScrollView Delegate
@@ -178,6 +208,13 @@ class commentCell: UITableViewCell {
     @IBOutlet weak var profileImageView: CircularImageView!
     @IBOutlet weak var commentTextLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
+    
+//    override func prepareForReuse() {
+//        var frame = nameLabel.frame
+//        frame.size.width = 100
+//        nameLabel.frame = frame
+//    }
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
         guard let comment = comment else { return }

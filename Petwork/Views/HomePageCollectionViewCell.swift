@@ -34,6 +34,7 @@ class HomePageCollectionViewCell: UICollectionViewCell {
 //        profileImageView.addGestureRecognizer(tapGestureRecognizer)
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .black
+        captionTextView.isUserInteractionEnabled = false
         postScrollView.delegate = self
     }
     

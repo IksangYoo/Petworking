@@ -126,7 +126,7 @@ extension ResultsViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        post = posts[indexPath.item]
+        post = filteredPosts[indexPath.item]
         performSegue(withIdentifier: "goToPost", sender: self)
     }
     
