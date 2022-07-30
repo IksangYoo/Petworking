@@ -21,22 +21,22 @@
                                 <rect key="frame" x="30" y="256" width="354" height="606"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KS-bN-vAc">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="58.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="43.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dHa-d0-QLP" userLabel="Email Stack View">
-                                        <rect key="frame" x="0.0" y="78.5" width="354" height="96"/>
+                                        <rect key="frame" x="0.0" y="63.5" width="354" height="71.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAj-bn-19Q">
-                                                <rect key="frame" x="0.0" y="0.0" width="47" height="51"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="47" height="26.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="qwe@qwe.qwe" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BLY-JC-Mr8">
-                                                <rect key="frame" x="0.0" y="56" width="354" height="40"/>
+                                                <rect key="frame" x="0.0" y="31.5" width="354" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="HkH-P6-Acb"/>
                                                 </constraints>
@@ -54,16 +54,16 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UHX-CU-UXc" userLabel="Password Stack View">
-                                        <rect key="frame" x="0.0" y="194.5" width="354" height="96"/>
+                                        <rect key="frame" x="0.0" y="155" width="354" height="71.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v46-CH-Zrb">
-                                                <rect key="frame" x="0.0" y="0.0" width="354" height="51"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="26.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123123" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Mr-jv-0ua">
-                                                <rect key="frame" x="0.0" y="56" width="354" height="40"/>
+                                                <rect key="frame" x="0.0" y="31.5" width="354" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="2cm-OH-U4K"/>
                                                 </constraints>
@@ -81,7 +81,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7R-ji-b4m">
-                                        <rect key="frame" x="0.0" y="310.5" width="354" height="53"/>
+                                        <rect key="frame" x="0.0" y="246.5" width="354" height="39.5"/>
                                         <color key="tintColor" red="0.14117647059999999" green="0.1176470588" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Login" cornerStyle="medium">
@@ -95,43 +95,32 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or sign in with" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGq-BB-rHJ">
-                                        <rect key="frame" x="0.0" y="383.5" width="354" height="30"/>
+                                        <rect key="frame" x="0.0" y="306" width="354" height="22.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="2sD-V8-R3g" userLabel="Google Apple Stack View">
-                                        <rect key="frame" x="0.0" y="433.5" width="354" height="52.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="2sD-V8-R3g" userLabel="Google Apple Stack View">
+                                        <rect key="frame" x="0.0" y="348.5" width="354" height="193.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMv-T6-BKY">
-                                                <rect key="frame" x="0.0" y="0.0" width="162" height="52.5"/>
-                                                <color key="tintColor" red="0.14117647059999999" green="0.1176470588" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Google" cornerStyle="medium">
-                                                    <backgroundConfiguration key="background">
-                                                        <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
-                                                </buttonConfiguration>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHg-P3-Czf">
-                                                <rect key="frame" x="192" y="0.0" width="162" height="52.5"/>
-                                                <color key="tintColor" red="0.14117647059999999" green="0.1176470588" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Apple" cornerStyle="medium">
-                                                    <backgroundConfiguration key="background">
-                                                        <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
-                                                </buttonConfiguration>
-                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2sp-Wn-R1A" customClass="GIDSignInButton">
+                                                <rect key="frame" x="0.0" y="0.0" width="136" height="193.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <connections>
+                                                    <action selector="googleLoginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vTA-Lr-OOu"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ue0-JD-pBW">
+                                                <rect key="frame" x="166" y="0.0" width="188" height="193.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="2LX-De-EHh" userLabel="Help Signup Stack View">
-                                        <rect key="frame" x="0.0" y="506" width="354" height="100"/>
+                                        <rect key="frame" x="0.0" y="562" width="354" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bo9-JP-eH6">
-                                                <rect key="frame" x="0.0" y="0.0" width="162" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="162" height="44"/>
                                                 <color key="tintColor" red="0.94901961089999998" green="0.65098041299999998" blue="0.65882354970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Need help?">
@@ -139,7 +128,7 @@
                                                 </buttonConfiguration>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olx-Vq-a0s">
-                                                <rect key="frame" x="192" y="0.0" width="162" height="100"/>
+                                                <rect key="frame" x="192" y="0.0" width="162" height="44"/>
                                                 <color key="tintColor" red="1" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up">
@@ -196,6 +185,7 @@
                     <navigationItem key="navigationItem" id="YYL-Va-BiQ"/>
                     <connections>
                         <outlet property="emailTextField" destination="BLY-JC-Mr8" id="G4T-X1-H14"/>
+                        <outlet property="googleLoginButton" destination="2sp-Wn-R1A" id="oxp-bY-tbN"/>
                         <outlet property="loginButton" destination="c7R-ji-b4m" id="ozh-tM-Mjp"/>
                         <outlet property="passwordTextField" destination="4Mr-jv-0ua" id="9P9-1p-d81"/>
                     </connections>
@@ -476,6 +466,9 @@
         <image name="icon.unchecked.png" width="375" height="375"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

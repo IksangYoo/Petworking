@@ -7,12 +7,19 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var googleLoginButton: GIDSignInButton!
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        GIDSignIn.sharedInstance().presentingViewController = self
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +30,10 @@ class LoginViewController: UIViewController {
         loginButton.isEnabled = true
     }
 
+    @IBAction func googleLoginPressed(_ sender: GIDSignInButton) {
+        GIDSignIn.sharedInstance().signIn()
+    }
+    
     @IBAction func emailChanged(_ sender: UITextField) {
         checkForValidForm()
     }

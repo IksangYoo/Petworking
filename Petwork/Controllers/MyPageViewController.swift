@@ -127,6 +127,7 @@ class MyPageViewController: UIViewController {
     
     func fetchUserAndUpdateForm() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
+        print("----> \(uid)")
         let dbref = Database.database().reference().child("users").child(uid)
         
         dbref.observe( .value) { snapshot in

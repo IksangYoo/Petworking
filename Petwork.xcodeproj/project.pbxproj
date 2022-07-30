@@ -204,6 +204,7 @@
 				DD3B459228305AB1001D54AD /* Frameworks */,
 				DD3B459328305AB1001D54AD /* Resources */,
 				D83DA503FF96844333683BD1 /* [CP] Embed Pods Frameworks */,
+				454A997A1C8BD19F75E6484A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -266,6 +267,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		454A997A1C8BD19F75E6484A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Petwork/Pods-Petwork-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Petwork/Pods-Petwork-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Petwork/Pods-Petwork-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CE413B9A474B1EE9412670B4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -481,8 +499,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J83X8YAG93;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Petwork/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need Your Cam";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Need Your Photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = LoginSignUpView;
@@ -512,6 +533,8 @@
 				DEVELOPMENT_TEAM = J83X8YAG93;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Petwork/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need Your Cam";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Need Your Photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = LoginSignUpView;

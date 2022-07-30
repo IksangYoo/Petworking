@@ -8,19 +8,54 @@
 import UIKit
 import Firebase
 import FirebaseCore
+import GoogleSignIn
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
+   
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // Firebase
         FirebaseApp.configure()
-        let db = Firestore.firestore()
-        print(db)
+        
+        // Google Sign In
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
         return true
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url)
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            print("Google Sign In Error: \(error.localizedDescription)")
+            return
+        }
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        
+        
+        Auth.auth().signIn(with: credential) { result, error in
+            guard let isNewUser = result?.additionalUserInfo?.isNewUser else { return }
+            guard let user = result?.user else { return }
+            guard let urlString = user.photoURL?.absoluteString else { return }
+            if isNewUser {
+                Database.database().reference().child("users").child(user.uid).setValue(["name": user.displayName, "profileImageURL": urlString, "aboutMe": "Please Set About Me"])
+            }
+            self.showSetProfileViewController()
+        }
+    }
+    
+    private func showSetProfileViewController() {
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
+        vc.modalPresentationStyle = .fullScreen
+        UIApplication.shared.windows.first?.rootViewController?.present(vc, animated: true)
+    }
+    
     
     // MARK: UISceneSession Lifecycle
 
