@@ -62,17 +62,6 @@ class MyPageViewController: UIViewController {
         }
     }
     
-    func deleteStroageImage() {
-        guard let uid = user?.uid else { return }
-        Storage.storage().reference().child("userProfileImages").child(uid).delete { error in
-            if let e = error {
-                print(e.localizedDescription)
-            } else {
-                print("Successfully deleted")
-            }
-        }
-    }
-    
     func saveToDatabase() {
         deleteStroageImage()
         guard let image = profileImageView.image else { return }
@@ -96,33 +85,61 @@ class MyPageViewController: UIViewController {
         }
     }
     
+    func deleteStroageImage() {
+        guard let uid = user?.uid else { return }
+        Storage.storage().reference().child("userProfileImages").child(uid).delete { error in
+            if let e = error {
+                print(e.localizedDescription)
+            } else {
+                print("Successfully deleted")
+            }
+        }
+    }
+    
     @IBAction func settingsButtonPressed(_ sender: UIButton) {
-        isSettingButtonClicked = !isSettingButtonClicked
+        if isSettingButtonClicked {
+            confirmAlert()
+        } else {
+            settingAlert()
+        }
+    }
+    
+    func settingAlert() {
+        let alert = UIAlertController(title: "", message: "Please Select an Option", preferredStyle: .actionSheet)
         
+        alert.addAction(UIAlertAction(title: "Change Profile", style: .default, handler: { UIAlertAction in
+            self.isSettingButtonClicked = !self.isSettingButtonClicked
+            self.settingsForm()
+            self.collectionView.reloadData()
+        }))
+        alert.addAction(UIAlertAction(title: "Sign Out", style: .destructive, handler: { UIAlertAction in
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func confirmAlert() {
         guard let currentUser = user else { return }
         let alertController = UIAlertController(title: "", message: "Confirm Changes", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .default) { alertAction in
+            self.isSettingButtonClicked = !self.isSettingButtonClicked
             let url = URL(string: currentUser.profileImageURL)
             self.aboutMeTextView.text = currentUser.aboutMe
             self.nameTF.text = currentUser.name
             self.profileImageView.kf.setImage(with: url)
+            self.collectionView.reloadData()
+            self.defaultForm()
         }
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { alertAction in
+            self.isSettingButtonClicked = !self.isSettingButtonClicked
             self.saveToDatabase()
             self.fetchOrderedPosts()
+            self.defaultForm()
         }
-        
         alertController.addAction(cancelAction)
         alertController.addAction(confirmAction)
-        
-        if isSettingButtonClicked {
-            settingsForm()
-            collectionView.reloadData()
-        } else {
-            defaultForm()
-            self.present(alertController, animated: true)
-            collectionView.reloadData()
-        }
+        present(alertController, animated: true)
     }
     
     func fetchUserAndUpdateForm() {
@@ -175,20 +192,7 @@ class MyPageViewController: UIViewController {
 
 //MARK: - collectionView Delegate
 extension MyPageViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func setCellForm(cell: MyPageCollectionViewCell) {
-        
-        if isSettingButtonClicked {
-            cell.xButton.isHidden = false
-            cell.xButton.isEnabled = false
-            cell.postImageView.alpha = 0.5
-        } else {
-            cell.xButton.isEnabled = false
-            cell.xButton.isHidden = true
-            cell.postImageView.alpha = 1
-        }
-    }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
@@ -204,6 +208,19 @@ extension MyPageViewController: UICollectionViewDataSource, UICollectionViewDele
         setCellForm(cell: cell)
         
         return cell
+    }
+    
+    func setCellForm(cell: MyPageCollectionViewCell) {
+        
+        if isSettingButtonClicked {
+            cell.xButton.isHidden = false
+            cell.xButton.isEnabled = false
+            cell.postImageView.alpha = 0.5
+        } else {
+            cell.xButton.isEnabled = false
+            cell.xButton.isHidden = true
+            cell.postImageView.alpha = 1
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -222,7 +239,6 @@ extension MyPageViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         if isSettingButtonClicked {
             let alert = UIAlertController(title: "", message: "Do you want to delete this post?", preferredStyle: .alert)
             let yesAction = UIAlertAction(title: "Yes, I do", style: .default, handler: { action in
