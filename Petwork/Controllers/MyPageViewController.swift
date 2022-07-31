@@ -25,6 +25,7 @@ class MyPageViewController: UIViewController {
     
     var user: User?
     var posts = [Post]()
+    var post : Post?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,13 @@ class MyPageViewController: UIViewController {
         imagePicker.delegate = self
         collectionView.reloadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToPost" {
+            let destinationVC = segue.destination as! PostViewController
+            destinationVC.post = post
+    }
+}
     
     func defaultForm() {
         aboutMeTextView.isUserInteractionEnabled = false
@@ -102,6 +110,7 @@ class MyPageViewController: UIViewController {
         } else {
             settingAlert()
         }
+        print(Auth.auth().currentUser)
     }
     
     func settingAlert() {
@@ -113,7 +122,7 @@ class MyPageViewController: UIViewController {
             self.collectionView.reloadData()
         }))
         alert.addAction(UIAlertAction(title: "Sign Out", style: .destructive, handler: { UIAlertAction in
-            
+            self.signOut()
         }))
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
@@ -142,9 +151,23 @@ class MyPageViewController: UIViewController {
         present(alertController, animated: true)
     }
     
+    func signOut() {
+        let storyboard : UIStoryboard = UIStoryboard(name: "LoginSignUpView", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        let firebaseAuth = Auth.auth()
+        
+        do {
+          try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+        
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     func fetchUserAndUpdateForm() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        print("----> \(uid)")
         let dbref = Database.database().reference().child("users").child(uid)
         
         dbref.observe( .value) { snapshot in
@@ -188,7 +211,6 @@ class MyPageViewController: UIViewController {
         }
     }
 }
-
 
 //MARK: - collectionView Delegate
 extension MyPageViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -250,7 +272,8 @@ extension MyPageViewController: UICollectionViewDataSource, UICollectionViewDele
             alert.addAction(yesAction)
             present(alert, animated: true)
         } else {
-            // navigate to feed page
+            post = posts[indexPath.item]
+            performSegue(withIdentifier: "goToPost", sender: self)
         }
     }
                             
