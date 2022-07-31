@@ -42,6 +42,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
             guard let isNewUser = result?.additionalUserInfo?.isNewUser else { return }
             guard let user = result?.user else { return }
             guard let urlString = user.photoURL?.absoluteString else { return }
+            if let err = error {
+                print("Firebase Google Login Error: \(err.localizedDescription)")
+            }
+            
             if isNewUser {
                 Database.database().reference().child("users").child(user.uid).setValue(["name": user.displayName, "profileImageURL": urlString, "aboutMe": "Please Set About Me"])
             }

@@ -54,6 +54,7 @@
 		DD3B45A128305AB5001D54AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD3B45A428305AB5001D54AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD3B45A628305AB5001D54AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD598E0328961BAD009FEA0A /* Petwork.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Petwork.entitlements; sourceTree = "<group>"; };
 		DDCD414C28341983002969A8 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		DDCD4158283ED584002969A8 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DDCD415A283ED73A002969A8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +147,7 @@
 		DD3B459728305AB1001D54AD /* Petwork */ = {
 			isa = PBXGroup;
 			children = (
+				DD598E0328961BAD009FEA0A /* Petwork.entitlements */,
 				DD3B459828305AB1001D54AD /* AppDelegate.swift */,
 				DD3B459A28305AB1001D54AD /* SceneDelegate.swift */,
 				DD21D71F286A500400D2D7A7 /* Model */,
@@ -496,6 +498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Petwork/Petwork.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J83X8YAG93;
@@ -528,6 +531,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Petwork/Petwork.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J83X8YAG93;
