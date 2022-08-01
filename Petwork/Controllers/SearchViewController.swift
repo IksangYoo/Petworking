@@ -44,14 +44,11 @@ class SearchViewController: UIViewController {
             self.collectionView.reloadData()
         }
     }
-    
-    @IBAction func categoryPressed(_ sender: UIButton) {
-        if let title = sender.currentTitle {
-            searchterm = title
-            performSegue(withIdentifier: "goToResults", sender: self)
-        }
-        
+
+    @IBAction func tagsPressed(_ sender: UIButton) {
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResults" {
