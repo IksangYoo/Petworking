@@ -166,10 +166,11 @@
 		DDCD414E2834199D002969A8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DDCD415C283F19AF002969A8 /* ResultsViewController.swift */,
+				DDDC78F9289897D40045818C /* ResultViewController */,
 				DD3B459C28305AB1001D54AD /* LoginViewController.swift */,
 				DDCD414C28341983002969A8 /* SignUpViewController.swift */,
 				DDCD415A283ED73A002969A8 /* SearchViewController.swift */,
-				DDCD415C283F19AF002969A8 /* ResultsViewController.swift */,
 				DDCD415E283F19E2002969A8 /* HomeViewController.swift */,
 				DDCD4160283F2EF2002969A8 /* MyPageViewController.swift */,
 				DDCD4162283F2F03002969A8 /* UploadViewController.swift */,
@@ -187,14 +188,21 @@
 				DD3B459E28305AB1001D54AD /* LoginSignUpView.storyboard */,
 				DD3B45A328305AB5001D54AD /* LaunchScreen.storyboard */,
 				DDCD4158283ED584002969A8 /* Main.storyboard */,
-				DDCD4168284583AE002969A8 /* ResultCollectionViewCell.swift */,
-				DDCD4169284583AE002969A8 /* ResultCollectionViewCell.xib */,
 				DDCD943E287656E100A177E7 /* MyPageCollectionViewCell.swift */,
 				DDCD943F287656E100A177E7 /* MyPageCollectionViewCell.xib */,
 				DDCD944428837BE000A177E7 /* HomePageCollectionViewCell.swift */,
 				DDCD944528837BE000A177E7 /* HomePageCollectionViewCell.xib */,
+				DDCD4168284583AE002969A8 /* ResultCollectionViewCell.swift */,
+				DDCD4169284583AE002969A8 /* ResultCollectionViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DDDC78F9289897D40045818C /* ResultViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ResultViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

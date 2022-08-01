@@ -17,10 +17,19 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet var buttons: [UIButton]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUsers()
+        setButtonsUI()
+        
+    }
+    
+    func setButtonsUI() {
+        for i in 0..<buttons.count {
+            buttons[i].layer.cornerRadius = 20
+        }
     }
     
     func fetchUsers() {
@@ -46,9 +55,10 @@ class SearchViewController: UIViewController {
     }
 
     @IBAction func tagsPressed(_ sender: UIButton) {
+        guard let title = sender.currentTitle else { return }
+        searchterm = title
+        performSegue(withIdentifier: "goToResults", sender: self)
     }
-    
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResults" {

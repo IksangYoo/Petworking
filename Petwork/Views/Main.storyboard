@@ -135,22 +135,16 @@
                                     <outlet property="delegate" destination="rfc-G4-nPU" id="ABp-HF-o7G"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toQ-1Y-DFW">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toQ-1Y-DFW">
                                 <rect key="frame" x="20" y="341" width="172" height="118"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="All">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <buttonConfiguration key="configuration" style="plain" title="All" cornerStyle="capsule">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="tagsPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="iQR-IO-0K0"/>
                                 </connections>
@@ -158,18 +152,13 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rty-0y-tut">
                                 <rect key="frame" x="218" y="502" width="172" height="115"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Bird" backgroundImage="Petwork">
+                                <state key="normal" title="Bird">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <buttonConfiguration key="configuration" style="plain" title="Bird" cornerStyle="capsule">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="tagsPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="2Kf-Pk-TM9"/>
                                 </connections>
@@ -177,18 +166,13 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoB-Q1-Pix">
                                 <rect key="frame" x="218" y="668" width="172" height="118"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Other" backgroundImage="Petwork">
+                                <state key="normal" title="Other">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <buttonConfiguration key="configuration" style="plain" title="Other" cornerStyle="capsule">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="tagsPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="BGb-ce-d0j"/>
                                 </connections>
@@ -196,18 +180,13 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPf-oP-FQ9">
                                 <rect key="frame" x="20" y="502" width="172" height="115"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Cat" backgroundImage="Petwork">
+                                <state key="normal" title="Cat">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <buttonConfiguration key="configuration" style="plain" title="Cat" cornerStyle="capsule">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="tagsPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="X1R-q1-lsk"/>
                                 </connections>
@@ -215,18 +194,13 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVO-Kg-fFx">
                                 <rect key="frame" x="20" y="668" width="172" height="118"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Reptile" backgroundImage="Petwork">
+                                <state key="normal" title="Reptile">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <buttonConfiguration key="configuration" style="plain" title="Reptile" cornerStyle="capsule">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="tagsPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="Zlg-Bt-agn"/>
                                 </connections>
@@ -234,20 +208,15 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="L8p-ae-TnG">
                                 <rect key="frame" x="218" y="341" width="172" height="118"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Dog" backgroundImage="Petwork">
+                                <state key="normal" title="Dog">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <buttonConfiguration key="configuration" style="plain" title="Dog" cornerStyle="capsule">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="tagsPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="8zA-PU-QTn"/>
                                 </connections>
@@ -262,6 +231,12 @@
                     <connections>
                         <outlet property="collectionView" destination="6zz-cW-QEK" id="aIj-4M-bKZ"/>
                         <outlet property="searchBar" destination="Y5p-zL-WuV" id="tl4-JT-Fw8"/>
+                        <outletCollection property="buttons" destination="jPf-oP-FQ9" collectionClass="NSMutableArray" id="mvo-Af-GfR"/>
+                        <outletCollection property="buttons" destination="Rty-0y-tut" collectionClass="NSMutableArray" id="F1H-ia-uce"/>
+                        <outletCollection property="buttons" destination="L8p-ae-TnG" collectionClass="NSMutableArray" id="wYk-AQ-JTt"/>
+                        <outletCollection property="buttons" destination="toQ-1Y-DFW" collectionClass="NSMutableArray" id="ESm-ZP-jN6"/>
+                        <outletCollection property="buttons" destination="YoB-Q1-Pix" collectionClass="NSMutableArray" id="R0t-fa-gQf"/>
+                        <outletCollection property="buttons" destination="NVO-Kg-fFx" collectionClass="NSMutableArray" id="4mU-Q7-A0m"/>
                         <segue destination="4hl-9I-zfQ" kind="show" identifier="goToResults" id="kbX-k2-qIb"/>
                         <segue destination="zjg-1O-C4R" kind="show" identifier="goToUser" id="sM7-1A-wVU"/>
                     </connections>
@@ -1003,11 +978,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9BB-24-wqo"/>
+        <segue reference="uwy-IM-53K"/>
         <segue reference="sM7-1A-wVU"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="Petwork" width="1920" height="1080"/>
         <image name="arrow.up" catalog="system" width="120" height="128"/>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
