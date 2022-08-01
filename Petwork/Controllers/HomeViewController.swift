@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     
     
     @IBOutlet weak var collectionView: UICollectionView!
+    let refresh = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +26,26 @@ class HomeViewController: UIViewController {
             self.posts = results
             self.collectionView.reloadData()
         }
+        initRefresh()
+        
     }
-
+    
+    func initRefresh() {
+        collectionView.refreshControl = refresh
+        collectionView.refreshControl?.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
+    }
+    
+    @objc func pullToRefresh(_ sender: Any) {
+        fetchPosts { results in
+            self.posts = results
+            self.collectionView.reloadData()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.refresh.endRefreshing()
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToUser" {
             let destinationVC = segue.destination as! UserViewController
