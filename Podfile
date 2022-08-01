@@ -22,4 +22,5 @@ pod 'Firebase/Database'
 pod 'GoogleSignIn', '5.0.2'
 pod 'YPImagePicker'
 pod 'Kingfisher', '~> 7.0'
+pod 'IQKeyboardManagerSwift'
 end

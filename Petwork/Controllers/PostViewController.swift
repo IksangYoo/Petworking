@@ -8,6 +8,7 @@
 import UIKit
 import Kingfisher
 import Firebase
+import IQKeyboardManagerSwift
 
 class PostViewController: UIViewController {
 
@@ -33,6 +34,7 @@ class PostViewController: UIViewController {
         setupView()
         fetchComments()
         deleteObserver()
+        IQKeyboardManager.shared.enableAutoToolbar = false
     }
     
     func setupView() {
@@ -198,6 +200,16 @@ extension PostViewController: UITextFieldDelegate {
         commentTextField.text = ""
         commentTextField.textColor = .black
     }
+    // keyboard dismiss when touch outside
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    // keyboard dismiss when press return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
 class commentCell: UITableViewCell {
@@ -223,5 +235,4 @@ class commentCell: UITableViewCell {
         dbRef.removeValue()
         
     }
-    
 }

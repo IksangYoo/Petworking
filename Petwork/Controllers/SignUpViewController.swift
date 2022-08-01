@@ -18,6 +18,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var confirmErrorLabel: UILabel!
     @IBOutlet weak var checkBox: CheckBox!
     var changedIsChecked = false
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func continuePressed(_ sender: UIButton) {
+        self.view.endEditing(true)
         self.performSegue(withIdentifier: "goToWelcome", sender: self)
     }
     
@@ -157,7 +159,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
 }
-    
     // checkbox
     
 class CheckBox: UIButton {

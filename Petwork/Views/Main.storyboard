@@ -39,7 +39,9 @@
                         <color key="backgroundColor" red="0.99215686270000003" green="0.96470588239999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Knm-p0-9Sk"/>
-                    <navigationItem key="navigationItem" id="EXg-4b-y0f"/>
+                    <navigationItem key="navigationItem" id="EXg-4b-y0f">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="O8o-N5-bhC"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="qZC-PT-bnv" id="IR6-nu-GYB"/>
                         <segue destination="zjg-1O-C4R" kind="show" identifier="goToUser" id="lSL-a7-c1b"/>
@@ -187,7 +189,7 @@
                                                     <rect key="frame" x="0.0" y="4" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnL-13-3bE">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnL-13-3bE">
                                                     <rect key="frame" x="48" y="14" width="137" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -212,7 +214,9 @@
                         <viewLayoutGuide key="safeArea" id="5Xa-dm-C1C"/>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.96470588239999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ZNW-ZY-Yqu"/>
+                    <navigationItem key="navigationItem" id="ZNW-ZY-Yqu">
+                        <barButtonItem key="backBarButtonItem" title="Search" id="tq2-2q-mnx"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="6zz-cW-QEK" id="aIj-4M-bKZ"/>
                         <outlet property="searchBar" destination="Y5p-zL-WuV" id="tl4-JT-Fw8"/>
@@ -400,11 +404,10 @@
                                     <action selector="switchDisplayMode:" destination="zjg-1O-C4R" eventType="valueChanged" id="ePo-mP-9Kf"/>
                                 </connections>
                             </segmentedControl>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gnj-6H-Ce4">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="About Me" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gnj-6H-Ce4">
                                 <rect key="frame" x="20" y="224" width="374" height="113"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.96470588239999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -463,7 +466,9 @@
                         <viewLayoutGuide key="safeArea" id="hTj-CO-f0S"/>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.96470588239999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
-                    <navigationItem key="navigationItem" id="7NM-HK-sW4"/>
+                    <navigationItem key="navigationItem" id="7NM-HK-sW4">
+                        <barButtonItem key="backBarButtonItem" title="Feed" id="4NO-rG-iVB"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="aboutMeTextView" destination="Gnj-6H-Ce4" id="OcR-43-ViB"/>
                         <outlet property="collectionView" destination="Khd-ZN-yGA" id="ypv-fa-faQ"/>
@@ -579,7 +584,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Msd-3b-AQo">
                                 <rect key="frame" x="0.0" y="496" width="77" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.98823529409999999" green="0.62401196599999997" blue="0.63243347589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.9988437295" green="0.54634010789999998" blue="0.56056612729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xa8-9H-tHv">
@@ -620,7 +625,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHR-zl-BiN">
                                 <rect key="frame" x="3" y="594" width="75" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.57254901960000004" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.9988437295" green="0.54634010789999998" blue="0.56056612729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aGb-EJ-ocD">
@@ -637,7 +642,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No Commets" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHm-uG-GOR">
                                 <rect key="frame" x="157" y="636" width="100" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.98823529409999999" green="0.62401196599999997" blue="0.63243347589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.9988437295" green="0.54634010789999998" blue="0.56056612729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tag" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Htl-Qh-uZK">
@@ -646,7 +651,7 @@
                                     <constraint firstAttribute="height" constant="21" id="Fbr-UR-DQH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.98823529409999999" green="0.62401196599999997" blue="0.63243347589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.9988437295" green="0.54634010789999998" blue="0.56056612729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -710,7 +715,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jTv-cj-Hv1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="113" y="2086"/>
+            <point key="canvasLocation" x="30" y="2075"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="Nbz-5s-Pv1">
@@ -775,7 +780,9 @@
                             <constraint firstItem="M9u-jC-7d2" firstAttribute="centerY" secondItem="2Yn-Mh-MJ5" secondAttribute="centerY" id="JlJ-qQ-7Hz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jGE-2k-7oO"/>
+                    <navigationItem key="navigationItem" id="jGE-2k-7oO">
+                        <barButtonItem key="backBarButtonItem" title="Result" id="vND-rm-UtD"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="zDv-VQ-dMV" id="WCy-zt-Nkv"/>
                         <outlet property="noResultLabel" destination="M9u-jC-7d2" id="KKg-JQ-XSN"/>
@@ -816,7 +823,7 @@
                                     <outlet property="delegate" destination="ds3-Lf-eub" id="hNq-gS-Er9"/>
                                 </connections>
                             </collectionView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Set your About Me" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7Xp-q8-dlE">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="About Me" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7Xp-q8-dlE">
                                 <rect key="frame" x="20" y="226" width="374" height="113"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.96470588239999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -850,7 +857,7 @@
                                     <action selector="changeProfileImagePressed:" destination="ds3-Lf-eub" eventType="touchUpInside" id="Na9-nh-uR0"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Set your Name" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1tK-JS-ghv">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1tK-JS-ghv">
                                 <rect key="frame" x="173" y="137" width="204" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.96470588239999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -862,8 +869,9 @@
                         <color key="backgroundColor" red="0.99215686270000003" green="0.96470588239999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="0C3-nE-Auk">
+                        <barButtonItem key="backBarButtonItem" title="My Page" id="iqC-sm-tOO"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="fXM-NK-VNK">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MVN-hb-KSc">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MVN-hb-KSc">
                                 <rect key="frame" x="352" y="0.0" width="42" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.98823529409999999" green="0.62401196599999997" blue="0.63243347589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -885,6 +893,7 @@
                         <outlet property="profileImageView" destination="zb2-Sy-DqO" id="qXR-Af-7g3"/>
                         <outlet property="segmentControl" destination="qns-xW-pLw" id="vqF-we-Mb5"/>
                         <outlet property="settingsButton" destination="MVN-hb-KSc" id="ReS-V4-ujt"/>
+                        <segue destination="xDd-SV-d4D" kind="show" identifier="goToPost" id="9BB-24-wqo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E5v-f3-bA4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -952,7 +961,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uwy-IM-53K"/>
+        <segue reference="9BB-24-wqo"/>
         <segue reference="lSL-a7-c1b"/>
     </inferredMetricsTieBreakers>
     <resources>

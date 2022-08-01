@@ -788,6 +788,7 @@ PODS:
     - AppAuth/Core (~> 1.4)
     - GTMSessionFetcher/Core (~> 1.5)
   - GTMSessionFetcher/Core (1.7.1)
+  - IQKeyboardManagerSwift (6.5.10)
   - Kingfisher (7.3.0)
   - leveldb-library (1.22.1)
   - Libuv-gRPC (0.0.10):
@@ -817,6 +818,7 @@ DEPENDENCIES:
   - FirebaseAuth
   - FirebaseFirestore
   - GoogleSignIn (= 5.0.2)
+  - IQKeyboardManagerSwift
   - Kingfisher (~> 7.0)
   - YPImagePicker
 
@@ -844,6 +846,7 @@ SPEC REPOS:
     - gRPC-Core
     - GTMAppAuth
     - GTMSessionFetcher
+    - IQKeyboardManagerSwift
     - Kingfisher
     - leveldb-library
     - Libuv-gRPC
@@ -876,6 +879,7 @@ SPEC CHECKSUMS:
   gRPC-Core: 943e491cb0d45598b0b0eb9e910c88080369290b
   GTMAppAuth: 4d8f864896f3646f0c33baf38a28362f4c601e15
   GTMSessionFetcher: 4577a4cc914a5a07c40a8a0ad0acc22080418c2d
+  IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
   Kingfisher: cdb1189a9223b1bc028816bd47c8b8101a58831c
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
@@ -885,6 +889,6 @@ SPEC CHECKSUMS:
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
   YPImagePicker: f36043210c10b0783034eb1947d6e06e31c461e4
 
-PODFILE CHECKSUM: 1349543e2c267395042ef79678976335a76c04a1
+PODFILE CHECKSUM: fc61a15037eb6c289ad5fe9fc5c94ad439efda10
 
 COCOAPODS: 1.11.2

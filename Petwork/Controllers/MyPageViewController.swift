@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
-class MyPageViewController: UIViewController {
+class MyPageViewController: UIViewController,UITextViewDelegate {
     
     var isSettingButtonClicked = false
     var segmentIndex = 0

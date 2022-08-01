@@ -65,6 +65,12 @@ class LoginViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func signUpPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToSignUp", sender: self)
+        self.view.endEditing(true)
+    }
+    
     @IBAction func googleLoginPressed(_ sender: UIButton) {
         GIDSignIn.sharedInstance().signIn()
     }
@@ -73,6 +79,20 @@ class LoginViewController: UIViewController {
         startSignInWithAppleFlow()
     }
 }
+
+//extension LoginViewController: UITextFieldDelegate {
+//    
+//    // keyboard dismiss when touch outside
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.view.endEditing(true)
+//    }
+//    
+//    // keyboard dismiss when press return
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return true
+//    }
+//}
 
 extension LoginViewController: ASAuthorizationControllerDelegate {
     
@@ -109,11 +129,6 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
                     return
                 }
                 
-                // User is signed in to Firebase with Apple.
-//                let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//                let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
-//                vc.modalPresentationStyle = .fullScreen
-//                self.present(vc, animated: true, completion: nil)
                 let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
                 vc.modalPresentationStyle = .fullScreen
