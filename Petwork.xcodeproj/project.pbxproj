@@ -166,13 +166,12 @@
 		DDCD414E2834199D002969A8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DDCD415C283F19AF002969A8 /* ResultsViewController.swift */,
-				DDDC78F9289897D40045818C /* ResultViewController */,
+				DDDC78FB2899011D0045818C /* HomePage */,
+				DDDC78FA289900F60045818C /* MyPage */,
+				DDDC78F9289897D40045818C /* Result */,
 				DD3B459C28305AB1001D54AD /* LoginViewController.swift */,
 				DDCD414C28341983002969A8 /* SignUpViewController.swift */,
 				DDCD415A283ED73A002969A8 /* SearchViewController.swift */,
-				DDCD415E283F19E2002969A8 /* HomeViewController.swift */,
-				DDCD4160283F2EF2002969A8 /* MyPageViewController.swift */,
 				DDCD4162283F2F03002969A8 /* UploadViewController.swift */,
 				DDCD416E2846D8CF002969A8 /* SetProfileViewController.swift */,
 				DDCD944828879BF600A177E7 /* UserViewController.swift */,
@@ -188,21 +187,38 @@
 				DD3B459E28305AB1001D54AD /* LoginSignUpView.storyboard */,
 				DD3B45A328305AB5001D54AD /* LaunchScreen.storyboard */,
 				DDCD4158283ED584002969A8 /* Main.storyboard */,
-				DDCD943E287656E100A177E7 /* MyPageCollectionViewCell.swift */,
-				DDCD943F287656E100A177E7 /* MyPageCollectionViewCell.xib */,
-				DDCD944428837BE000A177E7 /* HomePageCollectionViewCell.swift */,
-				DDCD944528837BE000A177E7 /* HomePageCollectionViewCell.xib */,
-				DDCD4168284583AE002969A8 /* ResultCollectionViewCell.swift */,
-				DDCD4169284583AE002969A8 /* ResultCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		DDDC78F9289897D40045818C /* ResultViewController */ = {
+		DDDC78F9289897D40045818C /* Result */ = {
 			isa = PBXGroup;
 			children = (
+				DDCD4168284583AE002969A8 /* ResultCollectionViewCell.swift */,
+				DDCD4169284583AE002969A8 /* ResultCollectionViewCell.xib */,
+				DDCD415C283F19AF002969A8 /* ResultsViewController.swift */,
 			);
-			path = ResultViewController;
+			path = Result;
+			sourceTree = "<group>";
+		};
+		DDDC78FA289900F60045818C /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				DDCD943E287656E100A177E7 /* MyPageCollectionViewCell.swift */,
+				DDCD943F287656E100A177E7 /* MyPageCollectionViewCell.xib */,
+				DDCD4160283F2EF2002969A8 /* MyPageViewController.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		DDDC78FB2899011D0045818C /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				DDCD944428837BE000A177E7 /* HomePageCollectionViewCell.swift */,
+				DDCD944528837BE000A177E7 /* HomePageCollectionViewCell.xib */,
+				DDCD415E283F19E2002969A8 /* HomeViewController.swift */,
+			);
+			path = HomePage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
