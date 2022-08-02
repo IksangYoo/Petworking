@@ -18,9 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qZC-PT-bnv">
-                                <rect key="frame" x="0.0" y="39" width="414" height="774"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qZC-PT-bnv">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.96470588239999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MYV-t1-Znw">
                                     <size key="itemSize" width="212" height="216"/>
@@ -37,6 +36,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="S4c-Df-BR0"/>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.96470588239999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="qZC-PT-bnv" firstAttribute="trailing" secondItem="S4c-Df-BR0" secondAttribute="trailing" id="5gs-gw-eoa"/>
+                            <constraint firstItem="qZC-PT-bnv" firstAttribute="leading" secondItem="S4c-Df-BR0" secondAttribute="leading" id="8yC-dE-VD2"/>
+                            <constraint firstItem="qZC-PT-bnv" firstAttribute="bottom" secondItem="S4c-Df-BR0" secondAttribute="bottom" id="9t3-Jl-lmV"/>
+                            <constraint firstItem="qZC-PT-bnv" firstAttribute="top" secondItem="S4c-Df-BR0" secondAttribute="top" id="xRn-n7-xuB"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Knm-p0-9Sk"/>
                     <navigationItem key="navigationItem" id="EXg-4b-y0f">
@@ -83,9 +88,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" semanticContentAttribute="playback" fixedFrame="YES" searchBarStyle="minimal" placeholder="Search by Username" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5p-zL-WuV">
-                                <rect key="frame" x="20" y="62" width="370" height="51"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <searchBar contentMode="redraw" semanticContentAttribute="playback" searchBarStyle="minimal" placeholder="Search by Username" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5p-zL-WuV">
+                                <rect key="frame" x="20" y="88" width="374" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="IPP-Fb-ML4"/>
+                                </constraints>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no"/>
                                 <scopeButtonTitles>
                                     <string>Title</string>
@@ -95,10 +102,12 @@
                                     <outlet property="delegate" destination="rfc-G4-nPU" id="daR-as-Cuv"/>
                                 </connections>
                             </searchBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6zz-cW-QEK">
-                                <rect key="frame" x="20" y="121" width="370" height="212"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6zz-cW-QEK">
+                                <rect key="frame" x="20" y="154" width="370" height="237"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.96470588239999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="237" id="F3A-e7-e93"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kxK-5k-uBD">
                                     <size key="itemSize" width="355" height="49"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -138,95 +147,116 @@
                                     <outlet property="delegate" destination="rfc-G4-nPU" id="ABp-HF-o7G"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toQ-1Y-DFW">
-                                <rect key="frame" x="20" y="341" width="172" height="118"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="All">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="tagsPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="iQR-IO-0K0"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rty-0y-tut">
-                                <rect key="frame" x="218" y="502" width="172" height="115"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Bird">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="tagsPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="2Kf-Pk-TM9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoB-Q1-Pix">
-                                <rect key="frame" x="218" y="668" width="172" height="118"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Other">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="tagsPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="BGb-ce-d0j"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPf-oP-FQ9">
-                                <rect key="frame" x="20" y="502" width="172" height="115"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Cat">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="tagsPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="X1R-q1-lsk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVO-Kg-fFx">
-                                <rect key="frame" x="20" y="668" width="172" height="118"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Reptile">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="tagsPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="Zlg-Bt-agn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="L8p-ae-TnG">
-                                <rect key="frame" x="218" y="341" width="172" height="118"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Dog">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="tagsPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="8zA-PU-QTn"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="bay-1n-fzW">
+                                <rect key="frame" x="20" y="401" width="374" height="402"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Bmu-jY-fz7" userLabel="Left Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="179.5" height="402"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toQ-1Y-DFW">
+                                                <rect key="frame" x="0.0" y="0.0" width="179.5" height="124"/>
+                                                <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="All">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tagsPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="iQR-IO-0K0"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPf-oP-FQ9">
+                                                <rect key="frame" x="0.0" y="139" width="179.5" height="124"/>
+                                                <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Cat">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tagsPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="X1R-q1-lsk"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVO-Kg-fFx">
+                                                <rect key="frame" x="0.0" y="278" width="179.5" height="124"/>
+                                                <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Reptile">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tagsPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="Zlg-Bt-agn"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Wt8-AG-zYL" userLabel="Right Stack View">
+                                        <rect key="frame" x="194.5" y="0.0" width="179.5" height="402"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="L8p-ae-TnG">
+                                                <rect key="frame" x="0.0" y="0.0" width="179.5" height="124"/>
+                                                <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Dog">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tagsPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="8zA-PU-QTn"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rty-0y-tut">
+                                                <rect key="frame" x="0.0" y="139" width="179.5" height="124"/>
+                                                <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Bird">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tagsPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="2Kf-Pk-TM9"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoB-Q1-Pix">
+                                                <rect key="frame" x="0.0" y="278" width="179.5" height="124"/>
+                                                <color key="backgroundColor" red="0.98823529409999999" green="0.84705882349999995" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Other">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tagsPressed:" destination="rfc-G4-nPU" eventType="touchUpInside" id="BGb-ce-d0j"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Xa-dm-C1C"/>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.96470588239999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="6zz-cW-QEK" firstAttribute="leading" secondItem="5Xa-dm-C1C" secondAttribute="leading" constant="20" id="0xo-da-KgB"/>
+                            <constraint firstItem="6zz-cW-QEK" firstAttribute="top" secondItem="Y5p-zL-WuV" secondAttribute="bottom" constant="15" id="38Q-Ad-NTd"/>
+                            <constraint firstItem="Y5p-zL-WuV" firstAttribute="top" secondItem="5Xa-dm-C1C" secondAttribute="top" id="3aU-sm-5kb"/>
+                            <constraint firstItem="bay-1n-fzW" firstAttribute="leading" secondItem="5Xa-dm-C1C" secondAttribute="leading" constant="20" id="C5N-eN-Dmd"/>
+                            <constraint firstItem="5Xa-dm-C1C" firstAttribute="trailing" secondItem="Y5p-zL-WuV" secondAttribute="trailing" constant="20" id="Gon-Je-C66"/>
+                            <constraint firstItem="bay-1n-fzW" firstAttribute="top" secondItem="6zz-cW-QEK" secondAttribute="bottom" constant="10" id="NXr-6M-9oJ"/>
+                            <constraint firstItem="Y5p-zL-WuV" firstAttribute="leading" secondItem="5Xa-dm-C1C" secondAttribute="leading" constant="20" id="Vnp-fm-IXT"/>
+                            <constraint firstItem="5Xa-dm-C1C" firstAttribute="trailing" secondItem="bay-1n-fzW" secondAttribute="trailing" constant="20" id="ele-vw-Xfo"/>
+                            <constraint firstItem="5Xa-dm-C1C" firstAttribute="bottom" secondItem="bay-1n-fzW" secondAttribute="bottom" constant="10" id="jCz-eq-13q"/>
+                            <constraint firstItem="6zz-cW-QEK" firstAttribute="width" secondItem="Y5p-zL-WuV" secondAttribute="width" multiplier="0.989305" id="nPQ-eh-EJ9"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZNW-ZY-Yqu">
                         <barButtonItem key="backBarButtonItem" title="Search" id="tq2-2q-mnx"/>
@@ -234,12 +264,12 @@
                     <connections>
                         <outlet property="collectionView" destination="6zz-cW-QEK" id="aIj-4M-bKZ"/>
                         <outlet property="searchBar" destination="Y5p-zL-WuV" id="tl4-JT-Fw8"/>
-                        <outletCollection property="buttons" destination="jPf-oP-FQ9" collectionClass="NSMutableArray" id="mvo-Af-GfR"/>
-                        <outletCollection property="buttons" destination="Rty-0y-tut" collectionClass="NSMutableArray" id="F1H-ia-uce"/>
-                        <outletCollection property="buttons" destination="L8p-ae-TnG" collectionClass="NSMutableArray" id="wYk-AQ-JTt"/>
                         <outletCollection property="buttons" destination="toQ-1Y-DFW" collectionClass="NSMutableArray" id="ESm-ZP-jN6"/>
-                        <outletCollection property="buttons" destination="YoB-Q1-Pix" collectionClass="NSMutableArray" id="R0t-fa-gQf"/>
+                        <outletCollection property="buttons" destination="jPf-oP-FQ9" collectionClass="NSMutableArray" id="mvo-Af-GfR"/>
                         <outletCollection property="buttons" destination="NVO-Kg-fFx" collectionClass="NSMutableArray" id="4mU-Q7-A0m"/>
+                        <outletCollection property="buttons" destination="Rty-0y-tut" collectionClass="NSMutableArray" id="F1H-ia-uce"/>
+                        <outletCollection property="buttons" destination="YoB-Q1-Pix" collectionClass="NSMutableArray" id="R0t-fa-gQf"/>
+                        <outletCollection property="buttons" destination="L8p-ae-TnG" collectionClass="NSMutableArray" id="wYk-AQ-JTt"/>
                         <segue destination="4hl-9I-zfQ" kind="show" identifier="goToResults" id="kbX-k2-qIb"/>
                         <segue destination="zjg-1O-C4R" kind="show" identifier="goToUser" id="sM7-1A-wVU"/>
                     </connections>
@@ -256,58 +286,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sla-Da-UXF" customClass="circularButton" customModule="Petwork" customModuleProvider="target">
-                                <rect key="frame" x="16" y="501" width="58" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="tintColor" red="0.98823529409999999" green="0.62401196599999997" blue="0.63243347589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Dog">
-                                    <color key="titleColor" red="0.9882352941176471" green="0.62401196600762709" blue="0.63243347590095667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="tagButtonPressed:" destination="otH-pX-30M" eventType="touchUpInside" id="iRe-mb-fiJ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Zb-RS-OpW" customClass="circularButton" customModule="Petwork" customModuleProvider="target">
-                                <rect key="frame" x="91" y="501" width="54" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="tintColor" red="0.98823529409999999" green="0.62401196599999997" blue="0.63243347589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Cat">
-                                    <color key="titleColor" red="0.9882352941176471" green="0.62401196600762709" blue="0.63243347590095667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="tagButtonPressed:" destination="otH-pX-30M" eventType="touchUpInside" id="396-2Y-R58"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwp-0n-TC2" customClass="circularButton" customModule="Petwork" customModuleProvider="target">
-                                <rect key="frame" x="164" y="501" width="57" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="tintColor" red="0.98823529409999999" green="0.62401196599999997" blue="0.63243347589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Bird">
-                                    <color key="titleColor" red="0.9882352941176471" green="0.62401196600762709" blue="0.63243347590095667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="tagButtonPressed:" destination="otH-pX-30M" eventType="touchUpInside" id="OXH-zr-gUv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWL-vS-scE" customClass="circularButton" customModule="Petwork" customModuleProvider="target">
-                                <rect key="frame" x="326" y="501" width="68" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="tintColor" red="0.98823529409999999" green="0.62401196599999997" blue="0.63243347589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Other">
-                                    <color key="titleColor" red="0.9882352941176471" green="0.62401196600762709" blue="0.63243347590095667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="tagButtonPressed:" destination="otH-pX-30M" eventType="touchUpInside" id="JLY-gD-Dv3"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Nc9-kS-6Ev">
+                                <rect key="frame" x="5" y="501" width="404" height="32"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sla-Da-UXF" customClass="circularButton" customModule="Petwork" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="73" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="tintColor" red="0.98823529409999999" green="0.62401196599999997" blue="0.63243347589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Dog">
+                                            <color key="titleColor" red="0.9882352941176471" green="0.62401196600762709" blue="0.63243347590095667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tagButtonPressed:" destination="otH-pX-30M" eventType="touchUpInside" id="iRe-mb-fiJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Zb-RS-OpW" customClass="circularButton" customModule="Petwork" customModuleProvider="target">
+                                        <rect key="frame" x="83" y="0.0" width="72.5" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="tintColor" red="0.98823529409999999" green="0.62401196599999997" blue="0.63243347589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Cat">
+                                            <color key="titleColor" red="0.9882352941176471" green="0.62401196600762709" blue="0.63243347590095667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tagButtonPressed:" destination="otH-pX-30M" eventType="touchUpInside" id="396-2Y-R58"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwp-0n-TC2" customClass="circularButton" customModule="Petwork" customModuleProvider="target">
+                                        <rect key="frame" x="165.5" y="0.0" width="73" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="tintColor" red="0.98823529409999999" green="0.62401196599999997" blue="0.63243347589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Bird">
+                                            <color key="titleColor" red="0.9882352941176471" green="0.62401196600762709" blue="0.63243347590095667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tagButtonPressed:" destination="otH-pX-30M" eventType="touchUpInside" id="OXH-zr-gUv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r79-gh-hxw" customClass="circularButton" customModule="Petwork" customModuleProvider="target">
+                                        <rect key="frame" x="248.5" y="0.0" width="72.5" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="tintColor" red="0.98823529409999999" green="0.62401196599999997" blue="0.63243347589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Reptile">
+                                            <color key="titleColor" red="0.9882352941176471" green="0.62401196600762709" blue="0.63243347590095667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tagButtonPressed:" destination="otH-pX-30M" eventType="touchUpInside" id="sdg-Pb-i3P"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWL-vS-scE" customClass="circularButton" customModule="Petwork" customModuleProvider="target">
+                                        <rect key="frame" x="331" y="0.0" width="73" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="tintColor" red="0.98823529409999999" green="0.62401196599999997" blue="0.63243347589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Other">
+                                            <color key="titleColor" red="0.9882352941176471" green="0.62401196600762709" blue="0.63243347590095667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tagButtonPressed:" destination="otH-pX-30M" eventType="touchUpInside" id="JLY-gD-Dv3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Caption..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gUi-wy-2I1">
                                 <rect key="frame" x="16" y="559" width="388" height="228"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -368,22 +411,13 @@
                                     <action selector="removeButtonPressed:" destination="otH-pX-30M" eventType="touchUpInside" id="bWR-Jw-nZW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r79-gh-hxw" customClass="circularButton" customModule="Petwork" customModuleProvider="target">
-                                <rect key="frame" x="229" y="501" width="76" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="tintColor" red="0.98823529409999999" green="0.62401196599999997" blue="0.63243347589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Reptile">
-                                    <color key="titleColor" red="0.9882352941176471" green="0.62401196600762709" blue="0.63243347590095667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="tagButtonPressed:" destination="otH-pX-30M" eventType="touchUpInside" id="sdg-Pb-i3P"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zqd-fj-l98"/>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.96470588239999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Zqd-fj-l98" firstAttribute="trailing" secondItem="Nc9-kS-6Ev" secondAttribute="trailing" constant="5" id="B0P-Hq-36M"/>
+                            <constraint firstItem="Nc9-kS-6Ev" firstAttribute="leading" secondItem="Zqd-fj-l98" secondAttribute="leading" constant="5" id="MqI-Fx-lmh"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Upload" image="arrow.up" catalog="system" id="Ger-r3-YTf"/>
                     <connections>
@@ -391,11 +425,11 @@
                         <outlet property="imageScrollView" destination="smF-6X-xmG" id="p11-oo-daj"/>
                         <outlet property="pageControl" destination="thI-I9-A07" id="lkq-L9-4tO"/>
                         <outlet property="uploadButton" destination="eYn-dF-eOI" id="KJu-Td-SKC"/>
-                        <outletCollection property="tagButtons" destination="XWL-vS-scE" collectionClass="NSMutableArray" id="jfK-mQ-WAb"/>
-                        <outletCollection property="tagButtons" destination="r79-gh-hxw" collectionClass="NSMutableArray" id="55Q-PN-40P"/>
-                        <outletCollection property="tagButtons" destination="cwp-0n-TC2" collectionClass="NSMutableArray" id="qNQ-n0-2gA"/>
-                        <outletCollection property="tagButtons" destination="8Zb-RS-OpW" collectionClass="NSMutableArray" id="kmf-gB-V8R"/>
                         <outletCollection property="tagButtons" destination="sla-Da-UXF" collectionClass="NSMutableArray" id="e8z-xc-p4l"/>
+                        <outletCollection property="tagButtons" destination="8Zb-RS-OpW" collectionClass="NSMutableArray" id="kmf-gB-V8R"/>
+                        <outletCollection property="tagButtons" destination="cwp-0n-TC2" collectionClass="NSMutableArray" id="qNQ-n0-2gA"/>
+                        <outletCollection property="tagButtons" destination="r79-gh-hxw" collectionClass="NSMutableArray" id="55Q-PN-40P"/>
+                        <outletCollection property="tagButtons" destination="XWL-vS-scE" collectionClass="NSMutableArray" id="jfK-mQ-WAb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wwe-wG-j27" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -983,8 +1017,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uwy-IM-53K"/>
-        <segue reference="lSL-a7-c1b"/>
+        <segue reference="is8-tR-oIH"/>
+        <segue reference="sM7-1A-wVU"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.up" catalog="system" width="120" height="128"/>
