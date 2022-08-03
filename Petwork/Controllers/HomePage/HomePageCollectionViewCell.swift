@@ -43,7 +43,7 @@ class HomePageCollectionViewCell: UICollectionViewCell {
 //    }
     
     override func prepareForReuse() {
-
+        
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .black
     }

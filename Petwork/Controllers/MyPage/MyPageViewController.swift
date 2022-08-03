@@ -110,7 +110,6 @@ class MyPageViewController: UIViewController,UITextViewDelegate {
         } else {
             settingAlert()
         }
-        print(Auth.auth().currentUser)
     }
     
     func settingAlert() {

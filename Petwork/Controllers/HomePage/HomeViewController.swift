@@ -141,12 +141,15 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         for i in 0..<imageURLs.count {
             let imageView = UIImageView()
+            imageView.contentMode = .scaleToFill
             let xPos = self.view.frame.width * CGFloat(i)
             let url = URL(string: imageURLs[i])
             imageView.frame = CGRect(x: xPos, y: 0, width: scrollView.bounds.width, height: scrollView.bounds.height)
             imageView.kf.setImage(with: url)
             scrollView.addSubview(imageView)
             scrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1)
+            print("----> \(imageView.frame.width)")
+            print(scrollView.bounds.width)
         }
         cell.pageControl.numberOfPages = imageURLs.count
     }
