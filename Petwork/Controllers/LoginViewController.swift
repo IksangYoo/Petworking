@@ -116,12 +116,12 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce)
             
             Auth.auth().signIn(with: credential) { result, error in
+
                 guard let isNewUser = result?.additionalUserInfo?.isNewUser else { return }
                 guard let user = result?.user else { return }
-                guard let urlString = user.photoURL?.absoluteString else { return }
                 
                 if isNewUser {
-                    Database.database().reference().child("users").child(user.uid).setValue(["name": user.displayName, "profileImageURL": urlString, "aboutMe": "Please Set About Me"])
+                    Database.database().reference().child("users").child(user.uid).setValue(["name": user.displayName, "profileImageURL": "", "aboutMe": "Please Set About Me"])
                 }
                 
                 if let error = error {

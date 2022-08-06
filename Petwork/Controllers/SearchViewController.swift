@@ -23,7 +23,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         fetchUsers()
         setButtonsUI()
-        
+        searchBar.searchTextField.textColor = .black
     }
     
     func setButtonsUI() {

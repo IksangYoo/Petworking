@@ -6,11 +6,12 @@ target 'Petwork' do
   use_frameworks!
 
   # Pods for Petwork
-post_install do |installer|  
-  installer.pods_project.build_configurations.each do |config|   
-    config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'   
-    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"  
+post_install do |installer|
+ installer.pods_project.targets.each do |target|
+  target.build_configurations.each do |config|
+   config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
   end
+ end
 end
 pod 'FirebaseAnalytics'
 pod 'FirebaseAuth'

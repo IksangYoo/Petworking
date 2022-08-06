@@ -152,7 +152,7 @@ class MyPageViewController: UIViewController,UITextViewDelegate {
     
     func signOut() {
         let storyboard : UIStoryboard = UIStoryboard(name: "LoginSignUpView", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        let vc = storyboard.instantiateViewController(withIdentifier: "LoginNavigationController")
         let firebaseAuth = Auth.auth()
         
         do {

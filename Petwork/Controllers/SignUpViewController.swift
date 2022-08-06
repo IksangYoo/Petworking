@@ -48,6 +48,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     func defaultForm() {
+        emailTextField.layer.borderWidth = 1
+        emailTextField.layer.shadowColor = UIColor.black.cgColor
+        
+        passwordTextField.layer.borderWidth = 1
+        passwordTextField.layer.shadowColor = UIColor.black.cgColor
+        
+        confirmPasswordTextField.layer.borderWidth = 1
+        confirmPasswordTextField.layer.shadowColor = UIColor.black.cgColor
+        
+        continueButton.layer.cornerRadius = 8
         continueButton.isEnabled = false
         
         emailErrorLabel.isHidden = false
@@ -57,6 +67,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         emailErrorLabel.text = "Required"
         passwordErrorLabel.text = "Required"
         confirmErrorLabel.text = "Required"
+        
+        
     }
     
     @IBAction func emailChanged(_ sender: UITextField) {

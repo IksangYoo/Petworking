@@ -14,7 +14,6 @@ class PostViewController: UIViewController {
 
     @IBOutlet weak var profileImageView: CircularImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tagLabel: UILabel!
@@ -55,8 +54,11 @@ class PostViewController: UIViewController {
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .black
-        commentTextField.placeholder = "Add a Comment"
         commentTextField.textColor = UIColor.lightGray
+        commentTextField.attributedPlaceholder = NSAttributedString(
+            string: "Add a Comment",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+        )
     }
     
     func uploadComment() {

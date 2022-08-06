@@ -530,11 +530,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J83X8YAG93;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Petwork/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Need Your Cam";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Need Your Photos";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need Access Your Camera";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Need Access Your Photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = LoginSignUpView;
@@ -566,8 +566,8 @@
 				DEVELOPMENT_TEAM = J83X8YAG93;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Petwork/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Need Your Cam";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Need Your Photos";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need Access Your Camera";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Need Access Your Photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = LoginSignUpView;

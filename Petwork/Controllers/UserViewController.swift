@@ -26,6 +26,7 @@ class UserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = false
         setUserForm()
         fetchOrderedPosts()
     }

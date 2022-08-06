@@ -21,14 +21,24 @@ class SetProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        defaltForm()
+    }
+    
+    func defaltForm() {
         imagePicker.delegate = self
         aboutMeTextView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         aboutMeTextView.layer.borderWidth = 1
         aboutMeTextView.text = "About Me"
         aboutMeTextView.textColor = UIColor.lightGray
         getStartedButton.isEnabled = false
+        getStartedButton.layer.cornerRadius = 8
+        userNameTextField.layer.borderWidth = 1
+        userNameTextField.layer.shadowColor = UIColor.black.cgColor
+        userNameTextField.attributedPlaceholder = NSAttributedString(
+            string: "Username",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+        )
     }
-    
     
     @IBAction func getStartedPressed(_ sender: UIButton) {
         makeUserProfile()
@@ -44,8 +54,8 @@ class SetProfileViewController: UIViewController {
     
     
     func checkForValidForm() {
-        if let userName = userNameTextField.text, let profileImage = profileImageView.image {
-            if userName.count > 0 && profileImage != nil{
+        if let userName = userNameTextField.text {
+            if userName.count > 0 && profileImageView.image != nil{
                 getStartedButton.isEnabled = true
             } else {
                 getStartedButton.isEnabled = false

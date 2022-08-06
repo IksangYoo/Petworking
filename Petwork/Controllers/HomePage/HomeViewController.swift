@@ -19,6 +19,10 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     let refresh = UIRefreshControl()
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "HomePageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "homeCell")
@@ -27,8 +31,9 @@ class HomeViewController: UIViewController {
             self.collectionView.reloadData()
         }
         initRefresh()
-        
     }
+    
+    
     
     func initRefresh() {
         collectionView.refreshControl = refresh
@@ -148,8 +153,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             imageView.kf.setImage(with: url)
             scrollView.addSubview(imageView)
             scrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1)
-            print("----> \(imageView.frame.width)")
-            print(scrollView.bounds.width)
         }
         cell.pageControl.numberOfPages = imageURLs.count
     }
