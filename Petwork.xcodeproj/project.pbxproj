@@ -531,6 +531,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J83X8YAG93;
 				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Petwork/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Need Access Your Camera";
