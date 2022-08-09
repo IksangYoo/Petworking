@@ -317,25 +317,8 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smF-6X-xmG">
-                                <rect key="frame" x="0.0" y="89" width="414" height="332"/>
+                                <rect key="frame" x="0.0" y="89" width="414" height="322"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZA-ZP-uFf">
-                                        <rect key="frame" x="370" y="293" width="44" height="39"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="plus" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="31"/>
-                                        </state>
-                                        <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="24"/>
-                                            <color key="baseForegroundColor" red="0.9882352941176471" green="0.62401196600762709" blue="0.63243347590095667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="selectPhotoButtonPressed:" destination="otH-pX-30M" eventType="touchUpInside" id="g8w-CE-cM0"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="oQZ-WT-4nm"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="S1d-xD-v4M"/>
                             </scrollView>
@@ -350,6 +333,21 @@
                                 </state>
                                 <connections>
                                     <action selector="tagButtonPressed:" destination="otH-pX-30M" eventType="touchUpInside" id="iRe-mb-fiJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZA-ZP-uFf">
+                                <rect key="frame" x="370" y="372" width="44" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="plus" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="31"/>
+                                </state>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="24"/>
+                                    <color key="baseForegroundColor" red="0.9882352941176471" green="0.62401196600762709" blue="0.63243347590095667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="selectPhotoButtonPressed:" destination="otH-pX-30M" eventType="touchUpInside" id="g8w-CE-cM0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwp-0n-TC2" customClass="circularButton" customModule="Petwork" customModuleProvider="target">
@@ -411,7 +409,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="arrow.up" catalog="system">
                                     <color key="titleColor" red="0.9882352941176471" green="0.62401196600762709" blue="0.63243347590095667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                 </state>
                                 <connections>
                                     <action selector="uploadButtonPressed:" destination="otH-pX-30M" eventType="touchUpInside" id="PRG-0h-8jS"/>

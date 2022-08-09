@@ -14,7 +14,6 @@ class UploadViewController: UIViewController {
     @IBOutlet weak var imageScrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var uploadButton: UIButton!
-    
     @IBOutlet var tagButtons: [circularButton]!
     
     var selectedImages : [UIImage] = []
