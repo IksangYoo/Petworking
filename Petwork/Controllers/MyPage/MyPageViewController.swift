@@ -154,9 +154,9 @@ class MyPageViewController: UIViewController,UITextViewDelegate {
     }
     
     func deleteAlert() {
-        let alertController = UIAlertController(title: "", message: "Confirm Deletion Account", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Are You Sure?", message: "Do you want to delete your account?", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .default)
-        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { action in
+        let confirmAction = UIAlertAction(title: "Yes", style: .default) { action in
             self.deleteAccount()
         }
         alertController.addAction(cancelAction)
@@ -165,10 +165,12 @@ class MyPageViewController: UIViewController,UITextViewDelegate {
     }
     
     func deleteAccount() {
+        deleteData()
+        
         let storyboard : UIStoryboard = UIStoryboard(name: "LoginSignUpView", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "LoginNavigationController")
-        
         let firebaseAuth = Auth.auth()
+        
         firebaseAuth.currentUser?.delete(completion: { error in
             if let err = error {
                 print("Delete Account Error: \(err.localizedDescription)")
@@ -179,6 +181,16 @@ class MyPageViewController: UIViewController,UITextViewDelegate {
         
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    func deleteData() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let dbRef =  Database.database().reference()
+        let storageRef = Storage.storage().reference()
+        dbRef.child("users").child(uid).removeValue()
+        dbRef.child("posts").child(uid).removeValue()
+        storageRef.child("postImages").child(uid).delete()
+        storageRef.child("userProfileImages").child(uid).delete()
     }
     
     func signOut() {
