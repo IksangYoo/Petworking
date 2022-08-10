@@ -57,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
             self.showSetProfileViewController()
         }
     }
+    
     private func showSetProfileViewController() {
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
