@@ -123,6 +123,9 @@ class MyPageViewController: UIViewController,UITextViewDelegate {
         alert.addAction(UIAlertAction(title: "Sign Out", style: .destructive, handler: { UIAlertAction in
             self.signOut()
         }))
+        alert.addAction(UIAlertAction(title: "Delete Account", style: .destructive, handler: { UIAlertAction in
+            self.deleteAlert()
+        }))
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
@@ -148,6 +151,34 @@ class MyPageViewController: UIViewController,UITextViewDelegate {
         alertController.addAction(cancelAction)
         alertController.addAction(confirmAction)
         present(alertController, animated: true)
+    }
+    
+    func deleteAlert() {
+        let alertController = UIAlertController(title: "", message: "Confirm Deletion Account", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { action in
+            self.deleteAccount()
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(confirmAction)
+        present(alertController, animated: true)
+    }
+    
+    func deleteAccount() {
+        let storyboard : UIStoryboard = UIStoryboard(name: "LoginSignUpView", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "LoginNavigationController")
+        
+        let firebaseAuth = Auth.auth()
+        firebaseAuth.currentUser?.delete(completion: { error in
+            if let err = error {
+                print("Delete Account Error: \(err.localizedDescription)")
+            } else {
+                print("Delete succ")
+            }
+        })
+        
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
     
     func signOut() {
