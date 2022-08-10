@@ -2,17 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app uses the photo library to set profile and upload post</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app uses the camera to set profile and upload post</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.1080124149192-08vkj1cv1pgcoohht3931vnkgvitg4j3</string>
+				<string>1028667721177561</string>
 			</array>
 		</dict>
 	</array>
+	<key>FacebookAppID</key>
+	<string>1028667721177561</string>
+	<key>FacebookClientToken</key>
+	<string>3e060291db0621b69e6871699d123b6c</string>
+	<key>FacebookDisplayName</key>
+	<string>Petworking</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>UIApplicationSceneManifest</key>
@@ -38,20 +46,5 @@
 	<string>UIStatusBarStyleDarkContent</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-      <key>CFBundleURLSchemes</key>
-      <array>
-        <string>fb1028667721177561</string>
-      </array>
-      </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>1028667721177561</string>
-    <key>FacebookClientToken</key>
-    <string>3e060291db0621b69e6871699d123b6c</string>
-    <key>FacebookDisplayName</key>
-    <string>Petworking</string>
 </dict>
 </plist>
