@@ -26,10 +26,12 @@ class PostViewController: UIViewController {
     
     var post : Post?
     var comments = [Comment]()
+    var currentUser : User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self
+        retrieveCurrentUser()
         setupView()
         fetchComments()
         deleteObserver()
@@ -61,6 +63,16 @@ class PostViewController: UIViewController {
         )
     }
     
+    func retrieveCurrentUser() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let dbRef = Database.database().reference().child("users").child(uid)
+
+        dbRef.observeSingleEvent(of: .value) { snapshot in
+            guard let dict = snapshot.value as? [String: Any] else { return }
+            self.currentUser = User(uid: uid, dictionary: dict)
+        }
+    }
+    
     func uploadComment() {
         guard let commentText = commentTextField.text else { return }
         guard let post = post else { return }
@@ -90,7 +102,11 @@ class PostViewController: UIViewController {
                 let comment = Comment(user: user, dictionary: dictionary)
                 
                 if !self.comments.contains(comment) {
-                    self.comments.append(comment)
+                    if self.currentUser?.blockedUser == nil {
+                        self.comments.append(comment)
+                    } else if !self.currentUser!.blockedUser.contains(comment.uid) {
+                        self.comments.append(comment)
+                    }
                 }
                 self.comments.sort { c1, c2 in
                     c1.creationDate > c2.creationDate

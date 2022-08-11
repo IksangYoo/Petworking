@@ -17,6 +17,7 @@ class UserViewController: UIViewController {
     var segmentIndex = 0
     var post : Post?
     var currentUser : User?
+    var isReportButtonSelected = false
 //    var images = [UIImage]()
     
     @IBOutlet weak var profileImageView: CircularImageView!
@@ -84,8 +85,9 @@ class UserViewController: UIViewController {
             self.blockUserAlert()
         }))
         alert.addAction(UIAlertAction(title: "Report Post", style: .destructive, handler: { action in
-            // report post
+            self.alertReportPost()
         }))
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel))
         present(alert, animated: true)
     }
     
@@ -109,6 +111,16 @@ class UserViewController: UIViewController {
         
         dbRef.updateChildValues(["blockedUser": currentUser!.blockedUser])
     }
+    
+    func alertReportPost() {
+        let alert = UIAlertController(title: "", message: "Select a post you want to report", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.isReportButtonSelected = true
+            self.collectionView.reloadData()
+        }))
+        present(alert, animated: true)
+    }
+    
     
     @IBAction func switchDisplayMode(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
@@ -152,15 +164,39 @@ extension UserViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
         let url = URL(string: posts[indexPath.item].postImageURLs[0])
         cell.postImageView.kf.setImage(with: url)
+        if isReportButtonSelected {
+            cell.reportButton.isHidden = false
+        } else {
+            cell.reportButton.isHidden = true
+        }
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         post = posts[indexPath.item]
-        print("---> \(post!.postImageURLs.count)")
-//        images = returnImages(with: post!.postImageURLs)
-        performSegue(withIdentifier: "goToPost", sender: self)
+        
+        if isReportButtonSelected {
+           reportPost(post: post!)
+        } else {
+            performSegue(withIdentifier: "goToPost", sender: self)
+        }
+    }
+    
+    func reportPost(post: Post) {
+        let dbRef = Database.database().reference().child("ReportedPosts").child(post.autoID)
+        let user = post.user
+        let alert = UIAlertController(title: "Report", message: "Do you want to report this post?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default))
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            let alert = UIAlertController(title: "Report completed", message: "We will review within 24 hours", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default))
+            self.isReportButtonSelected = false
+            dbRef.updateChildValues(["reporter":self.currentUser!.uid, "uid": user.uid, "name": user.name])
+            self.present(alert, animated: true)
+            self.collectionView.reloadData()
+        }))
+        present(alert, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -181,5 +217,6 @@ extension UserViewController: UICollectionViewDataSource, UICollectionViewDelega
 
 class userPostCell: UICollectionViewCell {
     
+    @IBOutlet weak var reportButton: UIButton!
     @IBOutlet weak var postImageView: UIImageView!
 }
