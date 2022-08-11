@@ -58,7 +58,10 @@ class SearchViewController: UIViewController {
                 }
                 guard let userDict = value as? [String: Any] else { return }
                 let user = User(uid: uid, dictionary: userDict)
-                if !self.currentUser!.blockedUser.contains(user.uid) {
+                
+                if self.currentUser?.blockedUser == nil {
+                    self.users.append(user)
+                } else if !self.currentUser!.blockedUser.contains(user.uid) {
                     self.users.append(user)
                 }
             }

@@ -105,7 +105,9 @@ class ResultsViewController: UIViewController {
                     }
                     postDict.forEach { key, value in
                         let post = Post(user: user, dictionary: value as! [String: Any])
-                        if !self.currentUser!.blockedUser.contains(post.user.uid) {
+                        if self.currentUser?.blockedUser == nil {
+                            results.append(post)
+                        } else if !self.currentUser!.blockedUser.contains(post.user.uid) {
                             results.append(post)
                         }
                     }
