@@ -8,13 +8,7 @@
 import UIKit
 import Kingfisher
 
-//protocol homeCellDelegate: NSObjectProtocol {
-//    func imagePressed(sender: Any)
-//}
-
 class HomePageCollectionViewCell: UICollectionViewCell {
-//    var delegate: homeCellDelegate!
-    var homeViewController: HomeViewController!
     var post : Post?
 
     @IBOutlet weak var profileImageView: CustomImageView!
@@ -43,11 +37,34 @@ class HomePageCollectionViewCell: UICollectionViewCell {
 //    }
     
     override func prepareForReuse() {
-        
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .black
     }
+//
+//    func fetchCurrentUser() {
+//        guard let uid = Auth.auth().currentUser?.uid else { return }
+//        let dbRef = Database.database().reference().child("users").child(uid)
+//
+//        dbRef.observeSingleEvent(of: .value) { snapshot in
+//            guard let dictionary = snapshot.value as? [String: Any] else { return }
+//            self.user = User(uid: uid, dictionary: dictionary)
+//            self.blockedUser = self.user!.blockedUser
+//        }
+//    }
+//
+//    @IBAction func optionsPressed(_ sender: UIButton) {
+//        let alert = UIAlertController(title: "Report", message: "", preferredStyle: .actionSheet)
+//        alert.addAction(UIAlertAction(title: "Block User", style: .destructive, handler: { action in
+//            self.blockUser()
+//        }))
+//        alert.addAction(UIAlertAction(title: "Report Post", style: .destructive, handler: { action in
+//            // report post
+//        }))
+//
+//        homeViewController.present(alert, animated: true)
+//    }
 }
+
 
 
 extension HomePageCollectionViewCell: UIScrollViewDelegate {

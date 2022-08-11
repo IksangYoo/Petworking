@@ -14,6 +14,8 @@ class SearchViewController: UIViewController {
     var users = [User]()
     var user : User?
     var filteredUsers = [User]()
+    var currentUser : User?
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -21,6 +23,7 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        retrieveCurrentUser()
         fetchUsers()
         setButtonsUI()
         searchBar.searchTextField.textColor = .black
@@ -31,6 +34,17 @@ class SearchViewController: UIViewController {
             buttons[i].layer.cornerRadius = 20
         }
     }
+    
+    func retrieveCurrentUser() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let dbRef = Database.database().reference().child("users").child(uid)
+        
+        dbRef.observeSingleEvent(of: .value) { snapshot in
+            guard let dict = snapshot.value as? [String: Any] else { return }
+            self.currentUser = User(uid: uid, dictionary: dict)
+        }
+    }
+    
     
     func fetchUsers() {
         let dbRef = Database.database().reference().child("users")
@@ -44,7 +58,9 @@ class SearchViewController: UIViewController {
                 }
                 guard let userDict = value as? [String: Any] else { return }
                 let user = User(uid: uid, dictionary: userDict)
-                self.users.append(user)
+                if !self.currentUser!.blockedUser.contains(user.uid) {
+                    self.users.append(user)
+                }
             }
             self.users.sort { user1, user2 in
                 return user1.name.compare(user2.name) == .orderedAscending

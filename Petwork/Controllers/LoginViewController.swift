@@ -87,7 +87,6 @@ class LoginViewController: UIViewController {
         
         loginManager.logIn(permissions: ["email"], from: self) { (result, error) in
             if error != nil {
-                print("Facebook Login Error: \(error?.localizedDescription)")
                 return
             }
             guard let token = AccessToken.current else {

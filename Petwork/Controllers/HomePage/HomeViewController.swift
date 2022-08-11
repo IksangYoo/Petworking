@@ -14,18 +14,21 @@ class HomeViewController: UIViewController {
     var index : IndexPath?
     var user : User?
     var posts = [Post]()
-    
+    var currentUser : User?
     
     @IBOutlet weak var collectionView: UICollectionView!
     let refresh = UIRefreshControl()
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "HomePageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "homeCell")
+        retrieveCurrentUser()
         fetchPosts { results in
             self.posts = results
             self.collectionView.reloadData()
@@ -51,6 +54,17 @@ class HomeViewController: UIViewController {
         }
     }
     
+    func retrieveCurrentUser() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let dbRef = Database.database().reference().child("users").child(uid)
+
+        dbRef.observeSingleEvent(of: .value) { snapshot in
+            guard let dict = snapshot.value as? [String: Any] else { return }
+            self.currentUser = User(uid: uid, dictionary: dict)
+        }
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToUser" {
             let destinationVC = segue.destination as! UserViewController
@@ -61,6 +75,7 @@ class HomeViewController: UIViewController {
     func fetchPosts(completion: @escaping ([Post]) -> Void) {
         let userDBRef = Database.database().reference().child("users")
         let postRef = Database.database().reference().child("posts")
+//        guard let blockedUser = currentUser?.blockedUser else { return }
         
         var results = [Post]()
         let dispatch = DispatchGroup()
@@ -80,9 +95,12 @@ class HomeViewController: UIViewController {
                         dispatch.leave()
                         return
                     }
+                    
                     postDict.forEach { key, value in
                         let post = Post(user: user, dictionary: value as! [String: Any])
-                        results.append(post)
+                        if !self.currentUser!.blockedUser.contains(post.user.uid) {
+                            results.append(post)
+                        }
                     }
                     dispatch.leave()
                 }
@@ -101,7 +119,6 @@ class HomeViewController: UIViewController {
 //MARK: - collectionView
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }

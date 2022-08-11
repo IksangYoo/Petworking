@@ -16,6 +16,7 @@ class UserViewController: UIViewController {
     var user : User?
     var segmentIndex = 0
     var post : Post?
+    var currentUser : User?
 //    var images = [UIImage]()
     
     @IBOutlet weak var profileImageView: CircularImageView!
@@ -23,11 +24,13 @@ class UserViewController: UIViewController {
     @IBOutlet weak var aboutMeTextView: UITextView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var reportButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
         setUserForm()
+        retrieveCurrentUser()
         fetchOrderedPosts()
     }
     
@@ -38,6 +41,9 @@ class UserViewController: UIViewController {
         nameLabel.text = user.name
         aboutMeTextView.isUserInteractionEnabled = false
         aboutMeTextView.text = user.aboutMe
+        if user.uid == Auth.auth().currentUser?.uid {
+            reportButton.isHidden = true
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,6 +53,16 @@ class UserViewController: UIViewController {
 //            destinationVC.images = images
     }
 }
+    func retrieveCurrentUser() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let dbRef = Database.database().reference().child("users").child(uid)
+        
+        dbRef.observeSingleEvent(of: .value) { snapshot in
+            guard let dict = snapshot.value as? [String: Any] else { return }
+            self.currentUser = User(uid: uid, dictionary: dict)
+        }
+    }
+    
     
     func fetchOrderedPosts() {
         guard let user = user else { return }
@@ -61,6 +77,37 @@ class UserViewController: UIViewController {
             self.posts.insert(post, at: 0)
             self.collectionView.reloadData()
         }
+    }
+    @IBAction func reportButtonPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Report", message: "", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Block User", style: .destructive, handler: { action in
+            self.blockUserAlert()
+        }))
+        alert.addAction(UIAlertAction(title: "Report Post", style: .destructive, handler: { action in
+            // report post
+        }))
+        present(alert, animated: true)
+    }
+    
+    func blockUserAlert() {
+        let alert = UIAlertController(title: "", message: "Do you want to block this user?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            self.blockUser()
+        }))
+        present(alert, animated: true)
+    }
+    
+    func blockUser() {
+        let dbRef = Database.database().reference().child("users").child(Auth.auth().currentUser!.uid)
+        if !currentUser!.blockedUser.contains(user!.uid) {
+            currentUser!.blockedUser.append(user!.uid)
+            let alert = UIAlertController(title: "Successfully blocked!", message: "Please login again for updating blocked user", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default))
+            present(alert, animated: true)
+        }
+        
+        dbRef.updateChildValues(["blockedUser": currentUser!.blockedUser])
     }
     
     @IBAction func switchDisplayMode(_ sender: UISegmentedControl) {

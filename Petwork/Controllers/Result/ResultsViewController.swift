@@ -21,10 +21,12 @@ class ResultsViewController: UIViewController {
     var filteredPosts = [Post]()
     var segmentIndex = 0
     var searchTag: String = ""
+    var currentUser : User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "ResultCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "resultCell")
+        retrieveCurrentUser()
         resultLabel.text = "Results for \(searchTag)"
         fetchPosts { result in
             self.posts = result
@@ -69,6 +71,16 @@ class ResultsViewController: UIViewController {
         }
     }
     
+    func retrieveCurrentUser() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let dbRef = Database.database().reference().child("users").child(uid)
+
+        dbRef.observeSingleEvent(of: .value) { snapshot in
+            guard let dict = snapshot.value as? [String: Any] else { return }
+            self.currentUser = User(uid: uid, dictionary: dict)
+        }
+    }
+
     func fetchPosts(completion: @escaping ([Post]) -> Void) {
         let userDBRef = Database.database().reference().child("users")
         let postRef = Database.database().reference().child("posts")
@@ -93,7 +105,9 @@ class ResultsViewController: UIViewController {
                     }
                     postDict.forEach { key, value in
                         let post = Post(user: user, dictionary: value as! [String: Any])
-                        results.append(post)
+                        if !self.currentUser!.blockedUser.contains(post.user.uid) {
+                            results.append(post)
+                        }
                     }
                     dispatch.leave()
                 }
