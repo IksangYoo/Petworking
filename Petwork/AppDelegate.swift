@@ -11,7 +11,7 @@ import FirebaseCore
 import GoogleSignIn
 import IQKeyboardManagerSwift
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         FirebaseApp.configure()
         
         // Google Sign In
-        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
+//        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+//        GIDSignIn.sharedInstance().delegate = self
  
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.keyboardDistanceFromTextField = 100
@@ -30,41 +30,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         return true
     }
     
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url)
-    }
+//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+//        return GIDSignIn.sharedInstance().handle(url)
+//    }
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if let error = error {
-            print("Google Sign In Error: \(error.localizedDescription)")
-            return
-        }
-        guard let authentication = user.authentication else { return }
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
-        
-        
-        Auth.auth().signIn(with: credential) { result, error in
-            guard let isNewUser = result?.additionalUserInfo?.isNewUser else { return }
-            guard let user = result?.user else { return }
-            guard let urlString = user.photoURL?.absoluteString else { return }
-            if let err = error {
-                print("Firebase Google Login Error: \(err.localizedDescription)")
-            }
-            
-            if isNewUser {
-                Database.database().reference().child("users").child(user.uid).setValue(["name": user.displayName, "profileImageURL": urlString, "aboutMe": "Please Set About Me"])
-            }
-            self.showSetProfileViewController()
-        }
-    }
-    
-    private func showSetProfileViewController() {
-        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
-        vc.modalPresentationStyle = .fullScreen
-//        UIApplication.shared.windows.first?.rootViewController?.present(vc, animated: true)
-        UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true)
-    }
+//    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+//        if let error = error {
+//            print("Google Sign In Error: \(error.localizedDescription)")
+//            return
+//        }
+//        guard let authentication = user.authentication else { return }
+//        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+//
+//
+//        Auth.auth().signIn(with: credential) { result, error in
+//            guard let isNewUser = result?.additionalUserInfo?.isNewUser else { return }
+//            guard let user = result?.user else { return }
+//            guard let urlString = user.photoURL?.absoluteString else { return }
+//            if let err = error {
+//                print("Firebase Google Login Error: \(err.localizedDescription)")
+//            }
+//
+//            if isNewUser {
+//                Database.database().reference().child("users").child(user.uid).setValue(["name": user.displayName, "profileImageURL": urlString, "aboutMe": "Please Set About Me"])
+//            }
+//            self.showSetProfileViewController()
+//        }
+//    }
+//
+//    private func showSetProfileViewController() {
+//        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
+//        vc.modalPresentationStyle = .fullScreen
+////        UIApplication.shared.windows.first?.rootViewController?.present(vc, animated: true)
+//        UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true)
+//    }
     
     
     // MARK: UISceneSession Lifecycle

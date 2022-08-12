@@ -7,9 +7,9 @@
 
 import UIKit
 import Firebase
-import GoogleSignIn
-import FBSDKCoreKit
-import FBSDKLoginKit
+//import GoogleSignIn
+//import FBSDKCoreKit
+//import FBSDKLoginKit
 //import AuthenticationServices
 //import CryptoKit
 
@@ -18,14 +18,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var googleLoginButton: UIButton!
-   
-    @IBOutlet weak var facebookLoginButton: UIButton!
     
     private var currentNonce: String?
     
     override func viewWillAppear(_ animated: Bool) {
-        GIDSignIn.sharedInstance().presentingViewController = self
+//        GIDSignIn.sharedInstance().presentingViewController = self
     }
     
     override func viewDidLoad() {
@@ -75,52 +72,52 @@ class LoginViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    @IBAction func googleLoginPressed(_ sender: UIButton) {
-        GIDSignIn.sharedInstance().signIn()
-    }
-    @IBAction func facebookLoginPressed(_ sender: UIButton) {
-        facebookLogin()
-    }
-    
-    func facebookLogin() {
-        let loginManager = LoginManager()
-        
-        loginManager.logIn(permissions: ["email"], from: self) { (result, error) in
-            if error != nil {
-                return
-            }
-            guard let token = AccessToken.current else {
-                print("Failed to get access token")
-                return
-            }
-            
-            let credential = FacebookAuthProvider.credential(withAccessToken: token.tokenString)
-            
-            Auth.auth().signIn(with: credential) { result, error in
-
-                guard let isNewUser = result?.additionalUserInfo?.isNewUser else { return }
-                guard let user = result?.user else { return }
-                guard let profileURL = user.photoURL else { return }
-                let urlString = profileURL.absoluteString
-                
-                if isNewUser {
-                    Database.database().reference().child("users").child(user.uid).setValue(["name": user.displayName!, "profileImageURL": urlString, "aboutMe": "Please Set About Me"])
-                }
-
-                if let error = error {
-                    print ("Error Facebook sign in: %@", error)
-                    return
-                }
-
-                let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true, completion: nil)
-            }
-            
-        }
-    }
-}
+//    @IBAction func googleLoginPressed(_ sender: UIButton) {
+//        GIDSignIn.sharedInstance().signIn()
+//    }
+//    @IBAction func facebookLoginPressed(_ sender: UIButton) {
+//        facebookLogin()
+//    }
+//    
+//    func facebookLogin() {
+//        let loginManager = LoginManager()
+//        
+//        loginManager.logIn(permissions: ["email"], from: self) { (result, error) in
+//            if error != nil {
+//                return
+//            }
+//            guard let token = AccessToken.current else {
+//                print("Failed to get access token")
+//                return
+//            }
+//            
+//            let credential = FacebookAuthProvider.credential(withAccessToken: token.tokenString)
+//            
+//            Auth.auth().signIn(with: credential) { result, error in
+//
+//                guard let isNewUser = result?.additionalUserInfo?.isNewUser else { return }
+//                guard let user = result?.user else { return }
+//                guard let profileURL = user.photoURL else { return }
+//                let urlString = profileURL.absoluteString
+//                
+//                if isNewUser {
+//                    Database.database().reference().child("users").child(user.uid).setValue(["name": user.displayName!, "profileImageURL": urlString, "aboutMe": "Please Set About Me"])
+//                }
+//
+//                if let error = error {
+//                    print ("Error Facebook sign in: %@", error)
+//                    return
+//                }
+//
+//                let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//                let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
+//                vc.modalPresentationStyle = .fullScreen
+//                self.present(vc, animated: true, completion: nil)
+//            }
+//            
+//        }
+//    }
+//}
 
 //extension LoginViewController: UITextFieldDelegate {
 //    
@@ -245,3 +242,4 @@ class LoginViewController: UIViewController {
 //        return self.view.window!
 //    }
 //}
+}
